@@ -58,7 +58,7 @@ export class WorkflowContext {
     return this.steps.map(s => ({
       agent: s.agentName,
       step: s.stepName,
-      output: s.output?.substring(0, 200) + '...',
+      output: s.output ? s.output.substring(0, 200) + '...' : '(no output)',
     }));
   }
 

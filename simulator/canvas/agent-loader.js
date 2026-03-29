@@ -27,7 +27,7 @@ export function loadAgent(id) {
 }
 
 function parseAgentFile(raw, filename) {
-  const id = filename.replace('.md', '').replace('cu-', '');
+  const id = filename.replace(/\.md$/, '').replace(/^cu-/, '');
 
   // Parse YAML frontmatter
   const fmMatch = raw.match(/^---\n([\s\S]*?)\n---/);
@@ -38,7 +38,9 @@ function parseAgentFile(raw, filename) {
       name = fm.name || id;
       description = fm.description || '';
       color = fm.color || 'white';
-    } catch {}
+    } catch (e) {
+      console.warn(`Warning: Failed to parse frontmatter in ${filename}: ${e.message}`);
+    }
   }
 
   // Extract sections

@@ -146,10 +146,12 @@ function parseArgs() {
         break;
       case '--workflow':
       case '-w':
-        opts.workflow = args[++i]?.toUpperCase();
+        if (i + 1 >= args.length) { display.error('--workflow requires a value'); process.exit(1); }
+        opts.workflow = args[++i].toUpperCase();
         break;
       case '--scenario':
       case '-s':
+        if (i + 1 >= args.length) { display.error('--scenario requires a value'); process.exit(1); }
         opts.scenario = args[++i];
         break;
       case '--list':
@@ -161,6 +163,7 @@ function parseArgs() {
         opts.help = true;
         break;
       case '--model':
+        if (i + 1 >= args.length) { display.error('--model requires a value'); process.exit(1); }
         opts.model = args[++i];
         break;
       case '--verbose':

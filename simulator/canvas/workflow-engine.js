@@ -189,7 +189,7 @@ Evaluate whether this gate passes or fails.`;
       }
       return { passed: true, details: response.substring(0, 200) };
     } catch {
-      return { passed: true, details: 'Gate evaluation completed (parse error, defaulting to pass)' };
+      return { passed: false, details: 'Gate evaluation failed: parse error — requires manual review' };
     }
   }
 
