@@ -164,6 +164,7 @@ For the full operational doctrine, see [`strategy/cu-strategy.md`](strategy/cu-s
 | `strategy/coordination/*.md` | Ready-to-use prompts and handoff templates |
 | `strategy/runbooks/*.md` | Scenario response guides |
 | `simulator/README.md` | Simulator installation and usage |
+| `strategy/ROUTER.md` | "I don't know who to ask" — routing guide |
 
 ---
 
