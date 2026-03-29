@@ -1,0 +1,16 @@
+{
+  "name": "canvas-simulator",
+  "version": "1.0.0",
+  "description": "CANVAS Multi-Agent Credit Union Simulator",
+  "type": "module",
+  "bin": {
+    "canvas": "./simulator.js"
+  },
+  "scripts": {
+    "start": "node simulator.js",
+    "test": "node simulator.js --mock --workflow A"
+  },
+  "dependencies": {
+    "yaml": "^2.4.1"
+  }
+}
