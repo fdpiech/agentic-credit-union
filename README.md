@@ -65,6 +65,11 @@ agentic-credit-union/
         ├── scenario-new-product-launch.md
         ├── scenario-merger-conversion.md
         └── scenario-data-breach-response.md
+│
+└── simulator/                 # CLI workflow simulator
+    ├── simulator.js           # Entry point
+    ├── canvas/                # Engine modules
+    └── README.md              # Simulator documentation
 ```
 
 ---
@@ -107,6 +112,28 @@ agentic-credit-union/
 
 ---
 
+## Simulator
+
+Run workflow simulations from the command line. The simulator orchestrates agents through workflows with mock or live LLM responses.
+
+```bash
+cd simulator
+npm install
+node simulator.js --mock --workflow A
+```
+
+**Mock mode** — hardcoded responses, no API key. Good for demos, training, and testing.
+**Live mode** — real LLM via OpenAI-compatible API. Good for evaluating AI coordination quality.
+
+```bash
+# Run all workflows
+for w in A B C D E F G; do node simulator.js --mock --workflow $w; done
+```
+
+See [`simulator/README.md`](simulator/README.md) for full documentation.
+
+---
+
 ## Key Principles
 
 1. **Compliance Gates** — No workflow step advances through a regulated checkpoint without documented compliance verification
@@ -136,6 +163,7 @@ For the full operational doctrine, see [`strategy/cu-strategy.md`](strategy/cu-s
 | `strategy/playbooks/*.md` | Step-by-step workflow guides |
 | `strategy/coordination/*.md` | Ready-to-use prompts and handoff templates |
 | `strategy/runbooks/*.md` | Scenario response guides |
+| `simulator/README.md` | Simulator installation and usage |
 
 ---
 
