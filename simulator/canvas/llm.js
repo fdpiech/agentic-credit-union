@@ -9,6 +9,10 @@ export class LLMClient {
     this.temperature = options.temperature || 0.7;
     this.maxTokens = options.maxTokens || 2048;
     this.mock = options.mock || false;
+
+    if (this.apiKey && !this.apiKey.startsWith('sk-')) {
+      console.warn('[LLMClient] Warning: API key does not start with "sk-" — verify it is correct.');
+    }
   }
 
   async chat(systemPrompt, userPrompt, agentName, stepDescription) {
@@ -20,6 +24,30 @@ export class LLMClient {
       throw new Error('OPENAI_API_KEY not set. Use --mock for simulation mode or set your API key.');
     }
 
+    // Retry with exponential backoff (3 retries: 1s, 2s, 4s)
+    const maxRetries = 3;
+    let lastError;
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+      if (attempt > 0) {
+        const delay = Math.pow(2, attempt - 1) * 1000;
+        console.warn(`[LLMClient] Retrying in ${delay}ms (attempt ${attempt}/${maxRetries})...`);
+        await new Promise(r => setTimeout(r, delay));
+      }
+      try {
+        return await this._makeRequest(systemPrompt, userPrompt);
+      } catch (err) {
+        lastError = err;
+        // Only retry on transient errors: network (no statusCode), 429, 5xx
+        if (attempt < maxRetries && (!err.statusCode || err.statusCode === 429 || (err.statusCode >= 500 && err.statusCode <= 503))) {
+          continue;
+        }
+        throw err;
+      }
+    }
+    throw lastError;
+  }
+
+  async _makeRequest(systemPrompt, userPrompt) {
     const body = JSON.stringify({
       model: this.model,
       messages: [
@@ -52,7 +80,9 @@ export class LLMClient {
           try {
             const parsed = JSON.parse(data);
             if (parsed.error) {
-              reject(new Error(`LLM API error: ${parsed.error.message}`));
+              const err = new Error(`LLM API error: ${parsed.error.message}`);
+              err.statusCode = res.statusCode;
+              reject(err);
             } else {
               resolve(parsed.choices?.[0]?.message?.content || '');
             }
@@ -60,6 +90,10 @@ export class LLMClient {
             reject(new Error(`Failed to parse LLM response: ${e.message}`));
           }
         });
+      });
+      // 30-second timeout to prevent indefinite hangs
+      req.setTimeout(30000, () => {
+        req.destroy(new Error('LLM API request timed out after 30 seconds'));
       });
       req.on('error', reject);
       req.write(body);
