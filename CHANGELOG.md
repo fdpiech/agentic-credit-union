@@ -5,6 +5,21 @@ All notable changes to CANVAS (Credit Union Agent Network for Value, Advice, and
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2026-04-03
+
+### Added
+- **10 new agents** (24 → 34 total):
+  - **C-Suite Expansion**: Chief Operating Officer, Chief Technology Officer, Chief Information Officer
+  - **HIGH Priority**: Member Concierge, Competitive Intelligence Analyst, Fraud Detection Analyst
+  - **MEDIUM Priority**: Regulatory Affairs Analyst, Financial Wellness Advisor, Collections Strategist, Loan Underwriting Analyst
+
+### Changed
+- **README.md**: Agent count updated (31 → 34)
+- **ROUTER.md**: Added new agents to domain detection and routing tables
+
+### Added (Research)
+- **research/game-theory.md**: Game theory research for multi-agent cooperation, trust scoring, Shapley attribution
+
 ## [1.0.0] - 2026-03-25
 
 ### Added
