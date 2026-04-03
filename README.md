@@ -1,13 +1,13 @@
 # CANVAS — Credit Union Agent Network
 
-**CANVAS** (Credit Union Agent Network for Value, Advice, and Service) is a coordinated AI agent system for credit union operations. It transforms 31 specialized AI agents into an orchestrated operational pipeline with defined workflows, compliance gates, and measurable outcomes grounded in cooperative values.
+**CANVAS** (Credit Union Agent Network for Value, Advice, and Service) is a coordinated AI agent system for credit union operations. It transforms 34 specialized AI agents into an orchestrated operational pipeline with defined workflows, compliance gates, and measurable outcomes grounded in cooperative values.
 
 ---
 
 ## Overview
 
 The system includes:
-- **31 specialized AI agents** covering every major credit union function
+- **34 specialized AI agents** covering every major credit union function
 - **7 core workflows** for end-to-end process orchestration
 - **Standardized handoff protocols** ensuring compliance at every step
 - **Scenario runbooks** for exam preparation, new product launches, mergers, and crisis response
@@ -18,7 +18,7 @@ The system includes:
 
 ```
 agentic-credit-union/
-├── agents/                    # 31 AI agent definitions
+├── agents/                    # 34 AI agent definitions
 │   ├── cu-ceo.md              # Executive leadership
 │   ├── cu-cfo.md              # Finance
 │   ├── cu-chro.md             # Human Resources
@@ -74,7 +74,7 @@ agentic-credit-union/
 
 ---
 
-## The 31 Agents
+## The 34 Agents
 
 | Category | Agents |
 |----------|-------|
@@ -106,7 +106,7 @@ agentic-credit-union/
 
 | Mode | Agents | Timeline | Use Case |
 |------|-------|----------|----------|
-| **CANVAS-Full** | All 31 | 4-12 weeks | Strategic initiatives, exam cycles |
+| **CANVAS-Full** | All 34 | 4-12 weeks | Strategic initiatives, exam cycles |
 | **CANVAS-Process** | 5-10 | 1-4 weeks | Single workflow end-to-end |
 | **CANVAS-Micro** | 2-4 | 1-5 days | Specific transaction or issue |
 
@@ -168,4 +168,4 @@ For the full operational doctrine, see [`strategy/cu-strategy.md`](strategy/cu-s
 
 ---
 
-*CANVAS: 31 Agents. 7 Workflows. One Unified Credit Union Strategy.*
+*CANVAS: 34 Agents. 7 Workflows. One Unified Credit Union Strategy.*

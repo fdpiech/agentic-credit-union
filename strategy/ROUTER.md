@@ -40,7 +40,9 @@ What area does this fall into?
 | **Collections & Hardship** | "can't pay," "behind on payments," "lost my job," "past due" | Collections Specialist + Collections Strategist → Workflow D |
 | **Deposits & Disputes** | "unauthorized charge," "dispute," "Reg E," "my money is missing" | Deposit Operations Manager → Workflow E |
 | **Compliance & Exams** | "exam," "finding," "BSA," "SAR," "audit," "regulation" | Compliance Officer → Workflow F |
-| **Strategy & Planning** | "where are we going," "budget," "growth," "board presentation" | CEO + CFO → Workflow G |
+| **Strategy & Planning** | "where are we going," "budget," "growth," "board presentation" | CEO + CFO + COO → Workflow G |
+| **Technology** | "tech roadmap," "vendor strategy," "innovation," "systems" | CTO → Workflow G |
+| **Information** | "data governance," "information strategy," "enterprise systems" | CIO → Workflow G |
 | **IT & Systems** | "system is down," "can't log in," "core system," "database" | IT team (Core Systems, IT Infrastructure, IT Database) |
 | **Marketing & Growth** | "new members," "campaign," "community event," "brand" | Marketing Manager |
 | **Risk** | "risk assessment," "insurance," "what if," "contingency" | Risk Manager |
@@ -105,6 +107,9 @@ How many agents or workflows does this touch?
 | "I need help with my finances / budget" | **Financial Wellness Advisor** | — |
 | "We need a credit decision on a complex file" | **Loan Underwriting Analyst** | — |
 | "We're considering a merger" | **CEO** + **CFO** + **Risk Manager** | G |
+| "We need a technology strategy" | **CTO** | — |
+| "We need an information strategy" | **CIO** | — |
+| "We need to improve operations" | **COO** | — |
 
 ### Multi-Workflow Sequencing
 
