@@ -37,13 +37,19 @@ What area does this fall into?
 | **Membership & Accounts** | "I want to join," "open an account," "new member," "switching banks" | Member Services Rep → Workflow A |
 | **Consumer Lending** | "car loan," "refinance," "personal loan," "credit score" | Loan Officer → Workflow B |
 | **Mortgage** | "buy a house," "mortgage," "home equity," "refinance my home" | Mortgage Loan Processor → Workflow C |
-| **Collections & Hardship** | "can't pay," "behind on payments," "lost my job," "past due" | Collections Specialist + Financial Advisor → Workflow D |
+| **Collections & Hardship** | "can't pay," "behind on payments," "lost my job," "past due" | Collections Specialist + Collections Strategist → Workflow D |
 | **Deposits & Disputes** | "unauthorized charge," "dispute," "Reg E," "my money is missing" | Deposit Operations Manager → Workflow E |
 | **Compliance & Exams** | "exam," "finding," "BSA," "SAR," "audit," "regulation" | Compliance Officer → Workflow F |
 | **Strategy & Planning** | "where are we going," "budget," "growth," "board presentation" | CEO + CFO → Workflow G |
 | **IT & Systems** | "system is down," "can't log in," "core system," "database" | IT team (Core Systems, IT Infrastructure, IT Database) |
 | **Marketing & Growth** | "new members," "campaign," "community event," "brand" | Marketing Manager |
 | **Risk** | "risk assessment," "insurance," "what if," "contingency" | Risk Manager |
+| **Competitive Intelligence** | "competitors are offering," "what's the market," "fintech trends," "peer rates" | Competitive Intelligence Analyst |
+| **Member Concierge** | "I've talked to multiple people," "nobody can help," "complex issue" | Member Concierge |
+| **Fraud & Security** | "suspicious transaction," "identity theft," "scam," "compromised" | Fraud Detection Analyst |
+| **Regulatory Watch** | "new rule," "CFPB proposed," "effective date," "comment period" | Regulatory Affairs Analyst |
+| **Financial Wellness** | "budget help," "debt management," "financial goals," "planning" | Financial Wellness Advisor |
+| **Loan Underwriting** | "application review," "credit decision," "complex file" | Loan Underwriting Analyst |
 | **I don't know** | Vague, confused, "something isn't right" | Branch Manager (triage) |
 
 ### Urgency Detection
@@ -83,15 +89,21 @@ How many agents or workflows does this touch?
 | "I want to join the credit union" | **Member Services Rep** | A |
 | "I need a car loan / personal loan" | **Loan Officer** | B |
 | "I want to buy a house / get a mortgage" | **Mortgage Loan Processor** | C |
-| "I can't make my payment this month" | **Collections Specialist** + **Financial Advisor** | D |
-| "There's a charge I didn't make" | **Deposit Operations Manager** | E |
+| "I can't make my payment this month" | **Collections Specialist** + **Collections Strategist** | D |
+| "There's a charge I didn't make" | **Fraud Detection Analyst** | E |
+| "Something suspicious on my account" | **Fraud Detection Analyst** | E |
 | "The NCUA exam is coming" | **Compliance Officer** | F |
+| "A new regulation is coming" | **Regulatory Affairs Analyst** | — |
 | "Where should we invest next year?" | **CEO** + **CFO** | G |
 | "Our core system is down" | **Core Systems Admin** | — |
 | "We need a new marketing campaign" | **Marketing Manager** | — |
 | "What's our risk exposure?" | **Risk Manager** | — |
+| "What are competitors offering?" | **Competitive Intelligence Analyst** | — |
 | "I found a compliance gap" | **Compliance Officer** + **Internal Auditor** | F |
 | "A member passed away — what do we do?" | **Member Services Rep** + **Compliance Officer** | — |
+| "I'm having trouble with my account — talked to multiple people" | **Member Concierge** | — |
+| "I need help with my finances / budget" | **Financial Wellness Advisor** | — |
+| "We need a credit decision on a complex file" | **Loan Underwriting Analyst** | — |
 | "We're considering a merger" | **CEO** + **CFO** + **Risk Manager** | G |
 
 ### Multi-Workflow Sequencing
