@@ -1,13 +1,13 @@
 # CANVAS — Credit Union Agent Network
 
-**CANVAS** (Credit Union Agent Network for Value, Advice, and Service) is a coordinated AI agent system for credit union operations. It transforms 24 specialized AI agents into an orchestrated operational pipeline with defined workflows, compliance gates, and measurable outcomes grounded in cooperative values.
+**CANVAS** (Credit Union Agent Network for Value, Advice, and Service) is a coordinated AI agent system for credit union operations. It transforms 31 specialized AI agents into an orchestrated operational pipeline with defined workflows, compliance gates, and measurable outcomes grounded in cooperative values.
 
 ---
 
 ## Overview
 
 The system includes:
-- **24 specialized AI agents** covering every major credit union function
+- **31 specialized AI agents** covering every major credit union function
 - **7 core workflows** for end-to-end process orchestration
 - **Standardized handoff protocols** ensuring compliance at every step
 - **Scenario runbooks** for exam preparation, new product launches, mergers, and crisis response
@@ -18,7 +18,7 @@ The system includes:
 
 ```
 agentic-credit-union/
-├── agents/                    # 24 AI agent definitions
+├── agents/                    # 31 AI agent definitions
 │   ├── cu-ceo.md              # Executive leadership
 │   ├── cu-cfo.md              # Finance
 │   ├── cu-chro.md             # Human Resources
@@ -74,17 +74,17 @@ agentic-credit-union/
 
 ---
 
-## The 24 Agents
+## The 31 Agents
 
 | Category | Agents |
 |----------|-------|
 | **Executive** | CEO, CFO, CHRO |
-| **Lending** | Loan Officer, Mortgage Loan Processor, Business Lending Officer |
-| **Member Services** | Member Services Rep, Financial Advisor, Branch Manager |
-| **Risk & Compliance** | Compliance Officer, BSA Officer, Risk Manager, Internal Auditor |
-| **Operations** | Deposit Operations Manager, Card Services Specialist, Collections Specialist |
+| **Lending** | Loan Officer, Mortgage Loan Processor, Business Lending Officer, Loan Underwriting Analyst |
+| **Member Services** | Member Services Rep, Financial Advisor, Branch Manager, Member Concierge, Financial Wellness Advisor |
+| **Risk & Compliance** | Compliance Officer, BSA Officer, Risk Manager, Internal Auditor, Regulatory Affairs Analyst, Fraud Detection Analyst |
+| **Operations** | Deposit Operations Manager, Card Services Specialist, Collections Specialist, Collections Strategist |
 | **IT (7 agents)** | Core Systems Admin, IT Infrastructure Engineer, Database Administrator, Software Engineer, RPA & Automation Engineer, Business Intelligence Analyst, IT Services Manager |
-| **Other** | Marketing Manager |
+| **Strategic** | Marketing Manager, Competitive Intelligence Analyst |
 
 ---
 
@@ -106,7 +106,7 @@ agentic-credit-union/
 
 | Mode | Agents | Timeline | Use Case |
 |------|-------|----------|----------|
-| **CANVAS-Full** | All 24 | 4-12 weeks | Strategic initiatives, exam cycles |
+| **CANVAS-Full** | All 31 | 4-12 weeks | Strategic initiatives, exam cycles |
 | **CANVAS-Process** | 5-10 | 1-4 weeks | Single workflow end-to-end |
 | **CANVAS-Micro** | 2-4 | 1-5 days | Specific transaction or issue |
 
@@ -168,4 +168,4 @@ For the full operational doctrine, see [`strategy/cu-strategy.md`](strategy/cu-s
 
 ---
 
-*CANVAS: 24 Agents. 7 Workflows. One Unified Credit Union Strategy.*
+*CANVAS: 31 Agents. 7 Workflows. One Unified Credit Union Strategy.*
