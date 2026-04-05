@@ -163,21 +163,29 @@ CEO notified if material compliance issue identified.
 ## The Credit Union Agent Roster at a Glance
 
 ```
-EXECUTIVE / STRATEGY     │ LENDING                  │ MEMBER SERVICES
-Credit Union CEO         │ Loan Officer             │ Member Services Rep
-CFO                      │ Business Lending Officer │ Financial Advisor
-                         │ Mortgage Loan Processor  │
-─────────────────────────┼──────────────────────────┼──────────────────────
-RISK & COMPLIANCE        │ OPERATIONS               │ BRANCH / MARKETING / HR
-Compliance Officer       │ Deposit Operations Mgr   │ Branch Manager
-BSA Officer              │ Card Services Specialist │ Marketing Manager
-Risk Manager             │ Core Systems Admin        │ CHRO
-Internal Auditor         │ IT Infrastructure Eng     │ Collections Specialist
-                         │ Database Administrator    │
-                         │ Software Engineer         │
-                         │ RPA & Automation Eng      │
-                         │ BI Analyst                │
-                         │ IT Services Manager       │
+EXECUTIVE / STRATEGY          │ LENDING                   │ MEMBER SERVICES
+Credit Union CEO              │ Loan Officer              │ Member Services Rep
+CFO                           │ Business Lending Officer  │ Financial Advisor
+CHRO                          │ Mortgage Loan Processor   │ Financial Wellness Advisor
+Chief Operating Officer       │ Loan Underwriting Analyst │ Member Concierge
+Chief Technology Officer      │                           │ Branch Manager
+Chief Information Officer     │                           │
+──────────────────────────────┼───────────────────────────┼──────────────────────────
+RISK & COMPLIANCE             │ OPERATIONS                │ STRATEGIC / MARKETING
+Compliance Officer            │ Deposit Operations Mgr    │ Marketing Manager
+BSA Officer                   │ Card Services Specialist  │ Competitive Intelligence
+Risk Manager                  │ Collections Specialist    │   Analyst
+Internal Auditor              │ Collections Strategist    │
+Regulatory Affairs Analyst    │                           │
+Fraud Detection Analyst       │ IT                        │
+                              │ Core Systems Admin        │
+                              │ IT Infrastructure Eng     │
+                              │ Database Administrator    │
+                              │ IT Systems Administrator  │
+                              │ Software Engineer         │
+                              │ RPA & Automation Eng      │
+                              │ BI Analyst                │
+                              │ IT Services Manager       │
 ```
 
 ---

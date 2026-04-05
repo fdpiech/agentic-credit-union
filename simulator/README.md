@@ -1,6 +1,6 @@
 # CANVAS Simulator
 
-CLI tool for running credit union workflow simulations. Orchestrates 25 AI agents across 7 workflows with mock and live LLM modes.
+CLI tool for running credit union workflow simulations. Orchestrates 35 AI agents across 7 workflows with mock and live LLM modes.
 
 ## Quick Start
 
