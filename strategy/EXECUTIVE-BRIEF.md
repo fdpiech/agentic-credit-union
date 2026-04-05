@@ -75,9 +75,9 @@ agentic-credit-union/
 │   ├── cu-ceo.md                    # Executive leadership
 │   ├── cu-cfo.md                    # Finance
 │   ├── cu-chro.md                   # Human Resources
-│   ├── cu-chief-operating-officer.md
-│   ├── cu-chief-technology-officer.md
-│   ├── cu-chief-information-officer.md
+│   ├── cu-coo.md
+│   ├── cu-cto.md
+│   ├── cu-cio.md
 │   ├── cu-compliance-officer.md     # Regulatory compliance
 │   ├── cu-bsa-officer.md            # Anti-money laundering
 │   ├── cu-risk-manager.md           # Risk management
