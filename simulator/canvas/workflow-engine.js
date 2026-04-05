@@ -182,7 +182,7 @@ ${JSON.stringify(ctx.toHandoffContext(), null, 2)}
 Evaluate whether this gate passes or fails.`;
 
     try {
-      const response = await this.llm.chat(systemPrompt, userPrompt, 'Gate Evaluator');
+      const response = await this.llm.chat(systemPrompt, userPrompt, 'Gate Evaluator', gate.name);
       const jsonMatch = response.match(/\{[\s\S]*\}/);
       if (jsonMatch) {
         return JSON.parse(jsonMatch[0]);

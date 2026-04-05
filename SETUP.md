@@ -5,12 +5,12 @@
 ## Prerequisites
 
 - An AI agent platform that supports markdown-based agent definitions
-- Access to the 24 credit union agent roles defined in `agents/`
+- Access to the 35 credit union agent roles defined in `agents/`
 
 ## Quick Start
 
 1. **Choose your mode:**
-   - **CANVAS-Full**: All 24 agents for strategic initiatives (4-12 weeks)
+   - **CANVAS-Full**: All 35 agents for strategic initiatives (4-12 weeks)
    - **CANVAS-Process**: 5-10 agents for single workflows (1-4 weeks)
    - **CANVAS-Micro**: 2-4 agents for specific issues (1-5 days)
 
@@ -29,10 +29,10 @@
 
 ```
 agentic-credit-union/
-├── agents/              # 24 AI agent definitions
+├── agents/              # 35 AI agent definitions
 │   ├── cu-ceo.md
 │   ├── cu-cfo.md
-│   └── ... (22 more)
+│   └── ... (33 more)
 │
 └── strategy/            # Operational doctrine
     ├── EXECUTIVE-BRIEF.md     # Strategic overview

@@ -8,10 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.0.1] - 2026-04-03
 
 ### Added
-- **10 new agents** (24 → 34 total):
+- **11 new agents** (24 → 35 total):
   - **C-Suite Expansion**: Chief Operating Officer, Chief Technology Officer, Chief Information Officer
   - **HIGH Priority**: Member Concierge, Competitive Intelligence Analyst, Fraud Detection Analyst
   - **MEDIUM Priority**: Regulatory Affairs Analyst, Financial Wellness Advisor, Collections Strategist, Loan Underwriting Analyst
+  - **IT**: IT Systems Administrator
 
 ### Changed
 - **README.md**: Agent count updated (31 → 34)

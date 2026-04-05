@@ -105,8 +105,6 @@ export class LLMClient {
     const agent = agentName || 'Agent';
     // Use stepDescription for clean detection (avoids contamination from injected context)
     const desc = (stepDescription || '').toLowerCase();
-    const prompt = userPrompt.toLowerCase();
-    const sys = systemPrompt.toLowerCase();
 
     // STEP-SPECIFIC DETECTION using clean step description (order matters - most specific first)
 

@@ -6,7 +6,7 @@
 
 ## 1. SITUATION OVERVIEW
 
-The credit union operates 24 specialized AI agents across 12 functional areas — lending, member services, deposits, BSA/AML, compliance, collections, finance, marketing, technology, human resources, branch operations, and internal audit. The technology function is staffed by 7 scoped IT agents: Core Systems Administrator, IT Infrastructure Engineer, Database Administrator, Software Engineer, RPA & Automation Engineer, Business Intelligence Analyst, and IT Services Manager. Individually, each agent delivers expert-level output. **Without coordination, they produce inconsistent member experiences, compliance gaps at handoff boundaries, and decisions that optimize one function at the expense of another.** CANVAS transforms this roster into an orchestrated operational network with defined workflows, compliance gates, and measurable outcomes grounded in cooperative values.
+The credit union operates 35 specialized AI agents across 12 functional areas — lending, member services, deposits, BSA/AML, compliance, collections, finance, marketing, technology, human resources, branch operations, and internal audit. The technology function is staffed by 7 scoped IT agents: Core Systems Administrator, IT Infrastructure Engineer, Database Administrator, Software Engineer, RPA & Automation Engineer, Business Intelligence Analyst, and IT Services Manager. Individually, each agent delivers expert-level output. **Without coordination, they produce inconsistent member experiences, compliance gaps at handoff boundaries, and decisions that optimize one function at the expense of another.** CANVAS transforms this roster into an orchestrated operational network with defined workflows, compliance gates, and measurable outcomes grounded in cooperative values.
 
 ## 2. KEY FINDINGS
 
@@ -32,7 +32,7 @@ The credit union operates 24 specialized AI agents across 12 functional areas �
 
 | Deliverable | Description |
 |-------------|-------------|
-| **Master Strategy** | 1,000+ line operational doctrine covering all 24 agents across 7 core workflows |
+| **Master Strategy** | 1,000+ line operational doctrine covering all 35 agents across 7 core workflows |
 | **Workflow Playbooks** (7) | Step-by-step activation sequences for every major credit union process with agent prompts, timelines, and compliance gates |
 | **Activation Prompts** | Ready-to-use prompt templates for every agent in every workflow role |
 | **Handoff Templates** (7) | Standardized formats for compliance exceptions, member hardship, loan decisions, exam handoffs, and escalations |
@@ -71,22 +71,32 @@ The credit union operates 24 specialized AI agents across 12 functional areas �
 
 ```
 agentic-credit-union/
-├── agents/                           # 24 AI agent definitions
+├── agents/                           # 35 AI agent definitions
 │   ├── cu-ceo.md                    # Executive leadership
 │   ├── cu-cfo.md                    # Finance
 │   ├── cu-chro.md                   # Human Resources
+│   ├── cu-chief-operating-officer.md
+│   ├── cu-chief-technology-officer.md
+│   ├── cu-chief-information-officer.md
 │   ├── cu-compliance-officer.md     # Regulatory compliance
 │   ├── cu-bsa-officer.md            # Anti-money laundering
 │   ├── cu-risk-manager.md           # Risk management
 │   ├── cu-internal-auditor.md       # Internal audit
+│   ├── cu-regulatory-affairs.md     # Regulatory Affairs Analyst
+│   ├── cu-fraud-detection.md
 │   ├── cu-loan-officer.md           # Consumer lending
 │   ├── cu-mortgage-loan-processor.md
 │   ├── cu-business-lending-officer.md
+│   ├── cu-loan-underwriting.md      # Loan Underwriting Analyst
 │   ├── cu-collections-specialist.md
+│   ├── cu-collections-strategist.md
 │   ├── cu-financial-advisor.md
+│   ├── cu-financial-wellness.md     # Financial Wellness Advisor
 │   ├── cu-member-services-representative.md
+│   ├── cu-member-concierge.md
 │   ├── cu-branch-manager.md
 │   ├── cu-marketing-manager.md
+│   ├── cu-competitive-intelligence.md
 │   ├── cu-card-services-specialist.md
 │   ├── cu-deposit-operations-manager.md
 │   ├── cu-core-systems.md            # IT: Core Systems Admin
@@ -122,4 +132,4 @@ agentic-credit-union/
 
 ---
 
-*CANVAS: 24 Agents. 7 Workflows. One Unified Credit Union Strategy.*
+*CANVAS: 35 Agents. 7 Workflows. One Unified Credit Union Strategy.*
