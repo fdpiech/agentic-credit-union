@@ -185,7 +185,7 @@ ${display.COLORS.bright}USAGE:${display.COLORS.reset}
   node simulator.js [options]
 
 ${display.COLORS.bright}OPTIONS:${display.COLORS.reset}
-  -w, --workflow <A|B|C|D|E|F|G>   Run a specific workflow
+  -w, --workflow <A-K>              Run a specific workflow (A–G original, H–K critical new)
   -s, --scenario <name>             Use a predefined scenario
   -m, --mock                        Run in mock mode (no API key needed)
   -l, --list                        List available workflows and scenarios

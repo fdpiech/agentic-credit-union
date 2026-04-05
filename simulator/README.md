@@ -80,6 +80,10 @@ done
 | **E** | Deposit Operations | 4 | 4 | Deposit disputes, Reg E handling, operational resolution |
 | **F** | Compliance & Examination | 5 | 5 | NCUA exam preparation, BSA testing, board briefing |
 | **G** | Annual Strategic Planning | 5 | 5 | Environmental scan, financial feasibility, budget, board presentation |
+| **H** | Fraud Detection & Dispute Resolution | 5 | 5 | Fraud intake through Reg E final disposition with mock investigation findings |
+| **I** | Card Services & Fraud Monitoring | 4 | 4 | Card fraud triage, chargeback filing, member reissuance |
+| **J** | IT Security & Incident Response | 6 | 5 | Incident containment, eradication, regulatory notification, board report |
+| **K** | BSA/AML Monitoring & SAR Filing | 5 | 5 | Transaction alert review, SAR investigation, CTR processing, OFAC screening |
 
 ### Workflow Details
 
