@@ -32,8 +32,8 @@ The credit union operates 35 specialized AI agents across 12 functional areas â€
 
 | Deliverable | Description |
 |-------------|-------------|
-| **Master Strategy** | 1,000+ line operational doctrine covering all 35 agents across 7 core workflows |
-| **Workflow Playbooks** (7) | Step-by-step activation sequences for every major credit union process with agent prompts, timelines, and compliance gates |
+| **Master Strategy** | 1,000+ line operational doctrine covering all 35 agents across 17 workflows |
+| **Workflow Playbooks** (17) | Step-by-step activation sequences for every major credit union process with agent prompts, timelines, and compliance gates â€” A through Q |
 | **Activation Prompts** | Ready-to-use prompt templates for every agent in every workflow role |
 | **Handoff Templates** (7) | Standardized formats for compliance exceptions, member hardship, loan decisions, exam handoffs, and escalations |
 | **Scenario Runbooks** (4) | Pre-built configurations for NCUA Exam Preparation, New Product Launch, Core System Conversion, and Data Breach Response |

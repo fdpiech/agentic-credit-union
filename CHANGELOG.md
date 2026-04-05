@@ -5,6 +5,22 @@ All notable changes to CANVAS (Credit Union Agent Network for Value, Advice, and
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2026-04-05
+
+### Added
+- **10 new workflow playbooks** (7 → 17 total): H through Q
+  - **CRITICAL (H–K)**: Fraud Detection & Dispute Resolution, Card Services & Fraud Monitoring, IT Security & Incident Response, BSA/AML Monitoring & SAR Filing
+  - **HIGH (L–M, Q)**: New Product/Service Launch, Vendor Management & Due Diligence, Core System Conversion
+  - **MEDIUM (N–P)**: Branch Operations & Expansion, Merger & Acquisition, Member Financial Wellness Program
+- **Simulator support for H–K**: Workflows H, I, J, K added to simulator with mock responses for fraud investigation, card fraud, security incidents, and SAR/CTR filing
+- **ROUTER.md updated**: Domain detection and single-agent routing updated for all 17 workflows
+
+### Changed
+- **README.md**: Workflow table expanded to all 17 workflows organized by priority tier
+- **QUICKSTART.md**: "Which Workflow to Choose" table updated to include H–Q
+- **EXECUTIVE-BRIEF.md**: Deliverables updated to reflect 17 workflow playbooks
+- **simulator/README.md**: Workflow table updated with H–K
+
 ## [2.0.1] - 2026-04-03
 
 ### Added

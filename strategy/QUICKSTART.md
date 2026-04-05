@@ -65,6 +65,16 @@ Quality gate verification required before workflow completion.
 | Handle deposit operations | E — Deposit Operations | Deposit Operations Manager |
 | Prepare for NCUA examination | F — Compliance & Exam | Compliance Officer |
 | Build the annual plan and budget | G — Annual Strategic Planning | CEO |
+| Investigate fraud / process a Reg E dispute | H — Fraud Detection & Dispute Resolution | Fraud Detection & Security Analyst |
+| Handle card fraud, chargeback, or reissue | I — Card Services & Fraud Monitoring | Card Services Specialist |
+| Respond to a security incident | J — IT Security & Incident Response | IT Infrastructure Engineer |
+| File a SAR, CTR, or manage BSA monitoring | K — BSA/AML Monitoring & SAR Filing | BSA Officer |
+| Launch a new product or service | L — New Product/Service Launch | Compliance Officer + CEO |
+| Onboard or review a vendor | M — Vendor Management & Due Diligence | Risk Manager |
+| Open, relocate, or close a branch | N — Branch Operations & Expansion | Branch Manager |
+| Execute a merger or acquisition | O — Merger & Acquisition | CEO |
+| Provide financial wellness coaching | P — Member Financial Wellness | Financial Wellness Advisor |
+| Convert the core banking system | Q — Core System Conversion | Chief Technology Officer |
 
 ---
 

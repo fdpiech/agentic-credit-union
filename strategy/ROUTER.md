@@ -48,7 +48,16 @@ What area does this fall into?
 | **Risk** | "risk assessment," "insurance," "what if," "contingency" | Risk Manager |
 | **Competitive Intelligence** | "competitors are offering," "what's the market," "fintech trends," "peer rates" | Competitive Intelligence Analyst |
 | **Member Concierge** | "I've talked to multiple people," "nobody can help," "complex issue" | Member Concierge |
-| **Fraud & Security** | "suspicious transaction," "identity theft," "scam," "compromised" | Fraud Detection Analyst |
+| **Fraud & Security** | "suspicious transaction," "identity theft," "scam," "compromised" | Fraud Detection Analyst → Workflow H |
+| **Card Services** | "card blocked," "chargeback," "card fraud," "replace my card" | Card Services Specialist → Workflow I |
+| **IT Security Incident** | "ransomware," "data breach," "system hacked," "security incident" | IT Infrastructure Engineer → Workflow J |
+| **BSA/SAR/CTR** | "SAR filing," "CTR," "OFAC hit," "structuring," "BSA alert" | BSA Officer → Workflow K |
+| **New Product Launch** | "new product," "product launch," "new loan product," "new service" | Compliance Officer + CEO → Workflow L |
+| **Vendor Management** | "new vendor," "vendor review," "vendor contract," "third-party risk" | Risk Manager → Workflow M |
+| **Branch Operations** | "new branch," "branch expansion," "branch closure," "site selection" | Branch Manager → Workflow N |
+| **Merger & Acquisition** | "merger," "acquisition," "buy another credit union," "LOI" | CEO → Workflow O |
+| **Financial Wellness** | "budget help," "debt management," "financial goals," "planning" | Financial Wellness Advisor → Workflow P |
+| **Core Conversion** | "core system," "new core," "system conversion," "core vendor" | CTO → Workflow Q |
 | **Regulatory Watch** | "new rule," "CFPB proposed," "effective date," "comment period" | Regulatory Affairs Analyst |
 | **Financial Wellness** | "budget help," "debt management," "financial goals," "planning" | Financial Wellness Advisor |
 | **Loan Underwriting** | "application review," "credit decision," "complex file" | Loan Underwriting Analyst |
@@ -76,7 +85,7 @@ How fast does this need to move?
 How many agents or workflows does this touch?
 
 - **Single-agent**: One domain, clear scope → Route directly
-- **Single-workflow**: Fits one of the 7 playbooks → Suggest the workflow
+- **Single-workflow**: Fits one of the 17 playbooks → Suggest the workflow
 - **Multi-workflow**: Crosses domains (e.g., "member onboarding AND needs a loan") → Sequence workflows
 - **"Everything"**: "The credit union is a mess" → CEO for strategic triage
 
@@ -92,8 +101,17 @@ How many agents or workflows does this touch?
 | "I need a car loan / personal loan" | **Loan Officer** | B |
 | "I want to buy a house / get a mortgage" | **Mortgage Loan Processor** | C |
 | "I can't make my payment this month" | **Collections Specialist** + **Collections Strategist** | D |
-| "There's a charge I didn't make" | **Fraud Detection Analyst** | E |
-| "Something suspicious on my account" | **Fraud Detection Analyst** | E |
+| "There's a charge I didn't make" | **Fraud Detection Analyst** | H |
+| "Something suspicious on my account" | **Fraud Detection Analyst** | H |
+| "My card is blocked / I need a new card" | **Card Services Specialist** | I |
+| "I think there's been a data breach" | **IT Infrastructure Engineer** | J |
+| "We have a suspicious activity alert" | **BSA Officer** | K |
+| "We want to launch a new product" | **Compliance Officer** + **CEO** | L |
+| "We need to onboard a new vendor" | **Risk Manager** | M |
+| "We're considering a new branch" | **Branch Manager** + **CEO** | N |
+| "We're considering a merger" | **CEO** + **CFO** + **Risk Manager** | O |
+| "A member needs budget/debt help" | **Financial Wellness Advisor** | P |
+| "We need to convert our core system" | **CTO** + **Core Systems Admin** | Q |
 | "The NCUA exam is coming" | **Compliance Officer** | F |
 | "A new regulation is coming" | **Regulatory Affairs Analyst** | — |
 | "Where should we invest next year?" | **CEO** + **CFO** | G |
@@ -106,7 +124,7 @@ How many agents or workflows does this touch?
 | "I'm having trouble with my account — talked to multiple people" | **Member Concierge** | — |
 | "I need help with my finances / budget" | **Financial Wellness Advisor** | — |
 | "We need a credit decision on a complex file" | **Loan Underwriting Analyst** | — |
-| "We're considering a merger" | **CEO** + **CFO** + **Risk Manager** | G |
+| "We're considering a merger" | **CEO** + **CFO** + **Risk Manager** | O |
 | "We need a technology strategy" | **CTO** | — |
 | "We need an information strategy" | **CIO** | — |
 | "We need to improve operations" | **COO** | — |

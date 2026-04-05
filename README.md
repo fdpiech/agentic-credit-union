@@ -8,7 +8,7 @@
 
 The system includes:
 - **35 specialized AI agents** covering every major credit union function
-- **7 core workflows** for end-to-end process orchestration
+- **17 workflows** covering every major credit union function and regulatory obligation
 - **Standardized handoff protocols** ensuring compliance at every step
 - **Scenario runbooks** for exam preparation, new product launches, mergers, and crisis response
 
@@ -98,7 +98,9 @@ agentic-credit-union/
 
 ---
 
-## The 7 Workflows
+## The 17 Workflows
+
+### Core Workflows (A–G)
 
 | Workflow | Description | Lead Agent |
 |----------|-------------|------------|
@@ -109,6 +111,31 @@ agentic-credit-union/
 | **E** | Deposit Operations & BSA/AML | Deposit Operations Manager |
 | **F** | Compliance & NCUA Exam | Compliance Officer |
 | **G** | Annual Strategic Planning | CEO |
+
+### Critical Workflows (H–K)
+
+| Workflow | Description | Lead Agent |
+|----------|-------------|------------|
+| **H** | Fraud Detection & Dispute Resolution | Fraud Detection & Security Analyst |
+| **I** | Card Services & Fraud Monitoring | Card Services Specialist |
+| **J** | IT Security & Incident Response | IT Infrastructure Engineer |
+| **K** | BSA/AML Monitoring & SAR Filing | BSA Officer |
+
+### High-Priority Workflows (L–M, Q)
+
+| Workflow | Description | Lead Agent |
+|----------|-------------|------------|
+| **L** | New Product/Service Launch | Compliance Officer + CEO |
+| **M** | Vendor Management & Due Diligence | Risk Manager |
+| **Q** | Core System Conversion | Chief Technology Officer |
+
+### Medium-Priority Workflows (N–P)
+
+| Workflow | Description | Lead Agent |
+|----------|-------------|------------|
+| **N** | Branch Operations & Expansion | Branch Manager |
+| **O** | Merger & Acquisition | CEO |
+| **P** | Member Financial Wellness Program | Financial Wellness Advisor |
 
 ---
 
@@ -178,4 +205,4 @@ For the full operational doctrine, see [`strategy/cu-strategy.md`](strategy/cu-s
 
 ---
 
-*CANVAS: 35 Agents. 7 Workflows. One Unified Credit Union Strategy.*
+*CANVAS: 35 Agents. 17 Workflows. One Unified Credit Union Strategy.*

@@ -164,6 +164,22 @@ export class LLMClient {
     if (desc.includes('mortgage') || desc.includes('loan estimate') || desc.includes('closing disclosure') || desc.includes('trid') || desc.includes('appraisal')) {
       return this._mockMortgage(agent, desc);
     }
+    // Fraud investigation (Workflow H) — before generic Reg E
+    if (desc.includes('fraud report') || desc.includes('fraud intake') || desc.includes('fraud classification') || desc.includes('fraud investigation') || (desc.includes('fraud') && desc.includes('investigation'))) {
+      return this._mockFraudInvestigation(agent, desc);
+    }
+    // Card fraud / chargeback (Workflow I)
+    if (desc.includes('fraud alert triage') || desc.includes('card suspension') || desc.includes('chargeback') || desc.includes('card reissue') || (desc.includes('card') && desc.includes('fraud'))) {
+      return this._mockCardFraud(agent, desc);
+    }
+    // IT security incident (Workflow J)
+    if (desc.includes('incident detection') || desc.includes('containment') || desc.includes('eradication') || desc.includes('security incident') || (desc.includes('incident') && desc.includes('response'))) {
+      return this._mockSecurityIncident(agent, desc);
+    }
+    // SAR investigation / CTR / OFAC (Workflow K)
+    if (desc.includes('sar investigation') || desc.includes('sar decision') || desc.includes('sar filing') || desc.includes('ctr processing') || desc.includes('transaction monitoring alert')) {
+      return this._mockSARCTR(agent, desc);
+    }
     // Reg E dispute
     if (desc.includes('reg e') || desc.includes('dispute') || desc.includes('provisional credit')) {
       return this._mockRegE(agent, desc);
@@ -774,5 +790,211 @@ Financial analysis completed per CANVAS protocol.`;
 Next compliance update: Q3 committee meeting.
 
 Board briefed. Compliance program on track.`;
+  }
+
+  _mockFraudInvestigation(agent, desc) {
+    if (desc.includes('intake') || desc.includes('classification')) {
+      return `## Fraud Case Opened — Case #FRD-2026-0847
+
+**Classification**: Unauthorized ACH debit — Reg E covered transaction
+**Member**: James Rodriguez (MBR-2024-03291)
+**Transaction**: $847.50 — Unknown merchant "ONLINESVC247" — 2026-04-02
+**Reg E Clock Started**: 2026-04-04 (Day 0) | Provisional Credit Deadline: 2026-04-18 (Day 10)
+
+**Initial Evidence Collected**:
+- Transaction records pulled from core system
+- Member did not recognize merchant; card was in possession
+- No other transactions to this merchant in 24-month history
+- Device fingerprint: Mobile browser — different device than member's registered device
+- IP address geolocation: Inconsistent with member's known location
+
+**Case Status**: Under investigation — evidence collection in progress.
+Handoff to evidence collection phase.`;
+    }
+    if (desc.includes('investigation')) {
+      return `## Fraud Investigation — Findings
+
+**Case**: #FRD-2026-0847 | Investigation Day 3
+
+**ACH Originator Research**: Contacted NACHA via R10 inquiry. Originating ODFI identified as out-of-state fintech processor. Merchant ID matches known fraud pattern from FinCEN alert (issued 2026-02-14).
+
+**Transaction Pattern Analysis**:
+- Single transaction — not a pattern of multiple small hits
+- No prior relationship with merchant
+- Transaction occurred at 2:47 AM — atypical for member's usage pattern
+- Member's debit card number was likely obtained via data breach (cross-reference: known breach affecting 340,000 cardholders announced 2026-03-01)
+
+**SAR Assessment**: Single transaction below SAR threshold ($5,000). No structured activity. SAR filing NOT warranted at this time. Document no-file decision.
+
+**Determination**: UNAUTHORIZED TRANSACTION — Recommend full credit to member.`;
+    }
+    return `## Fraud Case — Final Disposition
+
+**Case**: #FRD-2026-0847 | CLOSED — Member Credited
+
+**Final Determination**: Unauthorized ACH debit confirmed. Member not liable.
+**Credit Applied**: $847.50 permanent credit posted 2026-04-04 (Day 0 — investigation complete before Day 10).
+**Member Notification**: Final resolution letter mailed 2026-04-04.
+**ACH Return Filed**: R10 (Customer Advises Not Authorized) submitted to originating ODFI.
+**Recovery**: Chargeback recovery expected within 60 days.
+
+**Case Closed**. All Reg E timelines met. No SAR filing required. Case archived per 5-year retention policy.`;
+  }
+
+  _mockCardFraud(agent, desc) {
+    if (desc.includes('triage') || desc.includes('alert')) {
+      return `## Card Fraud Alert — Risk Assessment
+
+**Alert Source**: Falcon fraud scoring system | Score: 847 (HIGH RISK — threshold: 750)
+**Card**: Debit Mastercard ending 4821 — Member: Sarah Chen (MBR-2025-01142)
+**Transaction**: $312.47 — Electronics retailer — Austin, TX — 2026-04-05 14:23:07
+
+**Risk Factors Flagged**:
+- Geolocation inconsistency: Member located in Springfield, IL (last transaction 4 hrs ago)
+- Merchant category: Electronics (high-fraud category)
+- Velocity: 3rd transaction in 2 hours exceeding $200
+- Device: Card-present transaction (chip not used — magnetic stripe)
+
+**Decision**: HIGH RISK — HARD BLOCK applied. Member notification triggered.`;
+    }
+    if (desc.includes('chargeback')) {
+      return `## Chargeback Filed — Visa Dispute
+
+**Case**: CHB-2026-0391 | Reason Code: 10.4 (Other Fraud — Card Absent Environment)
+**Amount**: $312.47 | Merchant: TechZone Austin #4471
+**Filing Deadline**: 120 days from transaction — Deadline: 2026-08-04 ✓ (filed within 15 days)
+
+**Documentation Submitted**:
+- Cardholder dispute statement
+- Geolocation evidence (member in Springfield at time of transaction)
+- Falcon fraud score and alert log
+- Member card-in-possession declaration
+
+**Chargeback Status**: Submitted to Visa via VisaNet. Provisional credit applied per Reg E.
+Expected resolution: 45-75 days.`;
+    }
+    return `## Card Reissue — Complete
+
+**Replacement Card**: New PAN issued — ending 7294 | Production queue: Standard 5-7 business days
+**Member Notified**: Text + email confirmation sent — activation instructions included
+**Compromised Card**: PAN terminated in card management system — cannot be reactivated
+**Recurring Billers**: Member advised to update: Netflix, gym membership, utility auto-pay
+
+**30-Day Monitoring**: Enhanced fraud rules applied to new card for 30 days post-issue.
+**Case #CHB-2026-0391**: Chargeback in process. Case closed pending network resolution.`;
+  }
+
+  _mockSecurityIncident(agent, desc) {
+    if (desc.includes('detection') || desc.includes('triage')) {
+      return `## Security Incident — Initial Triage
+
+**Incident ID**: SEC-2026-0023 | Detected: 2026-04-05 09:14 AM
+**Alert Source**: Endpoint detection and response (EDR) system — workstation WS-LOAN-04
+**Classification**: P2 — Malware detected (Trojan/Infostealer variant)
+**Affected Systems**: 1 workstation (isolated) — network spread: NOT detected
+
+**Initial Assessment**:
+- Malware installed via phishing email attachment (employee opened PDF macro — 2026-04-04 3:47 PM)
+- No evidence of lateral movement to core banking system
+- No evidence of data exfiltration at this time (SIEM logs reviewed)
+- Credentials on affected workstation: 1 employee (loan operations staff)
+
+**Actions Taken**: Workstation isolated from network. CEO and Compliance Officer notified.
+**Member Data Exposure**: Unconfirmed — investigation in progress.`;
+    }
+    if (desc.includes('containment') || desc.includes('eradication') || desc.includes('recovery')) {
+      return `## Containment & Eradication — Complete
+
+**Containment** (completed 09:47 AM):
+- WS-LOAN-04 physically disconnected and quarantined
+- Affected employee credentials revoked (reset required before access restored)
+- Suspicious IPs blocked at perimeter firewall: 185.234.x.x (C2 server — threat intel confirmed)
+- Core banking system access audit: No unauthorized queries detected
+
+**Forensic Preservation**:
+- Disk image created before remediation
+- Memory dump captured
+- Security event logs exported and archived
+
+**Eradication** (completed 11:30 AM):
+- Malware removed per EDR remediation playbook
+- System reimaged from clean gold image
+- Patch applied: CVE-2026-01847 (PDF renderer vulnerability — critical)
+
+**Recovery** (completed 2:15 PM):
+- Workstation returned to production — clean scan confirmed
+- Employee credentials reset; MFA re-enrolled
+- Enhanced monitoring: 72-hour elevated alert threshold on this workstation
+
+**Status**: Threat eliminated. No evidence of data breach.`;
+    }
+    return `## Post-Incident Review & Regulatory Assessment
+
+**Incident SEC-2026-0023 — CLOSED**
+
+**Regulatory Assessment** (Compliance Officer):
+- NCUA Part 748: Incident is a "security incident" — annual board report will note occurrence
+- State breach notification: Member personal data NOT confirmed exfiltrated — notification NOT triggered
+- GLBA Safeguards Rule: Root cause (unpatched PDF renderer + phishing) requires program update
+
+**Lessons Learned**:
+1. PDF macro execution should be blocked at email gateway (remediation: policy update)
+2. Patch cycle for critical CVEs reduced from 30 days to 7 days (approved)
+3. Phishing simulation frequency increased from quarterly to monthly
+
+**Board Report**: Prepared for next board meeting. Classified as non-material — no member impact confirmed.
+**GLBA Program**: Updated with two new controls. Board approval at next meeting.`;
+  }
+
+  _mockSARCTR(agent, desc) {
+    if (desc.includes('monitoring alert') || desc.includes('alert review')) {
+      return `## BSA Alert Queue — Daily Review
+
+**Date**: 2026-04-05 | Alerts Reviewed: 7 | Open SAR Cases: 2
+
+**Alert Dispositions**:
+| Alert # | Account | Amount | Pattern | Disposition |
+|---------|---------|--------|---------|-------------|
+| AML-847 | MBR-2024-00341 | $9,200 cash deposit | Below threshold — single transaction | DISMISS — documented |
+| AML-848 | MBR-2023-01122 | $9,800 + $9,500 (2 days) | Structuring pattern — 2 transactions | INVESTIGATE — SAR case opened |
+| AML-849 | MBR-2025-03341 | Wire $45,000 — Mexico | First international wire — new account | INVESTIGATE — EDD required |
+| AML-850 | BIZ-2022-00088 | $28,500 cash deposit | Phase II exempt business — documented | DISMISS — exemption verified |
+| AML-851–853 | Various | Misc low-risk | Normal patterns | DISMISS — documented |
+
+**CTR Queue**: 1 CTR required — $32,400 cash deposit (BIZ-2022-00044) — filing due by 2026-04-20.`;
+    }
+    if (desc.includes('sar') && (desc.includes('decision') || desc.includes('filing'))) {
+      return `## SAR Filing — Case AML-848
+
+**SAR Decision**: FILE
+**Subject**: [Identity withheld from log — contained in SAR file]
+**Triggering Activity**: Two cash deposits of $9,800 and $9,500 over consecutive business days — structuring pattern
+**SAR Amount**: $19,300 (aggregate)
+
+**Narrative Summary** (abridged):
+Subject made two cash deposits on consecutive days totaling $19,300. Individual transactions were structured below the $10,000 CTR threshold. No business purpose could be identified for the cash deposits; account was opened as personal checking 6 months prior with minimal activity. Staff did not identify a CTR exemption basis. Pattern is consistent with structuring to evade CTR reporting requirements (31 U.S.C. § 5324).
+
+**Filing**: Submitted via FinCEN BSA E-Filing System — Confirmation #: BSA-2026-0000847
+**Filed**: 2026-04-05 (Day 22 of 30-day window) ✓
+**CEO Notified**: Yes — filing confirmed (content not disclosed)
+**Member Notification**: NONE — tipping-off prohibition strictly observed`;
+    }
+    return `## CTR & OFAC Processing
+
+**CTR Filing — BIZ-2022-00044**:
+- Transaction: $32,400 cash deposit — 2026-04-03
+- Exemption Review: Business is NOT Phase I or II exempt (not on board-approved exemption list)
+- CTR Filed: FinCEN BSA E-Filing — Confirmation #CTR-2026-0001204
+- Filing Date: 2026-04-05 (Day 2 of 15-day window) ✓
+
+**OFAC Daily Screening**: No SDN list matches identified in today's new account and transaction review.
+
+**BSA Program Status**:
+- SAR log: Current (2 open cases, 1 filed this period)
+- CTR log: Current (1 filed this period)
+- OFAC screening: Daily — no matches
+- 314(a) list: Last FinCEN update checked 2026-04-01 — no matches
+
+All BSA obligations current.`;
   }
 }
