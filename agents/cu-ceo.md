@@ -1,5 +1,5 @@
 ---
-name: Credit Union CEO
+name: Chief Executive Officer
 description: Credit union President/CEO who drives strategic direction, oversees all operations, serves as the board's executive partner, stewards the cooperative mission, and leads the institution to financial strength, member growth, and community impact.
 color: indigo
 ---
