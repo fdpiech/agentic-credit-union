@@ -18,12 +18,22 @@
 8. [Workflow E — Deposit Operations](#8-workflow-e--deposit-operations)
 9. [Workflow F — Compliance & Examination](#9-workflow-f--compliance--examination)
 10. [Workflow G — Annual Strategic Planning](#10-workflow-g--annual-strategic-planning)
-11. [Agent Coordination Matrix](#11-agent-coordination-matrix)
-12. [Handoff Protocols](#12-handoff-protocols)
-13. [Quality Gates](#13-quality-gates)
-14. [Risk Management](#14-risk-management)
-15. [Success Metrics](#15-success-metrics)
-16. [Quick-Start Activation Guide](#16-quick-start-activation-guide)
+11. [Workflow H — Fraud Detection & Dispute Resolution](#11-workflow-h--fraud-detection--dispute-resolution)
+12. [Workflow I — Card Services & Fraud Monitoring](#12-workflow-i--card-services--fraud-monitoring)
+13. [Workflow J — IT Security & Incident Response](#13-workflow-j--it-security--incident-response)
+14. [Workflow K — BSA/AML Monitoring & SAR Filing](#14-workflow-k--bsaaml-monitoring--sar-filing)
+15. [Workflow L — New Product/Service Launch](#15-workflow-l--new-productservice-launch)
+16. [Workflow M — Vendor Management & Due Diligence](#16-workflow-m--vendor-management--due-diligence)
+17. [Workflow N — Branch Operations & Expansion](#17-workflow-n--branch-operations--expansion)
+18. [Workflow O — Merger & Acquisition](#18-workflow-o--merger--acquisition)
+19. [Workflow P — Member Financial Wellness](#19-workflow-p--member-financial-wellness)
+20. [Workflow Q — Core System Conversion](#20-workflow-q--core-system-conversion)
+21. [Agent Coordination Matrix](#21-agent-coordination-matrix)
+22. [Handoff Protocols](#22-handoff-protocols)
+23. [Quality Gates](#23-quality-gates)
+24. [Risk Management](#24-risk-management)
+25. [Success Metrics](#25-success-metrics)
+26. [Quick-Start Activation Guide](#26-quick-start-activation-guide)
 
 ---
 
@@ -177,17 +187,43 @@ Member Onboarding (A) ──▶ All subsequent workflows carry member context
            │
            ├──▶ Loan Origination (B) ──▶ Mortgage Processing (C)
            │              │
-           │              └──▶ Collections (D) [if delinquency]
+           │              └──▶ Collections (D) [if delinquency] ──▶ Financial Wellness (P)
            │
-           ├──▶ Deposit Operations (E)
+           ├──▶ Deposit Operations (E) ──▶ Fraud / Dispute (H) [if Reg E claim]
+           │              │
+           │              └──▶ Card Services (I) [if card channel]
            │
-           └──▶ Financial Advisor (triggered by life events or financial goals)
+           └──▶ Financial Advisor / Financial Wellness (P) [life events, hardship, goals]
 
-Compliance (F) ──▶ Embedded gate in every workflow step
-                    BSA Officer owns BSA/AML in A, B, C, E
+Compliance & Examination (F) ──▶ Embedded gate in every workflow A–Q
+                                   Regulatory Affairs Analyst feeds horizon to F and L
 
-Annual Planning (G) ──▶ Sets targets and constraints for all other workflows
-                         CFO financial constraints inform B, C, D, E
+BSA/AML & SAR (K) ──▶ Owns BSA across A, B, C, E and receives fraud patterns from H/I
+
+Fraud / Dispute (H) ──▶ Card fraud handed to Card Services (I)
+                         SAR-eligible patterns escalated to BSA/AML (K)
+                         Account-takeover incidents escalated to IT Security (J)
+
+IT Security & Incident (J) ──▶ Notifies Compliance (F) for breach notifications
+                                Triggers Vendor Management (M) review on vendor incidents
+
+New Product Launch (L) ──▶ Pulls from Compliance (F), BSA (K), and Vendor Mgmt (M)
+                            Output feeds operational workflows A–E and reporting in F
+
+Vendor Management (M) ──▶ Gates every third-party in J, L, Q, and ongoing operations
+
+Branch Operations (N) ──▶ Operationalizes A, B, E at the branch level
+                          New branches require FOM and NCUA approval via F
+
+Merger & Acquisition (O) ──▶ Triggers integration sub-projects across all workflows
+                              Often pairs with Workflow Q (Core Conversion)
+
+Core System Conversion (Q) ──▶ Stage-gated by F (compliance), K (BSA continuity),
+                                J (security), M (vendor), and CFO/Audit sign-off
+
+Annual Planning (G) ──▶ Sets targets and constraints for all 17 workflows
+                         CFO financial constraints inform B, C, D, E, L, N, O, Q
+                         Competitive Intelligence Analyst feeds market scan into G and L
 ```
 
 ---
@@ -700,11 +736,657 @@ STAGE 5: Execution and Monitoring (Ongoing)
 
 ---
 
-## 11. Agent Coordination Matrix
+## 11. Workflow H — Fraud Detection & Dispute Resolution
 
-### 11.1 Cross-Function Dependency Map
+> **Objective**: Investigate fraud claims and unauthorized transaction disputes with the speed Reg E demands — protecting members from financial harm while defending the credit union from unwarranted loss. Fraud victims are treated as members in distress, not suspects.
 
-This matrix shows which agents produce outputs consumed by other agents. Read as: **Row agent produces → Column agent consumes**.
+### 11.1 Active Agents
+
+| Agent | Role | Primary Output |
+|-------|------|----------------|
+| **Fraud Detection Analyst** | Intake, classification, investigation lead | Fraud case file with classification and recommendation |
+| **Card Services Specialist** | Card-channel containment | Card block, reissue, chargeback filing |
+| **Deposit Operations Manager** | Reg E provisional credit and reversal | Provisional credit posted by Day 10 |
+| **BSA Officer** | SAR evaluation when fraud meets threshold | SAR filing decision within 30 days |
+| **Compliance Officer** | Reg E compliance gate | Final resolution letter and compliance attestation |
+
+### 11.2 Sequence
+
+```
+STEP 1: Intake & Classification (Fraud Detection Analyst) — Reg E clock starts Day 0
+├── Pull 90-day transaction history; classify (Unauthorized EFT / ATO / Check / Wire / Internal)
+├── Open case in fraud system with calendared Day 10 and Day 45 deadlines
+└── Escalate ATO to IT within 1 hour; internal fraud to CEO within 30 minutes
+
+STEP 2: Member Communication (Member Services Rep + Fraud Detection Analyst)
+├── Acknowledge receipt; provide case number and timeline
+├── Collect supporting facts; complete written dispute form
+└── Secure account, freeze suspect channels
+
+STEP 3: Investigation (Fraud Detection Analyst)
+├── Pull merchant data, device/IP metadata, network alerts
+├── Document evidence per Reg E error-resolution standard
+└── Coordinate with Card Services or BSA Officer per channel
+
+STEP 4: Provisional Credit Decision (Deposit Operations Manager) — Day 10 deadline
+├── Credit if investigation incomplete; notify member in writing
+└── Track to final resolution
+
+STEP 5: Final Resolution & Notification (Compliance Officer) — Day 45 deadline
+├── Issue written findings; reverse provisional credit only with 3-day notice if denied
+└── File SAR via BSA Officer if pattern triggers reporting threshold
+```
+
+### 11.3 Quality Gate
+
+**Gate Keeper**: Fraud Detection Analyst + Compliance Officer
+
+| Criterion | Threshold | Evidence |
+|-----------|-----------|----------|
+| Provisional credit by Day 10 | 100% of eligible cases | Posting timestamp |
+| Final resolution within 45 days (90 foreign) | 100% | Resolution letter dated and delivered |
+| SAR evaluation completed where triggered | 100% | BSA case file |
+| Member dignity preserved (no accusatory language) | 100% | Communication log review |
+
+**Output**: Resolved fraud case with documented Reg E compliance and member-acknowledged outcome.
+
+---
+
+## 12. Workflow I — Card Services & Fraud Monitoring
+
+> **Objective**: Manage the full debit and credit card lifecycle — issuance, reissuance, fraud alert response, chargeback representation — with the speed card brands require and the compliance discipline NCUA expects.
+
+### 12.1 Active Agents
+
+| Agent | Role | Primary Output |
+|-------|------|----------------|
+| **Card Services Specialist** | Card lifecycle and chargeback owner | Issued/reissued cards, chargeback filings |
+| **Fraud Detection Analyst** | Card fraud rules, alert triage | Fraud rule updates, blocked compromised cards |
+| **Compliance Officer** | UDAAP, Reg E, fee disclosure compliance | Compliance attestation on card programs |
+| **IT Infrastructure Engineer** | PCI DSS posture, processor integration | Card platform availability and PCI evidence |
+
+### 12.2 Sequence
+
+```
+ROUTINE OPERATIONS
+├── Card issuance / reissuance (lost, stolen, damaged, bulk reissue)
+├── Daily fraud alert queue review (TCS / Falcon / equivalent)
+├── Velocity, geographic, and high-risk merchant rule tuning
+└── Member-facing fraud blocks and call-back verification
+
+DISPUTE / CHARGEBACK CYCLE
+├── Reg E intake → Fraud Detection Analyst classifies (Workflow H linkage)
+├── Card Services Specialist files chargeback within network deadline
+│   - Fraud (10.4 / 10.5): 120 days
+│   - Authorization (11.x): 75 days
+│   - Service / Processing (12.x / 13.x): 120 days
+├── Track representment, second presentment, arbitration if applicable
+└── Update fraud loss ledger and feed pattern intelligence back to monitoring
+
+PROGRAM MANAGEMENT
+├── Quarterly portfolio review: activation, utilization, delinquency, fraud loss rate
+├── Annual processor SOC 2 review (with Risk Manager — Workflow M)
+└── Compliance review of all fee schedules and disclosure changes
+```
+
+### 12.3 Quality Gate
+
+**Gate Keeper**: Card Services Specialist + Fraud Detection Analyst
+
+| Criterion | Threshold | Evidence |
+|-----------|-----------|----------|
+| Chargebacks filed within network deadline | 100% | Network filing confirmation |
+| PCI DSS attestation current | Annual | AOC on file |
+| Fraud loss within tolerance | ≤ policy threshold | Monthly fraud loss report |
+| Card disclosures UDAAP-reviewed | 100% of changes | Compliance Officer sign-off |
+
+**Output**: Healthy card portfolio with timely chargeback recovery, controlled fraud loss, and clean compliance posture.
+
+---
+
+## 13. Workflow J — IT Security & Incident Response
+
+> **Objective**: Protect member data and credit union systems through a layered security program combining rapid incident response with continuous preventive controls — fulfilling GLBA Safeguards Rule, NCUA Part 748, and state breach notification obligations. Containment, evidence preservation, regulatory assessment, and restoration — in that order.
+
+### 13.1 Active Agents
+
+| Agent | Role | Primary Output |
+|-------|------|----------------|
+| **IT Infrastructure Engineer** | Detection, containment, forensic preservation | Incident containment and IOC report |
+| **CIO** | Information security program owner; incident commander | Board-approved IS program; incident decisions |
+| **Core Systems Administrator** | Core platform integrity and recovery | Verified core integrity post-incident |
+| **Compliance Officer** | Regulatory notification owner | NCUA, state, and member notifications on time |
+| **CEO** | Crisis decision authority and external comms | Public statements; regulator-facing letters |
+| **Internal Auditor** | Independent post-incident review | Lessons-learned report and remediation tracking |
+
+### 13.2 Sequence
+
+```
+DETECTION & TRIAGE (within 1 hour)
+├── Classify type: malware/ransomware, data breach, phishing, DDoS, insider, vendor, physical
+├── Assign severity P1–P4; P1/P2 escalate to CIO + Compliance + CEO
+└── Preserve evidence BEFORE remediation (forensic image, log export)
+
+CONTAINMENT
+├── Isolate affected systems; rotate credentials; cut affected network paths
+├── Engage external IR firm and outside counsel if P1/P2
+└── Notify cyber insurance carrier per policy
+
+REGULATORY ASSESSMENT (Compliance Officer)
+├── NCUA Part 748 Appendix B: 72-hour notification clock if member NPI involved
+├── GLBA Safeguards: incident response plan executed and documented
+├── State breach notification laws: per-state timelines (often 30 days or less)
+└── Determine member notification: content, channel, timing
+
+RECOVERY
+├── Restore from verified-clean backups; validate data integrity
+├── Re-enable services with enhanced monitoring
+└── Document recovery timeline and residual risk
+
+POST-INCIDENT
+├── Internal Auditor independent review
+├── Lessons learned and control improvements
+└── Annual report to board on information security (Part 748)
+
+ANNUAL PROGRAM (always-on)
+├── Risk assessment, penetration test, tabletop exercise
+├── Vendor security reviews (with Workflow M)
+└── Staff security awareness training
+```
+
+### 13.3 Quality Gate
+
+**Gate Keeper**: IT Infrastructure Engineer + Compliance Officer
+
+| Criterion | Threshold | Evidence |
+|-----------|-----------|----------|
+| Incident classified and contained per SLA | 100% | Incident log with timestamps |
+| Regulatory notifications on time | 100% | Notification copies and delivery proof |
+| Evidence preserved before remediation | 100% | Forensic chain of custody |
+| Annual IS program board-approved | Annual | Board minutes |
+| Penetration test completed annually | Annual | Pen test report |
+
+**Output**: Contained incident with documented compliance, restored operations, and board-visible lessons learned.
+
+---
+
+## 14. Workflow K — BSA/AML Monitoring & SAR Filing
+
+> **Objective**: Execute the BSA program with the rigor FinCEN and NCUA expect — detecting suspicious activity, filing accurate and timely reports, screening every transaction against OFAC, and maintaining defensible documentation. BSA failures are not recoverable with apologies.
+
+### 14.1 Active Agents
+
+| Agent | Role | Primary Output |
+|-------|------|----------------|
+| **BSA Officer** | Program owner; alert investigation; SAR/CTR filing | Filed reports and case files |
+| **Fraud Detection Analyst** | Fraud-pattern handoff to SAR evaluation | Pattern memo with case link |
+| **Compliance Officer** | Concurrence on SAR decisions; program oversight | SAR decision concurrence; program testing |
+| **Internal Auditor** | Annual independent BSA test | BSA audit report to board |
+| **Member Services Rep** | CIP execution at intake | CIP file complete before account activation |
+
+### 14.2 Sequence
+
+```
+DAILY (BSA Officer)
+├── Review automated monitoring alerts; classify and document
+├── CTR queue: identify cash ≥ $10,000; file FinCEN 112 within 15 calendar days
+├── Structuring detection — DO NOT tip off member
+└── OFAC screening on every wire and new account
+
+ALERT INVESTIGATION (within 30 days of detection)
+├── Pull 12-month transaction history; compare to expected activity from CIP
+├── Document investigation steps and conclusions in case management system
+└── SAR file/no-file decision memo (see handoff template #14)
+
+SAR FILING
+├── Subject identified: 30 days from detection
+├── No subject: 60 days from detection
+├── Continuing activity: re-file every 90–120 days
+└── Compliance Officer concurrence; CEO notification if material
+
+PERIODIC
+├── 314(a) list checks (twice monthly); 14-day response window for FinCEN inquiries
+├── CTR exemption list annual review (board-approved)
+└── BSA risk assessment refresh (annual or material change)
+
+ANNUAL
+├── Internal Auditor independent BSA test (or qualified external firm)
+├── BSA Officer board report
+└── Staff BSA training (100% by Dec 31)
+```
+
+### 14.3 Quality Gate
+
+**Gate Keeper**: BSA Officer + Compliance Officer
+
+| Criterion | Threshold | Evidence |
+|-----------|-----------|----------|
+| CTR filing within 15 days | 100% | FinCEN E-filing receipts |
+| SAR decision within 30/60 days | 100% | Decision memo dated |
+| OFAC hit blocked and reported | 100% | OFAC case file |
+| Annual independent test completed | 100% | Audit report |
+| BSA training completion | 100% by Dec 31 | Training records |
+
+**Output**: Examination-ready BSA program with documented filings, screenings, and independent assurance.
+
+---
+
+## 15. Workflow L — New Product/Service Launch
+
+> **Objective**: Bring new financial products and services to market in a structured, compliant, and financially sound manner. No product goes live without Compliance Officer and CEO dual sign-off.
+
+### 15.1 Active Agents
+
+| Agent | Role | Primary Output |
+|-------|------|----------------|
+| **CEO** | Strategic fit and board notification | Approved product concept |
+| **CFO** | Business case and pricing | Financial model and break-even analysis |
+| **Compliance Officer** | Regulatory mapping and disclosure design | Compliance impact assessment and disclosures |
+| **Marketing Manager** | Launch plan and member communications | UDAAP-cleared marketing materials |
+| **Risk Manager** | Product risk rating and concentration check | Risk assessment for the product |
+| **Core Systems Administrator** | Core system configuration | Configured product on core with reporting hooks |
+
+### 15.2 Sequence
+
+```
+STAGE 1: Concept & Business Case (CEO + CFO)
+├── Strategic alignment; member need documented
+├── 3-year pro forma; break-even and ROA contribution
+└── Board notification or approval per policy materiality
+
+STAGE 2: Compliance Impact Assessment (Compliance Officer + Regulatory Affairs Analyst)
+├── Map applicable regs (TILA, ECOA, Reg DD, Reg E, MLA, SCRA, state law)
+├── Draft disclosures and confirm UDAAP standards
+└── BSA risk assessment update if risk profile changes
+
+STAGE 3: Build & Configure (Core Systems Administrator + Software Engineer)
+├── Core configuration; GL mapping; reporting hooks
+├── Integration testing with online/mobile and statements
+└── Test transactions across full product lifecycle
+
+STAGE 4: Staff Readiness (Branch Manager + CHRO)
+├── Staff training; talk tracks; FAQ document
+└── Branch Manager confirms 100% staff readiness
+
+STAGE 5: Soft Launch & Monitoring (Marketing Manager + Compliance Officer)
+├── Limited release; monitor first transactions for compliance gaps
+├── Member experience feedback loop
+└── Compliance Officer + CEO sign-off for full launch
+
+STAGE 6: Full Launch & Post-Launch Review (90 days)
+├── Compliance review; fair lending analysis; financial vs. plan
+└── Adjust pricing, features, or disclosures as needed
+```
+
+### 15.3 Quality Gate
+
+**Gate Keeper**: Compliance Officer + CEO
+
+| Criterion | Threshold | Evidence |
+|-----------|-----------|----------|
+| Compliance impact assessment complete | 100% | Signed assessment in product file |
+| Board notification or approval per policy | 100% | Board minutes |
+| Disclosures filed and live | 100% | Disclosure copies; effective date documented |
+| Staff training complete before launch | 100% | Training completion records |
+| 90-day post-launch review completed | 100% | Review memo to CEO |
+
+**Output**: Live product with documented compliance, validated financial performance, and governed lifecycle.
+
+---
+
+## 16. Workflow M — Vendor Management & Due Diligence
+
+> **Objective**: Ensure every third-party vendor with access to member data, critical systems, or material financial impact is selected, contracted, monitored, and exited through a documented, risk-tiered process meeting NCUA SPG 2019-07. No critical-tier vendor goes live without Risk Manager and Compliance Officer dual sign-off.
+
+### 16.1 Active Agents
+
+| Agent | Role | Primary Output |
+|-------|------|----------------|
+| **Risk Manager** | Vendor program owner; tier classification; ongoing monitoring | Vendor due diligence file and annual review |
+| **Compliance Officer** | Regulatory and contract compliance review | Contract compliance attestation |
+| **CIO** | Data and information security risk review | SOC 2 review and data risk sign-off |
+| **Internal Auditor** | Independent vendor program review | Annual vendor program audit |
+| **CFO** | Contract value, budget, financial diligence | Vendor financial review |
+
+### 16.2 Sequence
+
+```
+STEP 1: Intake & Tier Classification (Risk Manager + Department Head)
+├── Tier 1 (Critical): NPI access or mission-critical → 8–12 weeks DD
+├── Tier 2 (Significant): material operational impact → 4–6 weeks DD
+└── Tier 3 (Standard): no NPI, easily replaceable → 2–3 weeks DD
+
+STEP 2: Due Diligence (Risk Manager + CIO)
+├── Financial: audited statements, going-concern, D&B
+├── Information security: SOC 2 Type II, pen test summary, IS questionnaire
+├── Business continuity: BCP/DR plan, RTO/RPO, tested
+├── References: minimum 3 peer institutions
+└── Subcontractor (4th-party) inventory
+
+STEP 3: Contract Review (Compliance Officer + Legal)
+├── GLBA Safeguards clauses; data ownership; breach notification
+├── Right-to-audit; SOC report cadence; termination/exit provisions
+└── SLA, indemnification, insurance requirements
+
+STEP 4: Approval & Onboarding
+├── Tier 1: Risk Manager + Compliance + CIO + CEO; Board if material
+├── Tier 2: Risk Manager + Compliance Officer
+└── Tier 3: Risk Manager
+└── Onboarding checklist with operational owner
+
+STEP 5: Ongoing Monitoring
+├── SOC 2 refresh review (annual)
+├── Performance and SLA review (per tier)
+├── Concentration and 4th-party risk monitoring
+└── Annual program report to board (NCUA SPG 2019-07)
+
+STEP 6: Exit / Termination
+├── Data return / destruction certified
+├── Knowledge transfer documented
+└── Lessons learned to vendor program
+```
+
+### 16.3 Quality Gate
+
+**Gate Keeper**: Risk Manager + Compliance Officer
+
+| Criterion | Threshold | Evidence |
+|-----------|-----------|----------|
+| Tier classification documented | 100% | Intake form |
+| SOC 2 reviewed for NPI vendors | 100% annual | Review memo |
+| Contract clauses meet GLBA safeguards | 100% | Signed contract |
+| Annual board report on material vendors | Annual | Board minutes |
+| Exit plan executed on termination | 100% | Termination checklist |
+
+**Output**: Risk-rated vendor portfolio with current diligence, contracted protections, and board visibility.
+
+---
+
+## 17. Workflow N — Branch Operations & Expansion
+
+> **Objective**: Open new branch locations and maintain ongoing branch operations in full compliance with NCUA Part 701.36, field of membership rules, ADA, and state branch notification — while ensuring each location is financially viable, adequately staffed, and integrated with core systems before the first member transaction.
+
+### 17.1 Active Agents
+
+| Agent | Role | Primary Output |
+|-------|------|----------------|
+| **Branch Manager** | Site, staffing, operational readiness | Open branch ready for members |
+| **CEO** | Strategic rationale and board authorization | Board-approved expansion plan |
+| **COO** | Operational integration; multi-branch standards | Operations playbook adapted to new branch |
+| **CFO** | Pro forma, capital impact, break-even | Approved branch business case |
+| **Compliance Officer** | NCUA Part 701.36 application; FOM eligibility; state notification | Approved branch application |
+| **CTO** | ATM, network, and core connectivity | Verified technology readiness |
+
+### 17.2 Sequence
+
+```
+STEP 1: Site Selection & Business Case (CEO + CFO + Branch Manager)
+├── Strategic rationale; 2–3 candidate sites
+├── 3-year pro forma; capital and net-worth impact
+└── Board authorization to proceed
+
+STEP 2: FOM Analysis (Compliance Officer + CEO)
+├── Map service area to charter FOM
+├── FOM expansion concurrent if needed
+└── Document eligibility for all anticipated member segments
+
+STEP 3: NCUA Application (Compliance Officer)
+├── NCUA Part 701.36 application — submit ≥ 90 days before opening
+├── State regulator notification per state law
+└── Track approval status; respond to NCUA questions
+
+STEP 4: Build-Out & Technology (Branch Manager + CTO)
+├── Lease/build per ADA Title III standards
+├── Network, ATMs, ITMs, security systems, signage
+├── Core system connectivity tested end-to-end
+└── Reg E / Reg CC compliance on all transaction equipment
+
+STEP 5: Staffing & Training (Branch Manager + CHRO)
+├── Hire and onboard staff per FTE model
+├── CANVAS workflow training (A, B, E, and others as relevant)
+├── Compliance training 100% before opening
+└── Branch Manager confirms operational readiness
+
+STEP 6: Soft Open & Full Launch (Branch Manager + Compliance Officer)
+├── Soft open with limited hours; monitor compliance and member experience
+├── Compliance Officer pre-launch walkthrough
+└── Full launch with marketing campaign
+```
+
+### 17.3 Quality Gate
+
+**Gate Keeper**: Branch Manager + Compliance Officer
+
+| Criterion | Threshold | Evidence |
+|-----------|-----------|----------|
+| NCUA Part 701.36 approval received | 100% before opening | NCUA letter |
+| State regulator notification complete | 100% | Filing confirmation |
+| ADA accessibility verified | 100% | Inspection report |
+| Staff training complete before opening | 100% | Training records |
+| Net worth ratio impact within plan | Per CFO model | CFO sign-off |
+
+**Output**: Open, compliant, financially viable branch integrated with the credit union's CANVAS workflows.
+
+---
+
+## 18. Workflow O — Merger & Acquisition
+
+> **Objective**: Execute a credit union merger or acquisition resulting in a financially stronger combined institution, uninterrupted member service, and full regulatory compliance — from target identification through post-merger integration. Every merger must survive NCUA scrutiny, pass a member vote, and close with zero member data or service disruption.
+
+### 18.1 Active Agents
+
+| Agent | Role | Primary Output |
+|-------|------|----------------|
+| **CEO** | Strategy, LOI, board, regulator, member communications | Approved and consummated merger |
+| **CFO** | Financial diligence, capital impact, valuation | Combined financial model and capital plan |
+| **COO** | Operational integration planning | Day-1 and 100-day integration plan |
+| **Risk Manager** | Risk diligence, concentration, integration risk | Merger risk register |
+| **Compliance Officer** | NCUA Part 708b; member notice; regulator filings | Approved NCUA application; compliant member vote |
+| **Internal Auditor** | Independent diligence and post-close validation | Diligence sign-off; integration audit |
+| **BSA Officer** | Target BSA program review | BSA risk assessment of target |
+| **CTO** | Data, systems, and core integration plan | Conversion plan or data integration plan |
+
+### 18.2 Sequence
+
+```
+PHASE 1: Identification & Preliminary Assessment (CEO + CFO)
+├── Strategic fit; reputational review; cultural alignment
+└── Preliminary financial health from call report data
+
+PHASE 2: Letter of Intent (CEO + Board)
+├── Board authorization; LOI executed under NDA
+└── NCUA Regional Director notified of intent
+
+PHASE 3: Due Diligence (CFO + Risk Manager + Internal Auditor + BSA Officer + CTO)
+├── Financial, credit, BSA, IT, HR, legal, member-data review
+├── Risk register and integration cost estimate
+└── Go / no-go decision with board
+
+PHASE 4: NCUA Application & Member Vote (Compliance Officer + CEO)
+├── NCUA Part 708b application; state regulator filings
+├── Member notice (35-day advance); member vote
+└── NCUA approval letter
+
+PHASE 5: Closing & Day-1 Integration (CEO + COO + CTO)
+├── Legal close; share insurance disclosures to affected members
+├── Day-1 operations: branches open, staff in place, systems live
+└── Member communications and concierge support
+
+PHASE 6: 100-Day Integration & Post-Close Review
+├── Systems integration or core conversion (Workflow Q linkage)
+├── Cultural integration and staff retention
+├── Internal Auditor post-close review
+└── 12-month performance review vs. merger thesis
+```
+
+### 18.3 Quality Gate
+
+**Gate Keeper**: CEO + Compliance Officer
+
+| Criterion | Threshold | Evidence |
+|-----------|-----------|----------|
+| NCUA approval received | 100% before close | NCUA approval letter |
+| Member vote per Part 708b | Quorum and majority | Vote certification |
+| Combined net worth ratio ≥ 7% | Day 1 | CFO certification |
+| Day-1 service continuity | 100% | Operations report |
+| 100-day integration milestones | Per plan | Integration scorecard |
+
+**Output**: Closed, compliant merger with continuity of member service and a measurable integration trajectory.
+
+---
+
+## 19. Workflow P — Member Financial Wellness
+
+> **Objective**: Deliver structured, member-centered financial coaching that measurably improves the financial health of members experiencing hardship or seeking to build long-term stability — through a non-judgmental process compliant with CFPB wellness guidelines, FCRA, and UDAAP.
+
+### 19.1 Active Agents
+
+| Agent | Role | Primary Output |
+|-------|------|----------------|
+| **Financial Wellness Advisor** | Primary coach; intake; budget; plan | Member-acknowledged written financial plan |
+| **Financial Advisor** | Investment, retirement, complex planning | Long-horizon planning artifacts |
+| **Member Services Representative** | Referral source and product enablement | Referral handoff with hardship indicators |
+| **Compliance Officer** | UDAAP / FCRA oversight; periodic audit | Wellness program compliance attestation |
+
+### 19.2 Triggers
+
+- Hardship flag from Workflow D (Collections)
+- Loan decline referral from Workflow B
+- Mortgage-readiness referral from Workflow C
+- Branch or Member Services Rep observation
+- Member self-referral
+- Marketing-identified at-risk segment (with TCPA-compliant outreach)
+
+### 19.3 Sequence
+
+```
+STEP 1: Referral & Intake (Financial Wellness Advisor)
+├── Pre-appointment account review
+├── Non-judgmental intake; complete Wellness Intake Form
+└── Severity classification: Acute / Moderate / Stable-with-Goals
+
+STEP 2: Budget Development
+├── Monthly cash flow build; identify gaps
+├── Categorize obligations and discretionary spending
+└── Surface immediate-fix opportunities
+
+STEP 3: Plan Construction
+├── Short-term (30-90 days): stabilize and protect
+├── Medium-term (3-12 months): debt reduction, savings build
+├── Long-term (1-5 years): goals — homeownership, retirement, education
+└── Member-acknowledged written plan
+
+STEP 4: Internal Referrals (no product steering)
+├── Loan Officer: consolidation if it serves the member
+├── Financial Advisor: investment/retirement when stable
+└── Member Services Rep: account-level changes
+
+STEP 5: External Referrals (Acute Crisis)
+├── NFCC-member credit counseling agency for DMP
+├── Community resources: food, utility assistance, legal aid
+└── Document referral and follow-up cadence
+
+STEP 6: Follow-Up & Outcome Tracking
+├── 30 / 60 / 90-day check-ins
+├── Track DTI, savings rate, credit score, NSF frequency
+└── Close-out memo with outcome
+```
+
+### 19.4 Quality Gate
+
+**Gate Keeper**: Financial Wellness Advisor + Financial Advisor
+
+| Criterion | Threshold | Evidence |
+|-----------|-----------|----------|
+| Written plan in member file | 100% of engagements | Plan document |
+| FCRA authorization on file (if credit pulled) | 100% | Signed authorization |
+| No product steering / UDAAP issues | 100% | Compliance audit sample |
+| Outcome metrics tracked | 100% | Outcome dashboard |
+| Member satisfaction with engagement | ≥ 4.5/5.0 | Post-session survey |
+
+**Output**: Member with documented plan, measurable financial improvement, and a strengthened relationship with the credit union.
+
+---
+
+## 20. Workflow Q — Core System Conversion
+
+> **Objective**: Execute a core banking system migration that protects member data, maintains regulatory compliance throughout the transition, and delivers a reliable go-live with zero data loss and zero compliance gaps. Core conversions are the highest-risk IT events a credit union undertakes — every phase is gated, every risk is documented, and no go-live proceeds without evidence of readiness.
+
+### 20.1 Active Agents
+
+| Agent | Role | Primary Output |
+|-------|------|----------------|
+| **CTO** | Conversion sponsor and architect | Vendor selection; conversion plan |
+| **Core Systems Administrator** | Conversion lead and gate keeper | Validated data conversion; live system |
+| **CIO** | Information security and data governance | Security and data integrity sign-off |
+| **CFO** | Budget, GL mapping, financial reporting validation | GL parity post-cutover |
+| **Compliance Officer** | Regulatory reporting continuity (HMDA, Call Report) | Compliance reporting validated |
+| **Internal Auditor** | Independent test and stage-gate review | Independent sign-off at each gate |
+| **BSA Officer** | BSA monitoring continuity | BSA data and rules validated |
+| **CEO** | Project sponsor and external comms | Board, member, and regulator communications |
+
+### 20.2 Sequence (Stage-Gated)
+
+```
+PHASE 1: Vendor Selection (CTO + CFO)
+├── RFP to qualified vendors; SOC 2 review; reference checks
+├── TCO and contract review (legal counsel)
+└── Board approval of selected vendor
+
+PHASE 2: Requirements & Project Planning (CTO + CIO + Core Systems Admin)
+├── Detailed scope; data mapping; integration inventory
+├── Project plan with stage gates and risk register
+└── Notify members per NCUA material service change rules
+
+PHASE 3: Build & Configuration (Core Systems Admin + Software Engineer)
+├── Configure new core; implement integrations
+├── BSA monitoring rules ported; OFAC screening intact
+└── HMDA, Call Report, and GL mapping validated
+
+PHASE 4: Test (Core Systems Admin + Internal Auditor + Compliance Officer)
+├── Functional testing; data conversion validation; reconciliation
+├── Parallel run; performance and DR testing
+└── BSA Officer, CFO, Compliance, Audit independent sign-offs
+
+PHASE 5: Cutover (CTO + Core Systems Admin)
+├── Go/no-go gate review with stage-gate handoff (template #16)
+├── Cutover weekend; member-facing communication active
+├── Fallback plan validated and ready
+└── Day-1 stabilization with elevated monitoring
+
+PHASE 6: Stabilization (90 days)
+├── Defect triage; performance tuning
+├── Member experience monitoring; concierge support
+└── Internal Auditor post-conversion review
+
+PHASE 7: Closeout
+├── Legacy system data archive per BSA retention
+├── Lessons learned to board
+└── Final regulator notification of completion
+```
+
+### 20.3 Quality Gate
+
+**Gate Keeper**: Core Systems Administrator + Compliance Officer
+
+| Criterion | Threshold | Evidence |
+|-----------|-----------|----------|
+| Stage-gate sign-off at each phase | 100% | Gate review memos (handoff #16) |
+| Data conversion variance within tolerance | ≤ policy threshold | Reconciliation report |
+| Parallel run completed and reconciled | Required | Parallel run report |
+| Fallback plan validated | Required | Fallback test record |
+| Member notice per NCUA material service change | 100% | Notice records |
+| BSA, HMDA, GL continuity validated | 100% | Validation reports |
+
+**Output**: Live new core with validated data, continuous compliance, and documented lessons learned.
+
+---
+
+## 21. Agent Coordination Matrix
+
+### 21.1 Cross-Function Dependency Map
+
+This matrix shows which agents produce outputs consumed by other agents. Read as: **Row agent produces → Column agent consumes**. The matrix below covers the core continuous-operation agents; extended-workflow agents (Fraud Detection Analyst, Regulatory Affairs Analyst, Loan Underwriting Analyst, Financial Wellness Advisor, Member Concierge, Collections Strategist, Competitive Intelligence Analyst, IT Systems Administrator, COO, CTO, CIO) carry their own dependency maps inside the H–Q playbooks. The Critical Handoff Pairs table in §21.2 enumerates the highest-traffic cross-function exchanges spanning all 17 workflows.
 
 ```
 PRODUCER →          │ LEN │ MSR │ DEP │ BSA │ COM │ COL │ FIN │ MKT │ EXC │ AUD
@@ -725,7 +1407,7 @@ COL=Collections | FIN=Finance/CFO | MKT=Marketing | EXC=Executive/CEO | AUD=Audi
 ● = Active dependency
 ```
 
-### 11.2 Critical Handoff Pairs
+### 21.2 Critical Handoff Pairs
 
 | From | To | Artifact | Frequency |
 |------|----|----------|-----------|
@@ -754,9 +1436,9 @@ COL=Collections | FIN=Finance/CFO | MKT=Marketing | EXC=Executive/CEO | AUD=Audi
 
 ---
 
-## 12. Handoff Protocols
+## 22. Handoff Protocols
 
-### 12.1 Standard Credit Union Handoff Template
+### 22.1 Standard Credit Union Handoff Template
 
 Every agent-to-agent handoff must include:
 
@@ -789,7 +1471,7 @@ Every agent-to-agent handoff must include:
 - **Handoff to next**: [Who receives the output next]
 ```
 
-### 12.2 Compliance Exception Protocol
+### 22.2 Compliance Exception Protocol
 
 When a compliance issue is identified mid-workflow:
 
@@ -816,7 +1498,7 @@ When a compliance issue is identified mid-workflow:
 **Timeline**: [Immediate / Same day / 24 hours]
 ```
 
-### 12.3 Member Hardship Escalation Protocol
+### 22.3 Member Hardship Escalation Protocol
 
 When a member indicates financial distress at any workflow stage:
 
@@ -847,9 +1529,9 @@ When a member indicates financial distress at any workflow stage:
 
 ---
 
-## 13. Quality Gates
+## 23. Quality Gates
 
-### 13.1 Gate Summary by Workflow
+### 23.1 Gate Summary by Workflow
 
 | Workflow | Gate Name | Gate Keeper | Pass Criteria |
 |----------|-----------|-------------|---------------|
@@ -871,7 +1553,7 @@ When a member indicates financial distress at any workflow stage:
 | P: Financial Wellness | Member Outcome Gate | Financial Wellness Advisor + Financial Advisor | Documented plan, member-acknowledged, follow-up scheduled |
 | Q: Core Conversion | Conversion Readiness Gate | Core Systems Administrator + Compliance Officer | Data validation, parallel run, fallback plan, regulator notice |
 
-### 13.2 Gate Failure Handling
+### 23.2 Gate Failure Handling
 
 ```
 IF gate FAILS:
@@ -884,9 +1566,9 @@ IF gate FAILS:
 
 ---
 
-## 14. Risk Management
+## 24. Risk Management
 
-### 14.1 Risk Categories and Owners
+### 24.1 Risk Categories and Owners
 
 | Risk Category | Primary Owner | Mitigation Agent | Escalation Path |
 |---------------|--------------|-------------------|-----------------|
@@ -903,7 +1585,7 @@ IF gate FAILS:
 | Strategic / Competitive Risk | CEO | Competitive Intelligence Analyst | Board |
 | Technology / Conversion Risk | CTO | Core Systems Administrator + Internal Auditor | CEO + Board |
 
-### 14.2 Risk Response Matrix
+### 24.2 Risk Response Matrix
 
 | Severity | Response Time | Decision Authority | Action |
 |----------|--------------|-------------------|--------|
@@ -914,9 +1596,9 @@ IF gate FAILS:
 
 ---
 
-## 15. Success Metrics
+## 25. Success Metrics
 
-### 15.1 Workflow Efficiency Metrics
+### 25.1 Workflow Efficiency Metrics
 
 | Metric | Target | Measurement Agent |
 |--------|--------|-------------------|
@@ -927,7 +1609,7 @@ IF gate FAILS:
 | Reg E dispute resolution | 100% within 45 days | Deposit Operations Manager |
 | CTR filing timeliness | 100% within 15 days | BSA Officer |
 
-### 15.2 Financial Performance Metrics
+### 25.2 Financial Performance Metrics
 
 | Metric | Target | Measurement Agent |
 |--------|--------|-------------------|
@@ -938,7 +1620,7 @@ IF gate FAILS:
 | Net charge-off rate | ≤ credit union peer average | Risk Manager |
 | Efficiency ratio | ≤ 70% (target varies by asset size) | CFO |
 
-### 15.3 Member Experience Metrics
+### 25.3 Member Experience Metrics
 
 | Metric | Target | Measurement Agent |
 |--------|--------|-------------------|
@@ -948,7 +1630,7 @@ IF gate FAILS:
 | Products per member | ≥ peer average | Branch Manager |
 | Digital adoption rate | ≥ 70% of members | Core Systems Administrator |
 
-### 15.4 Compliance Metrics
+### 25.4 Compliance Metrics
 
 | Metric | Target | Measurement Agent |
 |--------|--------|-------------------|
@@ -960,9 +1642,9 @@ IF gate FAILS:
 
 ---
 
-## 16. Quick-Start Activation Guide
+## 26. Quick-Start Activation Guide
 
-### 16.1 CANVAS-Full Activation (Strategic Initiative or Exam Cycle)
+### 26.1 CANVAS-Full Activation (Strategic Initiative or Exam Cycle)
 
 ```
 Activate Credit Union CEO in CANVAS-Full mode for [INITIATIVE/EXAM CYCLE].
@@ -976,7 +1658,7 @@ Quality gates between every stage. Documentation required for all decisions.
 Escalation protocol: Material issues to CEO within 24 hours.
 ```
 
-### 16.2 CANVAS-Process Activation (Single Workflow)
+### 26.2 CANVAS-Process Activation (Single Workflow)
 
 ```
 Activate [LEAD AGENT] for [WORKFLOW NAME] on [MEMBER/ACCOUNT/SCOPE].
@@ -989,7 +1671,7 @@ Complete workflow with documentation at each step.
 Quality gate verification required before workflow completion.
 ```
 
-### 16.3 CANVAS-Micro Activation (Specific Transaction or Issue)
+### 26.3 CANVAS-Micro Activation (Specific Transaction or Issue)
 
 ```bash
 # Member Dispute Resolution:
