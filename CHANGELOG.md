@@ -5,6 +5,23 @@ All notable changes to CANVAS (Credit Union Agent Network for Value, Advice, and
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - TBD
+
+### Added
+
+**Self-Improvement Protocol — Agents that improve the system itself**
+
+- **Retrospective Agent**: Analyzes past simulation runs, generates lessons learned after each release cycle
+- **Gap Analysis Agent**: Compares simulation capabilities against real-world CU operations and industry benchmarks
+- **Competitive Intel Agent**: Monitors fintech/CU industry, scrapes conferences/Reddit, surfaces emerging patterns
+- **Member Persona Agent**: Synthesizes synthetic member profiles, tests features against realistic journeys
+- **Game Theory Evaluation Agent**: Models incentive structures, catches gaming/exploitation scenarios, validates cooperative alignment
+- **Roadmap Synthesis Agent**: Aggregates insights from all analysis agents, generates prioritized enhancement proposals
+
+**Protocol Flow**: Competitive Intel → Gap Analysis → Roadmap Synthesis → Build → Retrospective → repeat
+
+---
+
 ## [2.0.1] - 2026-04-05
 
 ### Added
