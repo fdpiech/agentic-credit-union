@@ -16,7 +16,7 @@ Use for any agent-to-agent work transfer within any workflow.
 |-------|-------|
 | **From** | [Agent Name] ([Function]) |
 | **To** | [Agent Name] ([Function]) |
-| **Workflow** | [Workflow A–G / Cross-workflow] |
+| **Workflow** | [Workflow A–Q / Cross-workflow] |
 | **Member / Account Reference** | [Member # / Account # / Loan #] |
 | **Priority** | [Urgent / Standard / Routine] |
 | **Timestamp** | [YYYY-MM-DDTHH:MM:SSZ] |
@@ -146,7 +146,7 @@ Use when any agent identifies member financial distress at any workflow stage.
 ```markdown
 ## Member Hardship Referral — CANVAS
 
-**Initiating Agent**: [Agent Name] | **Workflow**: [A through G]
+**Initiating Agent**: [Agent Name] | **Workflow**: [A through Q]
 **Member**: [Name] | **Member #**: [Number] | **Date**: [Date]
 **Products affected**: [List all delinquent or at-risk accounts]
 
@@ -423,6 +423,225 @@ Compliance Officer will begin examination preparation: [Q3 / Date]
 
 ---
 
+## 12. Fraud Detection → Card Services — Confirmed Card Fraud Handoff
+
+Use when Fraud Detection Analyst confirms card-channel fraud (Workflows H/I).
+
+```markdown
+## Fraud Detection → Card Services Handoff
+
+**Fraud Detection Analyst**: [Name] | **Date/Time identified**: [Timestamp]
+**Member**: [Name] | **Member #**: [Number] | **Card last 4**: [####]
+**Card type**: [ ] Debit  [ ] Credit  [ ] Prepaid
+
+### Fraud Pattern
+- Detection source: [Card network alert / Member report / Internal monitoring / BSA pattern]
+- Transactions in scope: [List date, merchant, amount]
+- Estimated exposure: $[Amount]
+- Reg E classification: [ ] Unauthorized  [ ] Authorized but disputed  [ ] Under evaluation
+
+### Member Status
+- Member contacted: [YES — date/time / NO — attempt scheduled]
+- Account secured: [YES / NO]
+- Provisional credit eligibility: [Eligible — Day 10 deadline / Not eligible — reason]
+
+### Card Services Actions Required
+- [ ] Block compromised card immediately
+- [ ] Issue replacement card — expedited if member-facing impact
+- [ ] File chargeback per network timeline ([Visa / Mastercard / Other])
+- [ ] Update fraud loss tracker
+- [ ] Coordinate with BSA Officer if pattern indicates SAR potential
+
+### Compliance Flags
+- Reg E provisional credit clock: Started [Date], due [Date + 10 business days]
+- BSA SAR evaluation: [Triggered / Not triggered]
+- FCRA: No adverse credit reporting on disputed amounts during investigation
+```
+
+---
+
+## 13. IT Security → CIO + Compliance Officer — Security Incident Notification
+
+Use for any confirmed or suspected cybersecurity incident (Workflow J).
+
+```markdown
+## IT Security Incident Notification — CANVAS
+
+**From**: IT Infrastructure Engineer | **To**: CIO, Compliance Officer, CEO
+**Date/Time detected**: [Timestamp] | **Severity**: [ ] P0 Critical [ ] P1 High [ ] P2 Medium
+
+### Incident Summary
+**Type**: [Ransomware / Data exfiltration / Account compromise / DDoS / Phishing / Insider / Other]
+**Systems affected**: [Core / Online banking / Email / ATM network / Specific application]
+**Members affected (if any)**: [Estimated count or "none confirmed"]
+**Data exposure**: [None / PII suspected / PII confirmed / Cardholder data]
+**Detection source**: [SIEM alert / EDR / User report / Vendor / Third party]
+
+### Containment Status
+- [ ] Affected systems isolated
+- [ ] Credentials rotated
+- [ ] External network connections monitored
+- [ ] Forensic evidence preserved
+- [ ] Backup integrity verified
+
+### Regulatory Clocks
+- NCUA Part 748 Appendix B notification: 72-hour clock — [Start time / Notification deadline]
+- State breach notification laws: [Applicable / Not applicable / Under evaluation]
+- GLBA Safeguards rule notification: [If applicable]
+- Cyber insurance carrier notification: [Notified / Pending]
+
+### Required CIO / Compliance / CEO Decisions
+- [ ] Engage external incident response firm (Y/N)
+- [ ] Engage outside counsel (Y/N)
+- [ ] Member notification — content, channel, timing
+- [ ] Regulator notification — draft language and timing
+- [ ] Board notification timing
+- [ ] Public communication (if applicable)
+
+### Follow-Up
+**Next status update due**: [Time] from IT Infrastructure Engineer
+**Incident commander**: [Name]
+```
+
+---
+
+## 14. BSA Officer → Compliance Officer — SAR Filing Decision
+
+Use when BSA Officer reaches a SAR file/no-file decision (Workflow K).
+
+```markdown
+## SAR Filing Decision Memo — CANVAS
+
+**BSA Officer**: [Name] | **Date**: [Date]
+**Alert ID**: [Number] | **Subject account(s)**: [Account #s]
+**Subject member(s)**: [Member #s — confidential]
+**Trigger date**: [Date alert generated] | **30-day decision deadline**: [Date]
+
+### Activity Summary
+[Factual narrative of suspicious activity — amounts, dates, counterparties, pattern]
+
+### Investigation Steps Completed
+- [ ] Transaction history reviewed
+- [ ] Member relationship reviewed
+- [ ] OFAC/314(a) re-screened
+- [ ] Source of funds analysis
+- [ ] Counterparty research (where possible)
+- [ ] Prior alerts on this member reviewed
+
+### Decision
+- [ ] **FILE SAR** — narrative attached, FinCEN BSA E-Filing submission target: [Date]
+- [ ] **NO FILE** — rationale documented; alert closed in BSA case management
+
+### If FILE
+- Continuing activity review schedule: [90 days / 120 days / Other]
+- Account restrictions: [None / Hold / Close]
+- Law enforcement contact (if applicable): [Agency / Case #]
+
+### Compliance Officer Concurrence
+**Compliance Officer**: [Name] | **Concurs**: [YES / NO] | **Date**: [Date]
+**CEO notification (if material)**: [Date / Not material]
+
+### CONFIDENTIALITY
+SAR existence and contents are confidential under 31 U.S.C. § 5318(g)(2).
+Tipping off the subject is a CRIMINAL VIOLATION. Never discuss SAR with the member or any party outside the BSA/compliance team.
+```
+
+---
+
+## 15. Vendor Management → CIO / Legal — Vendor Onboarding Package
+
+Use to hand off a completed due diligence package for final approval (Workflow M).
+
+```markdown
+## Vendor Onboarding Handoff — CANVAS
+
+**Risk Manager**: [Name] | **Date**: [Date]
+**Vendor**: [Name] | **Service category**: [Core / Cloud / Card / Lending / Marketing / Other]
+**Criticality tier**: [ ] Critical  [ ] Significant  [ ] Standard
+**Contract value**: $[Annual] | **Term**: [Years]
+
+### Due Diligence Status
+- [ ] SOC 2 Type II reviewed — date issued: [Date], CPA firm: [Name]
+- [ ] Financial condition reviewed (audited financials / D&B / public)
+- [ ] Insurance certificates verified (E&O, cyber, general liability)
+- [ ] Business continuity / DR plan reviewed
+- [ ] Information security questionnaire completed
+- [ ] References checked: [Number]
+- [ ] Subcontractor (4th party) inventory obtained
+
+### Compliance & Risk Review
+- Data classification handled: [PII / NPI / Cardholder / Public]
+- GLBA Safeguards Rule applicability: [YES / NO]
+- BSA/AML implications: [Yes — describe / None]
+- Concentration risk: [Single point of failure analysis]
+- Exit / termination plan: [Documented / Pending]
+
+### Required Approvals
+- [ ] Risk Manager (this memo)
+- [ ] CIO — data and technology risk sign-off
+- [ ] Compliance Officer — regulatory sign-off
+- [ ] Legal counsel — contract review
+- [ ] CEO — for Critical tier
+- [ ] Board — if required by policy
+
+### Ongoing Monitoring
+**Annual review month**: [Month]
+**SOC 2 refresh expected**: [Date]
+**Performance review cadence**: [Quarterly / Semi-annual]
+```
+
+---
+
+## 16. Core Conversion PMO Handoff — Stage Gate Sign-off
+
+Use at each stage gate during a Workflow Q core system conversion.
+
+```markdown
+## Core Conversion Stage Gate Handoff — CANVAS
+
+**From**: CTO / Core Systems Administrator | **To**: CEO + Compliance Officer + Internal Auditor
+**Conversion**: [From core / To core] | **Stage**: [ ] RFP  [ ] Contract  [ ] Build  [ ] Test  [ ] Cutover  [ ] Stabilization
+**Gate review date**: [Date]
+
+### Stage Deliverables Completed
+- [ ] Stage scope completed per plan
+- [ ] Defects closed or risk-accepted with documentation
+- [ ] Member impact assessed and mitigated
+- [ ] Staff training on new functionality complete
+- [ ] Compliance validation (HMDA, NCUA Call Report, GL mapping)
+
+### Test Evidence (if test gate)
+- Functional test results: [Pass count / Fail count]
+- Data conversion validation: [Reconciliation status — variance %]
+- Parallel run dates: [Start / End / Variance]
+- Performance test results: [Throughput vs. target]
+- Disaster recovery test: [Completed / Scheduled]
+
+### Risk Assessment
+- Open critical defects: [Number]
+- Open high defects: [Number]
+- Member-impacting open items: [Number]
+- Fallback plan validated: [YES / NO]
+- Go/no-go criteria met: [YES / NO / Conditional]
+
+### Compliance Sign-off
+- [ ] Compliance Officer — regulatory reporting validated
+- [ ] Internal Auditor — independent test sample reviewed
+- [ ] BSA Officer — BSA monitoring continuity confirmed
+- [ ] CFO — GL and financial reporting mapping confirmed
+
+### Decision Required
+- [ ] APPROVE — proceed to next stage
+- [ ] APPROVE WITH CONDITIONS — conditions listed below
+- [ ] HOLD — remediation required
+- [ ] ROLL BACK — execute fallback plan
+
+**Conditions / Remediation**: [Description, owner, target date]
+**Next gate review**: [Date]
+```
+
+---
+
 ## Usage Guide
 
 | Situation | Template to Use |
@@ -438,3 +657,8 @@ Compliance Officer will begin examination preparation: [Q3 / Date]
 | ALCO rate change to implement | CFO → Branch Manager Rate Sheet (#9) |
 | Material compliance issue | Compliance Officer → CEO Escalation (#10) |
 | Examination results to board | CEO → Board Presentation (#11) |
+| Confirmed card fraud (Workflows H/I) | Fraud Detection → Card Services (#12) |
+| Cybersecurity incident (Workflow J) | IT Security → CIO + Compliance (#13) |
+| SAR file/no-file decision (Workflow K) | BSA Officer → Compliance Officer (#14) |
+| Vendor onboarding due diligence (Workflow M) | Vendor Management → CIO/Legal (#15) |
+| Core conversion stage gate (Workflow Q) | Core Conversion PMO Stage Gate (#16) |

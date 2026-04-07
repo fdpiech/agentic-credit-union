@@ -58,38 +58,43 @@ Credit union operations span dozens of interconnected processes — lending, dep
 
 ### 1.3 The Agent Roster by Function
 
+CANVAS coordinates **35 specialist agents** across 12 functional areas. The C-suite sets direction; functional leads execute workflows; risk, compliance, and audit gate every regulated step.
+
 | Function | Agents | Primary CANVAS Role |
 |----------|--------|---------------------|
-| **Executive / Strategy** | CEO, CFO | Strategic direction, financial governance, board management |
-| **Lending** | Loan Officer, Business Lending Officer, Mortgage Loan Processor | Originate, underwrite, and close consumer, business, and real estate loans |
-| **Member Services** | Member Services Representative, Financial Advisor | Onboard members, service accounts, provide financial guidance |
+| **Executive / C-Suite** | CEO, CFO, CHRO, COO, CTO, CIO | Strategic direction, financial governance, talent, operations, technology, and information strategy |
+| **Lending** | Loan Officer, Business Lending Officer, Mortgage Loan Processor, Loan Underwriting Analyst | Originate, underwrite, and close consumer, business, and real estate loans |
+| **Member Services** | Member Services Representative, Financial Advisor, Financial Wellness Advisor, Member Concierge | Onboard members, service accounts, deliver financial guidance and wellness coaching, resolve complex cross-functional issues |
 | **Operations** | Deposit Operations Manager, Card Services Specialist | Manage deposit products, card programs, and back-office operations |
-| **Risk & Compliance** | Compliance Officer, Risk Manager, BSA Officer | Regulatory compliance, risk management, anti-money laundering |
-| **Collections** | Collections Specialist | Delinquency management and loan recovery |
-| **Human Resources** | CHRO | Talent management, culture, and staff development |
-| **Technology** | Core Systems Administrator, IT Infrastructure Engineer, Database Administrator, Software Engineer, IT Services Manager, RPA & Automation Engineer, Business Intelligence Analyst | Systems reliability, security, and technology operations |
+| **Risk & Compliance** | Compliance Officer, Risk Manager, BSA Officer, Fraud Detection Analyst, Regulatory Affairs Analyst | Regulatory compliance, enterprise risk, anti-money laundering, fraud detection, and regulatory horizon scanning |
+| **Collections** | Collections Specialist, Collections Strategist | Delinquency management, workouts, recovery strategy, and portfolio loss mitigation |
 | **Branch** | Branch Manager | Front-line member experience, branch operations, and team leadership |
-| **Finance** | CFO | Financial reporting, ALCO, budget management, capital planning |
-| **Marketing** | Marketing Manager | Member growth, product promotion, and community presence |
+| **Marketing & Strategy** | Marketing Manager, Competitive Intelligence Analyst | Member growth, product promotion, community presence, and competitive/market intelligence |
 | **Audit** | Internal Auditor | Independent assurance, exam support, and governance |
+| **Technology** | Core Systems Administrator, IT Infrastructure Engineer, Database Administrator, Software Engineer, IT Services Manager, IT Systems Administrator, RPA & Automation Engineer, Business Intelligence Analyst | Systems reliability, security, automation, data, and technology operations |
+
+> **Coordination research**: Multi-agent cooperation patterns (trust scoring, Shapley value attribution) used to design CANVAS handoffs are documented in `agentic-credit-union/research/game-theory.md`.
 
 ---
 
 ## 2. The CANVAS Operating Model
 
-### 2.1 The Seven Core Workflows
+### 2.1 The Seventeen Workflows
+
+CANVAS defines **seven core workflows (A–G)** that every credit union runs continuously, plus **ten specialized workflows (H–Q)** that activate for specific risk events, growth initiatives, and transformations. Every workflow embeds the same compliance gates, context-preservation rules, and escalation paths.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                        CANVAS WORKFLOWS                                  │
+│                  CANVAS WORKFLOWS (A–G CORE)                            │
+│  A Member Onboarding   B Loan Origination   C Mortgage Processing       │
+│  D Collections         E Deposit Operations F Compliance & Exam         │
+│  G Annual Strategic Planning                                            │
 │                                                                         │
-│  Workflow A        Workflow B          Workflow C       Workflow D      │
-│  MEMBER       ──▶  LOAN           ──▶  MORTGAGE    ──▶  COLLECTIONS    │
-│  ONBOARDING        ORIGINATION         PROCESSING        & RECOVERY     │
-│                                                                         │
-│  Workflow E        Workflow F          Workflow G                       │
-│  DEPOSIT      ──▶  COMPLIANCE     ──▶  ANNUAL                          │
-│  OPERATIONS        & EXAM              PLANNING                         │
+│                  CANVAS WORKFLOWS (H–Q SPECIALIZED)                     │
+│  H Fraud & Dispute    I Card Services      J IT Security & Incident     │
+│  K BSA/AML & SAR      L New Product Launch M Vendor Management          │
+│  N Branch Operations  O Merger & Acquisition                            │
+│  P Member Financial Wellness  Q Core System Conversion                  │
 │                                                                         │
 │  ◆ Compliance gate embedded in every workflow                           │
 │  ◆ Member history carried across all workflows                          │
@@ -136,15 +141,34 @@ CANVAS supports three deployment configurations:
 
 ### 3.1 Workflow Overview and Quality Gates
 
+**Core workflows (A–G)** — always-on, run continuously:
+
 | Workflow | Primary Agents | Gate Keeper | Cycle Time |
 |----------|---------------|-------------|-----------|
 | A: Member Onboarding | Member Services Rep, BSA Officer | Compliance Officer | Same day – 3 days |
-| B: Loan Origination | Loan Officer, Compliance Officer | Loan Officer + Risk Manager | 1-7 days |
+| B: Loan Origination | Loan Officer, Loan Underwriting Analyst, Compliance Officer | Loan Officer + Risk Manager | 1-7 days |
 | C: Mortgage Processing | Mortgage Loan Processor, Loan Officer | Mortgage Loan Processor | 15-45 days |
-| D: Collections & Recovery | Collections Specialist, Loan Officer | Collections Specialist | Ongoing |
+| D: Collections & Recovery | Collections Specialist, Collections Strategist, Loan Officer | Collections Specialist | Ongoing |
 | E: Deposit Operations | Deposit Operations Manager, BSA Officer | Deposit Operations Manager | Same day – 5 days |
-| F: Compliance & Examination | Compliance Officer, Internal Auditor | Compliance Officer | Annual cycle |
-| G: Annual Strategic Planning | CEO, CFO, Branch Manager | CEO + Board | Annual cycle |
+| F: Compliance & Examination | Compliance Officer, Internal Auditor, Regulatory Affairs Analyst | Compliance Officer | Annual cycle |
+| G: Annual Strategic Planning | CEO, CFO, COO, CTO, CIO, Branch Manager | CEO + Board | Annual cycle |
+
+**Specialized workflows (H–Q)** — activate on event, initiative, or transformation:
+
+| Workflow | Primary Agents | Gate Keeper | Cycle Time | Playbook |
+|----------|---------------|-------------|-----------|----------|
+| H: Fraud Detection & Dispute Resolution | Fraud Detection Analyst, Card Services Specialist, Deposit Operations Mgr, BSA Officer | Fraud Detection Analyst + Compliance Officer | 1 day – 45 days (Reg E) | `playbooks/workflow-h-fraud-dispute.md` |
+| I: Card Services & Fraud Monitoring | Card Services Specialist, Fraud Detection Analyst | Card Services Specialist + Fraud Detection Analyst | Same day – 120 days (chargebacks) | `playbooks/workflow-i-card-services.md` |
+| J: IT Security & Incident Response | IT Infrastructure Engineer, CIO, Core Systems Admin, Compliance Officer | IT Infrastructure Engineer + Compliance Officer | Hours – Annual (program) | `playbooks/workflow-j-it-security.md` |
+| K: BSA/AML Monitoring & SAR Filing | BSA Officer, Fraud Detection Analyst, Compliance Officer | BSA Officer + Compliance Officer | Same day (CTR/OFAC) – 60 days (SAR) | `playbooks/workflow-k-bsa-aml.md` |
+| L: New Product/Service Launch | Compliance Officer, CEO, Marketing Manager, Risk Manager, CFO | Compliance Officer + CEO | 4 weeks – 12 months | `playbooks/workflow-l-new-product-launch.md` |
+| M: Vendor Management & Due Diligence | Risk Manager, Compliance Officer, CIO, Internal Auditor | Risk Manager + Compliance Officer | 4–12 weeks (onboard) – Annual review | `playbooks/workflow-m-vendor-management.md` |
+| N: Branch Operations & Expansion | Branch Manager, CEO, COO, Compliance Officer | Branch Manager + Compliance Officer | 3–12 months (new branch) | `playbooks/workflow-n-branch-operations.md` |
+| O: Merger & Acquisition | CEO, CFO, COO, Risk Manager, Compliance Officer, Internal Auditor | CEO + Compliance Officer | 12–24 months | `playbooks/workflow-o-merger-acquisition.md` |
+| P: Member Financial Wellness | Financial Wellness Advisor, Financial Advisor, Member Services Rep | Financial Wellness Advisor + Financial Advisor | 1 session – 12 months coaching | `playbooks/workflow-p-financial-wellness.md` |
+| Q: Core System Conversion | CTO, Core Systems Administrator, CIO, Compliance Officer, Internal Auditor | Core Systems Administrator + Compliance Officer | 6–18 months | `playbooks/workflow-q-core-system-conversion.md` |
+
+> **Doctrine vs. playbooks**: Sections 4–10 of this document narrate workflows A–G in full because they are continuous operations every staff member must internalize. Workflows H–Q are documented as standalone playbooks in `strategy/playbooks/` because they activate situationally and the playbook is the primary working artifact. All seventeen share the CANVAS handoff, gate, and escalation rules defined in Sections 11–14.
 
 ### 3.2 Cross-Workflow Integration Points
 
@@ -706,14 +730,26 @@ COL=Collections | FIN=Finance/CFO | MKT=Marketing | EXC=Executive/CEO | AUD=Audi
 | From | To | Artifact | Frequency |
 |------|----|----------|-----------|
 | Loan Officer | Compliance Officer | Completed loan file for adverse action review | Per application |
+| Loan Underwriting Analyst | Loan Officer | Credit recommendation on complex/exception files | Per referral |
 | BSA Officer | Compliance Officer | SAR filing decisions and CTR reports | Per event |
+| Fraud Detection Analyst | Card Services Specialist | Confirmed card fraud — block, reissue, chargeback | Per alert |
+| Fraud Detection Analyst | BSA Officer | Fraud pattern indicating SAR potential | Per pattern |
 | Mortgage Loan Processor | Loan Officer | Processing condition clearance | Per loan |
+| Collections Specialist | Collections Strategist | Portfolio segmentation and workout strategy refresh | Monthly |
 | Collections Specialist | Risk Manager | Charge-off recommendation | Per event |
 | CFO | Branch Manager | Rate sheet and product pricing | Per ALCO cycle |
 | Compliance Officer | CEO | Examination findings and material issues | Per finding |
+| Regulatory Affairs Analyst | Compliance Officer | Regulatory horizon and effective-date calendar | Continuous |
 | Risk Manager | CFO | Loan loss reserve recommendation | Monthly |
+| Risk Manager | CIO | Vendor due diligence findings (Workflow M) | Per vendor |
+| CIO | CEO | Information strategy and data governance posture | Quarterly |
+| CTO | CEO | Technology roadmap and core conversion status (Workflow Q) | Quarterly |
+| COO | CEO | Operational performance and branch network status | Monthly |
+| IT Infrastructure Engineer | CIO + Compliance Officer | Security incident notifications (Workflow J) | Per incident |
 | Internal Auditor | Compliance Officer | Audit findings with management response requests | Per audit |
-| Member Services Rep | Financial Advisor | Member needs discovery referral | Per eligible interaction |
+| Member Services Rep | Financial Wellness Advisor | Member needs discovery referral with hardship indicators | Per eligible interaction |
+| Member Concierge | Any agent | Cross-functional escalation for members with multi-touch unresolved issues | Per case |
+| Competitive Intelligence Analyst | CEO + Marketing Manager | Market and peer benchmarking briefs | Monthly |
 | CEO | Board | Strategic plan, financial results, risk summary | Monthly/Quarterly |
 
 ---
@@ -730,7 +766,7 @@ Every agent-to-agent handoff must include:
 ### Metadata
 - **From**: [Agent Name] ([Function])
 - **To**: [Agent Name] ([Function])
-- **Workflow**: [Workflow A-G / Cross-workflow]
+- **Workflow**: [Workflow A–Q / Cross-workflow]
 - **Member / Account Reference**: [Member # / Account # / Loan #]
 - **Priority**: [Urgent / Standard / Routine]
 - **Timestamp**: [ISO 8601]
@@ -760,7 +796,7 @@ When a compliance issue is identified mid-workflow:
 ```markdown
 ## Compliance Exception Report
 
-### Workflow: [A-G] | Step: [Step name]
+### Workflow: [A–Q] | Step: [Step name]
 ### Severity: [ ] Stop immediately [ ] Correct before proceeding [ ] Monitor
 
 ### Issue Identified
@@ -824,6 +860,16 @@ When a member indicates financial distress at any workflow stage:
 | E: Deposit Operations | BSA/AML Gate | Deposit Ops Manager + BSA Officer | CTR/SAR obligations met, Reg E resolved |
 | F: Compliance | Examination Readiness Gate | Compliance Officer + Internal Auditor | Testing complete, findings closed, documents assembled |
 | G: Annual Planning | Board Adoption Gate | CEO + Board | Plan adopted, budget approved, goals set |
+| H: Fraud & Dispute | Reg E / Fraud Resolution Gate | Fraud Detection Analyst + Compliance Officer | Provisional credit on time, dispute resolved within 45 days |
+| I: Card Services | Card Network Compliance Gate | Card Services Specialist + Fraud Detection Analyst | Chargeback timelines honored, fraud blocks documented |
+| J: IT Security & Incident | Incident Response Gate | IT Infrastructure Engineer + Compliance Officer | Containment complete, NCUA Part 748 notification on time |
+| K: BSA/AML & SAR | SAR/CTR Filing Gate | BSA Officer + Compliance Officer | CTR within 15 days, SAR within 30 days, board reporting |
+| L: New Product Launch | Product Risk & Compliance Gate | Compliance Officer + CEO | Compliance review complete, board approval, disclosures filed |
+| M: Vendor Management | Third-Party Risk Gate | Risk Manager + Compliance Officer | SOC 2 reviewed, contract reviewed, ongoing monitoring scheduled |
+| N: Branch Operations | Branch Readiness Gate | Branch Manager + Compliance Officer | Site, staff, security, and signage compliant before opening |
+| O: Merger & Acquisition | Member & Regulatory Approval Gate | CEO + Compliance Officer | Member vote, NCUA approval, regulatory filings complete |
+| P: Financial Wellness | Member Outcome Gate | Financial Wellness Advisor + Financial Advisor | Documented plan, member-acknowledged, follow-up scheduled |
+| Q: Core Conversion | Conversion Readiness Gate | Core Systems Administrator + Compliance Officer | Data validation, parallel run, fallback plan, regulator notice |
 
 ### 13.2 Gate Failure Handling
 
@@ -844,16 +890,18 @@ IF gate FAILS:
 
 | Risk Category | Primary Owner | Mitigation Agent | Escalation Path |
 |---------------|--------------|-------------------|-----------------|
-| Credit Risk | Loan Officer | Risk Manager | CFO + CEO |
-| Compliance Risk | Compliance Officer | Internal Auditor | CEO + Board |
+| Credit Risk | Loan Officer | Loan Underwriting Analyst + Risk Manager | CFO + CEO |
+| Compliance Risk | Compliance Officer | Internal Auditor + Regulatory Affairs Analyst | CEO + Board |
 | BSA/AML Risk | BSA Officer | Compliance Officer | CEO + FinCEN (as required) |
+| Fraud Risk | Fraud Detection Analyst | Card Services Specialist + BSA Officer | CEO + Law Enforcement |
 | Interest Rate Risk | CFO | Risk Manager | ALCO + Board |
 | Liquidity Risk | CFO | Deposit Operations Manager | CEO + Board |
-| Operational Risk | Core Systems Administrator | Branch Manager | CEO |
-| Fraud Risk | BSA Officer | Collections Specialist | CEO + Law Enforcement |
-| Reputation Risk | CEO | Marketing Manager | Board |
-| Cybersecurity Risk | Core Systems Administrator | Compliance Officer | CEO + Board |
-| Third-Party Risk | Compliance Officer | Core Systems Administrator | CEO |
+| Operational Risk | COO | Branch Manager + Core Systems Admin | CEO |
+| Reputation Risk | CEO | Marketing Manager + Member Concierge | Board |
+| Cybersecurity Risk | CIO | IT Infrastructure Engineer + Compliance Officer | CEO + Board |
+| Third-Party / Vendor Risk | Risk Manager | CIO + Compliance Officer | CEO |
+| Strategic / Competitive Risk | CEO | Competitive Intelligence Analyst | Board |
+| Technology / Conversion Risk | CTO | Core Systems Administrator + Internal Auditor | CEO + Board |
 
 ### 14.2 Risk Response Matrix
 
@@ -933,7 +981,7 @@ Escalation protocol: Material issues to CEO within 24 hours.
 ```
 Activate [LEAD AGENT] for [WORKFLOW NAME] on [MEMBER/ACCOUNT/SCOPE].
 
-Workflow: [A through G]
+Workflow: [A through Q]
 Starting step: [Step name]
 Member context: [Member # and relevant history]
 Compliance flags: [Any active regulatory clocks or flags]
@@ -969,11 +1017,15 @@ Quality gate verification required before workflow completion.
 
 ## Appendix A: Agent Quick Reference
 
-### Executive / Strategy
+### Executive / C-Suite
 | Agent | Superpower | Activation Trigger |
 |-------|-----------|-------------------|
 | Credit Union CEO | Strategic vision, board governance, community leadership | Any enterprise-level decision or strategic initiative |
 | CFO | Financial modeling, ALCO, capital planning | Any financial decision, budget, or rate-setting event |
+| CHRO | Talent, culture, compliance training | HR issue, hiring decision, staff development |
+| COO | Operational performance, branch network, process efficiency | Any cross-functional operations issue or workflow N |
+| CTO | Technology roadmap, core platform, conversions | Technology strategy, workflow Q, vendor architecture |
+| CIO | Information strategy, data governance, cybersecurity posture | Data, security, and information-strategy decisions |
 
 ### Lending Division
 | Agent | Superpower | Activation Trigger |
@@ -981,12 +1033,15 @@ Quality gate verification required before workflow completion.
 | Loan Officer | Credit analysis, TILA, fair lending, loan closing | Any consumer or small business loan application |
 | Business Lending Officer | Commercial underwriting, SBA, C&I and CRE | Business loan or line of credit application |
 | Mortgage Loan Processor | TRID compliance, secondary market, file processing | Any mortgage application |
+| Loan Underwriting Analyst | Complex credit analysis, exception evaluation, second-look | Complex files, policy exceptions, loan committee prep |
 
 ### Member Services
 | Agent | Superpower | Activation Trigger |
 |-------|-----------|-------------------|
 | Member Services Representative | Account opening, service, onboarding, cross-sell | Any member-facing account transaction or inquiry |
 | Financial Advisor | Financial planning, investment, retirement, debt coaching | Member with complex financial goals or hardship |
+| Financial Wellness Advisor | Budget coaching, debt management plans, financial literacy | Workflow P, hardship referrals, member-requested coaching |
+| Member Concierge | Cross-functional issue resolution, white-glove escalation | Members with multi-touch unresolved issues |
 
 ### Risk & Compliance
 | Agent | Superpower | Activation Trigger |
@@ -994,6 +1049,8 @@ Quality gate verification required before workflow completion.
 | Compliance Officer | CMS, ECOA, UDAAP, TILA, exam management | Any regulatory question; new product review; pre-exam |
 | BSA Officer | AML, CIP, SAR/CTR, OFAC, 314(a) | Any new account, large cash transaction, or suspicious pattern |
 | Risk Manager | Credit risk, interest rate risk, operational risk | Loan exception, charge-off, capital decision |
+| Fraud Detection Analyst | Fraud pattern detection, dispute investigation, Reg E triage | Suspicious transaction, member-reported fraud, workflow H |
+| Regulatory Affairs Analyst | Regulatory horizon, rulemaking tracking, comment letters | New rule, proposed rulemaking, effective-date planning |
 | Internal Auditor | Independent testing, governance, exam support | Annual audit cycle; management requests; exam prep |
 
 ### Operations
@@ -1002,9 +1059,11 @@ Quality gate verification required before workflow completion.
 | Deposit Operations Manager | Account processing, Reg CC, Reg E, Truth in Savings | Any deposit product operation, exception, or dispute |
 | Card Services Specialist | Debit/credit card programs, fraud, chargebacks | Card disputes, fraud alerts, program management |
 | Collections Specialist | Delinquency, workouts, recovery, FDCPA | Any account past due 5+ days |
+| Collections Strategist | Portfolio segmentation, workout program design, loss forecasting | Portfolio review, workout policy, loss-mitigation strategy |
 | Core Systems Administrator | Core systems, cybersecurity, NCUA Part 748, IS program | Core banking issues, security events, EOD processing, vendor management |
 | IT Infrastructure Engineer | Network, servers, cloud, ATM connectivity, DR | Network outages, infrastructure incidents, DR testing |
 | Database Administrator | Database performance, integrity, backup/recovery | Data issues, query performance, DB incidents |
+| IT Systems Administrator | Endpoint management, identity, system provisioning | User access, system configuration, internal IT operations |
 | Software Engineer | Applications, API integrations, open banking | Integration failures, new fintech partnerships, app development |
 | RPA & Automation Engineer | Process automation, bots, regulatory data automation | Automation incidents, new process automation requests |
 | Business Intelligence Analyst | Management reporting, dashboards, HMDA data | Management reports, regulatory data, analytics requests |
@@ -1013,6 +1072,6 @@ Quality gate verification required before workflow completion.
 ### Human Resources & Branch
 | Agent | Superpower | Activation Trigger |
 |-------|-----------|-------------------|
-| CHRO | Talent acquisition, culture, performance, compliance training | Any HR issue, hiring decision, or staff development |
 | Branch Manager | Front-line operations, member experience, team leadership | Branch performance, staff issues, member escalations |
 | Marketing Manager | Member acquisition, product promotion, community presence | Growth campaigns, new product launch, community events |
+| Competitive Intelligence Analyst | Peer benchmarking, market scanning, fintech tracking | Strategic planning, pricing decisions, threat assessment |

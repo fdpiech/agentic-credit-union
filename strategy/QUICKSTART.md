@@ -6,7 +6,7 @@
 
 ## What is CANVAS?
 
-**CANVAS** (Credit Union Agent Network for Value, Advice, and Service) turns the credit union's AI specialists into a coordinated operational pipeline. Instead of activating agents one at a time and hoping they work together, CANVAS defines exactly who does what, when, and how compliance is verified at every step.
+**CANVAS** (Credit Union Agent Network for Value, Advice, and Service) turns the credit union's **35 specialist AI agents** into a coordinated operational pipeline across **17 workflows (A–Q)**. Instead of activating agents one at a time and hoping they work together, CANVAS defines exactly who does what, when, and how compliance is verified at every step.
 
 ## Choose Your Mode
 
@@ -46,7 +46,7 @@ Regulatory deadlines tracked and honored.
 ```
 Activate [LEAD AGENT] for [WORKFLOW NAME] on [MEMBER/ACCOUNT/SCOPE].
 
-Workflow: [A through G]
+Workflow: [A through Q]
 Starting step: [Step name]
 Member context: [Member # and relevant history]
 Compliance flags: [Any active regulatory clocks or flags]
@@ -150,6 +150,16 @@ CEO notified if material compliance issue identified.
 | **Workflow E Playbook** | Deposit operations & BSA/AML | `agentic-credit-union/strategy/playbooks/workflow-e-deposit-operations.md` |
 | **Workflow F Playbook** | Compliance & NCUA exam cycle | `agentic-credit-union/strategy/playbooks/workflow-f-compliance-examination.md` |
 | **Workflow G Playbook** | Annual strategic planning | `agentic-credit-union/strategy/playbooks/workflow-g-annual-strategic-planning.md` |
+| **Workflow H Playbook** | Fraud detection & dispute resolution | `agentic-credit-union/strategy/playbooks/workflow-h-fraud-dispute.md` |
+| **Workflow I Playbook** | Card services & fraud monitoring | `agentic-credit-union/strategy/playbooks/workflow-i-card-services.md` |
+| **Workflow J Playbook** | IT security & incident response | `agentic-credit-union/strategy/playbooks/workflow-j-it-security.md` |
+| **Workflow K Playbook** | BSA/AML monitoring & SAR filing | `agentic-credit-union/strategy/playbooks/workflow-k-bsa-aml.md` |
+| **Workflow L Playbook** | New product/service launch | `agentic-credit-union/strategy/playbooks/workflow-l-new-product-launch.md` |
+| **Workflow M Playbook** | Vendor management & due diligence | `agentic-credit-union/strategy/playbooks/workflow-m-vendor-management.md` |
+| **Workflow N Playbook** | Branch operations & expansion | `agentic-credit-union/strategy/playbooks/workflow-n-branch-operations.md` |
+| **Workflow O Playbook** | Merger & acquisition | `agentic-credit-union/strategy/playbooks/workflow-o-merger-acquisition.md` |
+| **Workflow P Playbook** | Member financial wellness | `agentic-credit-union/strategy/playbooks/workflow-p-financial-wellness.md` |
+| **Workflow Q Playbook** | Core system conversion | `agentic-credit-union/strategy/playbooks/workflow-q-core-system-conversion.md` |
 | **Activation Prompts** | Ready-to-use agent prompts | `agentic-credit-union/strategy/coordination/agent-activation-prompts.md` |
 | **Handoff Templates** | Standardized handoff formats | `agentic-credit-union/strategy/coordination/handoff-templates.md` |
 | **Exam Preparation Runbook** | NCUA examination cycle | `agentic-credit-union/strategy/runbooks/scenario-exam-preparation.md` |
