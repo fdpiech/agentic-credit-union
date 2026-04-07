@@ -112,14 +112,24 @@ agentic-credit-union/
     ├── EXECUTIVE-BRIEF.md              ← You are here
     ├── QUICKSTART.md                   ← 5-minute activation guide
     ├── cu-strategy.md                  ← Complete operational doctrine
-    ├── playbooks/
+    ├── playbooks/                                ← 17 workflow playbooks (A–Q)
     │   ├── workflow-a-member-onboarding.md       ← Member onboarding & CIP
     │   ├── workflow-b-loan-origination.md        ← Consumer loan origination
     │   ├── workflow-c-mortgage-processing.md     ← Mortgage TRID processing
     │   ├── workflow-d-collections-recovery.md    ← Collections & loss mitigation
     │   ├── workflow-e-deposit-operations.md      ← Deposit ops & BSA/AML
     │   ├── workflow-f-compliance-examination.md  ← CMS & NCUA exam cycle
-    │   └── workflow-g-annual-strategic-planning.md ← Strategic planning & budget
+    │   ├── workflow-g-annual-strategic-planning.md ← Strategic planning & budget
+    │   ├── workflow-h-fraud-dispute.md           ← Fraud detection & dispute resolution
+    │   ├── workflow-i-card-services.md           ← Card services & fraud monitoring
+    │   ├── workflow-j-it-security.md             ← IT security & incident response
+    │   ├── workflow-k-bsa-aml.md                 ← BSA/AML monitoring & SAR filing
+    │   ├── workflow-l-new-product-launch.md      ← New product/service launch
+    │   ├── workflow-m-vendor-management.md       ← Vendor management & due diligence
+    │   ├── workflow-n-branch-operations.md       ← Branch operations & expansion
+    │   ├── workflow-o-merger-acquisition.md      ← Merger & acquisition
+    │   ├── workflow-p-financial-wellness.md      ← Member financial wellness
+    │   └── workflow-q-core-system-conversion.md  ← Core system conversion
     ├── coordination/
     │   ├── agent-activation-prompts.md ← Ready-to-use agent prompts
     │   └── handoff-templates.md        ← Standardized handoff formats
@@ -132,4 +142,4 @@ agentic-credit-union/
 
 ---
 
-*CANVAS: 35 Agents. 7 Workflows. One Unified Credit Union Strategy.*
+*CANVAS: 35 Agents. 17 Workflows. One Unified Credit Union Strategy.*
