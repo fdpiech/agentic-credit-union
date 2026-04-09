@@ -263,6 +263,23 @@ Travel notification process:
 
 ---
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Fraud Alert Triage | Fraud Detection & Security Analyst | Execute | Compliance/Regulatory |
+| 2. Card Suspension & Member Contact | Card Services Specialist | Execute | Operational |
+| 2. Card Suspension & Member Contact | Fraud Detection & Security Analyst | Advise | Compliance/Regulatory |
+| 3. Chargeback Processing | Card Services Specialist | Execute | Operational |
+| 4. Card Reissue & Case Closure | Card Services Specialist | Execute | Operational |
+| 4. Card Reissue & Case Closure | Fraud Detection & Security Analyst | Advise | Compliance/Regulatory |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Card Services Performance Metrics
 
 | Metric | Target | Measurement Frequency |

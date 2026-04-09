@@ -376,6 +376,31 @@ Board notification: Any material vendor termination or significant contract chan
 
 ---
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Vendor Need Identification | Risk Manager | Execute | Credit/Financial + Escalation |
+| 1. Vendor Need Identification | Branch Manager | Advise | Operational + Escalation |
+| 2. Initial Due Diligence | Risk Manager | Execute | Credit/Financial + Escalation |
+| 2. Initial Due Diligence | IT Infrastructure Engineer | Advise | Operational |
+| 3. Vendor Risk Assessment | Risk Manager | Execute | Credit/Financial + Escalation |
+| 3. Vendor Risk Assessment | Compliance Officer | Advise | Compliance/Regulatory + Escalation |
+| 4. Contract Review & Negotiation | Compliance Officer | Execute | Compliance/Regulatory + Escalation |
+| 4. Contract Review & Negotiation | CFO | Advise | Credit/Financial + Escalation |
+| 5. Board Approval (material vendor) | CEO | Gate | Escalation |
+| 6. Onboarding & Implementation | Core Systems Administrator | Execute | Operational |
+| 6. Onboarding & Implementation | IT Infrastructure Engineer | Advise | Operational |
+| 7. Ongoing Monitoring — Annual | Risk Manager | Execute | Credit/Financial + Escalation |
+| 8. Contract Renewal / Termination | Risk Manager | Execute | Credit/Financial + Escalation |
+| 8. Contract Renewal / Termination | CFO | Advise | Credit/Financial + Escalation |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Performance Metrics
 
 | Metric | Definition | Target | Measurement Frequency |

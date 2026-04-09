@@ -364,6 +364,24 @@ Compliance Officer examination coordination:
 
 ---
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Transaction Monitoring Alert Review | BSA Officer | Execute | Compliance/Regulatory |
+| 2. SAR Investigation | BSA Officer | Execute | Compliance/Regulatory |
+| 2. SAR Investigation | Member Services Representative | Advise | Operational |
+| 2. SAR Investigation | Compliance Officer | Advise | Compliance/Regulatory + Escalation |
+| 3. SAR Decision & Filing | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+| 4. CTR Processing & OFAC Screening | BSA Officer | Execute | Compliance/Regulatory |
+| 5. BSA Program Examination Support | BSA Officer | Execute | Compliance/Regulatory |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Handoff Templates
 
 ### Any Agent → BSA Officer (Suspicious Activity Referral)

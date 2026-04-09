@@ -408,6 +408,34 @@ Timeline: Full integration milestone report to board at 12 months post-closing
 
 ---
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Target Identification & Initial Assessment | CEO | Execute | Escalation |
+| 1. Target Identification & Initial Assessment | CFO | Advise | Credit/Financial + Escalation |
+| 2. Letter of Intent | CEO | Gate | Escalation |
+| 3. Due Diligence — Financial | CFO | Execute | Credit/Financial + Escalation |
+| 3. Due Diligence — Financial | Internal Auditor | Advise | Compliance/Regulatory |
+| 4. Due Diligence — Compliance & Legal | Compliance Officer | Execute | Compliance/Regulatory + Escalation |
+| 4. Due Diligence — Compliance & Legal | BSA Officer | Advise | Compliance/Regulatory |
+| 5. Due Diligence — Technology | Core Systems Administrator | Execute | Operational |
+| 5. Due Diligence — Technology | IT Infrastructure Engineer | Advise | Operational |
+| 6. Regulatory Pre-Application Meeting | Compliance Officer | Execute | Compliance/Regulatory + Escalation |
+| 6. Regulatory Pre-Application Meeting | CEO | Advise | Escalation |
+| 7. NCUA Merger Application | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+| 8. Member Communication & Vote | Marketing Manager | Execute | Operational |
+| 8. Member Communication & Vote | CEO | Advise | Escalation |
+| 9. Conversion Planning | Core Systems Administrator | Execute | Operational |
+| 9. Conversion Planning | Deposit Operations Manager | Advise | Operational |
+| 10. Post-Merger Integration | CEO | Gate | Escalation |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Merger & Acquisition Performance Metrics
 
 | Metric | Target | Measurement Frequency |

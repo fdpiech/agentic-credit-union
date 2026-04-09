@@ -422,6 +422,26 @@ Timeline: Annual report presented to board at December meeting (or year-end comm
 
 ---
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Annual Compliance Program Review | Compliance Officer | Execute | Compliance/Regulatory + Escalation |
+| 1. Annual Compliance Program Review | Internal Auditor | Advise | Compliance/Regulatory |
+| 2. BSA/AML Program Review | BSA Officer | Execute | Compliance/Regulatory |
+| 2. BSA/AML Program Review | Compliance Officer | Advise | Compliance/Regulatory + Escalation |
+| 3. Independent Audit Testing | Internal Auditor | Execute | Compliance/Regulatory |
+| 3. Independent Audit Testing | Compliance Officer | Advise | Compliance/Regulatory + Escalation |
+| 4. Findings Remediation & Exam Prep | Compliance Officer | Execute | Compliance/Regulatory + Escalation |
+| 4. Findings Remediation & Exam Prep | BSA Officer | Advise | Compliance/Regulatory |
+| 5. Board Compliance Briefing | CEO | Gate | Escalation |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Compliance Program Performance Metrics
 
 | Metric | Target | Measurement Frequency |

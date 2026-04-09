@@ -339,6 +339,27 @@ Compliance Officer final sign-off:
 
 ---
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Application & Loan Estimate | Loan Officer | Execute | Credit/Financial |
+| 1. Application & Loan Estimate | Compliance Officer | Advise | Compliance/Regulatory |
+| 2. Processing — Document Collection | Mortgage Loan Processor | Execute | Operational |
+| 3. Compliance — TRID & HMDA Check | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+| 4. Underwriting & Conditions | Loan Officer | Execute | Credit/Financial |
+| 4. Underwriting & Conditions | Risk Manager | Advise | Credit/Financial + Escalation |
+| 5. Closing Preparation — Closing Disclosure | Mortgage Loan Processor | Execute | Operational |
+| 5. Closing Preparation — Closing Disclosure | Compliance Officer | Advise | Compliance/Regulatory |
+| 6. Closing, Funding & Post-Close | Mortgage Loan Processor | Execute | Operational |
+| 6. Closing, Funding & Post-Close | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## TRID Timing Reference Card
 
 | Milestone | Timing Requirement | What Resets the Clock |

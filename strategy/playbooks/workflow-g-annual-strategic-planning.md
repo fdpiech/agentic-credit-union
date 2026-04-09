@@ -477,6 +477,28 @@ Possible actions:
 
 ---
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Environmental Scan | CEO | Execute | Escalation |
+| 1. Environmental Scan | CFO | Advise | Credit/Financial + Escalation |
+| 1. Environmental Scan | Compliance Officer | Advise | Compliance/Regulatory + Escalation |
+| 2. Financial Feasibility | CFO | Execute | Credit/Financial + Escalation |
+| 2. Financial Feasibility | Risk Manager | Advise | Credit/Financial + Escalation |
+| 3. Strategic Prioritization | CEO | Execute | Escalation |
+| 3. Strategic Prioritization | CFO | Advise | Credit/Financial + Escalation |
+| 3. Strategic Prioritization | Branch Manager | Advise | Operational + Escalation |
+| 4. Annual Budget | CFO | Execute | Credit/Financial + Escalation |
+| 4. Annual Budget | CEO | Advise | Escalation |
+| 5. Board Adoption | CEO | Gate | Escalation |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Handoff: CEO to Board (Strategic Plan Presentation)
 
 ```markdown

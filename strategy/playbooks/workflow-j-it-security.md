@@ -434,6 +434,26 @@ Board sign-off: Board resolution acknowledging annual security program report re
 
 ---
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Incident Detection & Triage | IT Infrastructure Engineer | Execute | Operational |
+| 1. Incident Detection & Triage | Compliance Officer | Advise | Compliance/Regulatory + Escalation |
+| 1. Incident Detection & Triage | CEO | Advise | Escalation |
+| 2. Containment | Core Systems Administrator | Execute | Operational |
+| 2. Containment | IT Infrastructure Engineer | Advise | Operational |
+| 3. Eradication & Recovery | IT Infrastructure Engineer | Execute | Operational |
+| 3. Eradication & Recovery | Core Systems Administrator | Advise | Operational |
+| 4. Regulatory Notification Assessment | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+| 5. Post-Incident Review & Board Report | CEO | Gate | Escalation |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Performance Metrics
 
 | Metric | Target | Measurement Frequency |
