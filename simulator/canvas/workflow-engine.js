@@ -19,11 +19,30 @@ export class WorkflowEngine {
     display.info(`Member: ${ctx.memberName} (${ctx.memberId})`);
     display.divider();
 
-    for (let i = 0; i < workflow.steps.length; i++) {
-      const step = workflow.steps[i];
+    await this.executeSteps(workflow.steps, workflow, ctx, scenario);
+
+    // Final quality gate — evaluated as-is, no retry (summary gate)
+    if (workflow.finalGate && ctx.status !== 'rolled-back') {
+      display.sectionHeader('FINAL QUALITY GATE');
+      const gateResult = await this.evaluateGate(workflow.finalGate, ctx);
+      display.gateCheck(workflow.finalGate.name, gateResult.passed, gateResult.details);
+      ctx.addGateResult(gateResult);
+    }
+
+    if (ctx.status === 'running') ctx.setStatus('completed');
+    display.summary(ctx);
+    return ctx;
+  }
+
+  // Core step executor — shared by main workflow and exception paths
+  async executeSteps(steps, workflow, ctx, scenario) {
+    for (let i = 0; i < steps.length; i++) {
+      // Halt if a previous gate paused or rolled back the workflow
+      if (ctx.status === 'paused' || ctx.status === 'rolled-back') break;
+
+      const step = steps[i];
       display.stepHeader(i + 1, step.name, step.agentName, step.agentId);
 
-      // Build system prompt from agent definition
       const agent = this.agents[step.agentId];
       if (!agent) {
         display.error(`Agent not found: ${step.agentId}`);
@@ -58,14 +77,12 @@ export class WorkflowEngine {
           });
         }
 
-        // Process quality gates
+        // Process quality gates with retry and fallback dispatch
         if (step.gate) {
-          const gateResult = await this.evaluateGate(step.gate, ctx);
-          display.gateCheck(step.gate.name, gateResult.passed, gateResult.details);
-          ctx.addGateResult(gateResult);
+          const gateResult = await this.evaluateGateWithRetry(step.gate, ctx);
 
           if (!gateResult.passed && step.gate.critical) {
-            display.error(`Critical gate failed. Workflow may need remediation.`);
+            // Always escalate on critical gate failure
             if (step.gate.escalateTo) {
               display.escalation({
                 to: step.gate.escalateTo,
@@ -76,6 +93,37 @@ export class WorkflowEngine {
                 gate: step.gate.name,
                 reason: gateResult.details,
               });
+            }
+
+            if (gateResult.exhausted) {
+              const outcome = step.gate.onFailure || 'pause';
+              ctx.addFailureRecord({
+                gateName: step.gate.name,
+                attempts: gateResult.attempts,
+                outcome,
+                details: gateResult.details,
+              });
+
+              if (outcome === 'exception-path' && step.gate.exceptionPath) {
+                const exSteps = workflow.exceptionPaths?.[step.gate.exceptionPath];
+                if (exSteps?.length) {
+                  display.exceptionBranch(step.gate.name, step.gate.exceptionPath);
+                  ctx.setCurrentExceptionPath(step.gate.exceptionPath);
+                  await this.executeSteps(exSteps, workflow, ctx, scenario);
+                } else {
+                  display.error(`Exception path "${step.gate.exceptionPath}" not found — falling back to pause.`);
+                  display.workflowPaused(step.gate.name, gateResult.details);
+                  ctx.setStatus('paused');
+                }
+              } else if (outcome === 'rollback') {
+                display.workflowRollback(step.gate.name, gateResult.details);
+                ctx.setStatus('rolled-back');
+              } else {
+                // 'pause' (default)
+                display.workflowPaused(step.gate.name, gateResult.details);
+                ctx.setStatus('paused');
+              }
+              break;
             }
           }
         }
@@ -100,17 +148,82 @@ export class WorkflowEngine {
         });
       }
     }
+  }
 
-    // Final quality gate
-    if (workflow.finalGate) {
-      display.sectionHeader('FINAL QUALITY GATE');
-      const gateResult = await this.evaluateGate(workflow.finalGate, ctx);
-      display.gateCheck(workflow.finalGate.name, gateResult.passed, gateResult.details);
-      ctx.addGateResult(gateResult);
+  // Gate evaluation with per-gate retry policy
+  // Regulatory gates (type: 'regulatory'): 0 retries — fail once, escalate and halt
+  // Routine gates (type: 'routine' or unset): 1 retry — re-evaluate after deficiency noted
+  // retryPolicy.maxRetries overrides the type-based default
+  async evaluateGateWithRetry(gate, ctx) {
+    const isRegulatory = gate.type === 'regulatory';
+    const defaultRetries = isRegulatory ? 0 : 1;
+    const maxRetries = gate.retryPolicy?.maxRetries ?? defaultRetries;
+
+    let attempt = 0;
+    let lastResult;
+
+    while (attempt <= maxRetries) {
+      if (attempt > 0) {
+        display.gateRetry(gate.name, attempt, maxRetries);
+      }
+      lastResult = await this.evaluateGate(gate, ctx);
+      display.gateCheck(gate.name, lastResult.passed, lastResult.details);
+      ctx.addGateResult({ ...lastResult, attempt });
+      if (lastResult.passed) return { ...lastResult, attempts: attempt + 1, exhausted: false };
+      attempt++;
     }
 
-    display.summary(ctx);
-    return ctx;
+    return { ...lastResult, attempts: attempt, exhausted: true };
+  }
+
+  async evaluateGate(gate, ctx) {
+    // In mock mode, use rule-based gate evaluation
+    if (this.llm.mock) {
+      return this.evaluateGateMock(gate, ctx);
+    }
+
+    // In live mode, ask LLM to evaluate
+    const systemPrompt = `You are a quality gate evaluator for the CANVAS multi-agent credit union framework.
+Evaluate whether the quality gate criteria have been met based on the workflow context.
+Respond with ONLY a JSON object: {"passed": boolean, "details": string}`;
+
+    const userPrompt = `## Quality Gate: ${gate.name}
+
+Criteria:
+${gate.criteria || 'All steps completed successfully.'}
+
+## Workflow Context
+${JSON.stringify(ctx.toHandoffContext(), null, 2)}
+
+Evaluate whether this gate passes or fails.`;
+
+    try {
+      const response = await this.llm.chat(systemPrompt, userPrompt, 'Gate Evaluator', gate.name);
+      const jsonMatch = response.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        return JSON.parse(jsonMatch[0]);
+      }
+      return { passed: true, details: response.substring(0, 200) };
+    } catch {
+      return { passed: false, details: 'Gate evaluation failed: parse error — requires manual review' };
+    }
+  }
+
+  evaluateGateMock(gate, ctx) {
+    // forceFail flag allows test scenarios to exercise failure paths in mock mode
+    if (gate.forceFail) {
+      return {
+        passed: false,
+        details: gate.forceFailReason || 'Forced gate failure for scenario testing.',
+      };
+    }
+    const passed = ctx.steps.length > 0 && !ctx.steps.some(s => s.error);
+    return {
+      passed,
+      details: passed
+        ? `All ${ctx.steps.length} steps completed successfully. Documentation archived.`
+        : 'One or more steps had errors. Review required.',
+    };
   }
 
   buildSystemPrompt(agent, workflow, ctx) {
@@ -158,50 +271,6 @@ Respond in character as ${agent.name}. Use the CANVAS handoff templates and deli
     }
 
     return prompt;
-  }
-
-  async evaluateGate(gate, ctx) {
-    // In mock mode, use rule-based gate evaluation
-    if (this.llm.mock) {
-      return this.evaluateGateMock(gate, ctx);
-    }
-
-    // In live mode, ask LLM to evaluate
-    const systemPrompt = `You are a quality gate evaluator for the CANVAS multi-agent credit union framework.
-Evaluate whether the quality gate criteria have been met based on the workflow context.
-Respond with ONLY a JSON object: {"passed": boolean, "details": string}`;
-
-    const userPrompt = `## Quality Gate: ${gate.name}
-
-Criteria:
-${gate.criteria || 'All steps completed successfully.'}
-
-## Workflow Context
-${JSON.stringify(ctx.toHandoffContext(), null, 2)}
-
-Evaluate whether this gate passes or fails.`;
-
-    try {
-      const response = await this.llm.chat(systemPrompt, userPrompt, 'Gate Evaluator', gate.name);
-      const jsonMatch = response.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        return JSON.parse(jsonMatch[0]);
-      }
-      return { passed: true, details: response.substring(0, 200) };
-    } catch {
-      return { passed: false, details: 'Gate evaluation failed: parse error — requires manual review' };
-    }
-  }
-
-  evaluateGateMock(gate, ctx) {
-    // Simple rule-based: pass if all expected steps completed
-    const passed = ctx.steps.length > 0 && !ctx.steps.some(s => s.error);
-    return {
-      passed,
-      details: passed
-        ? `All ${ctx.steps.length} steps completed successfully. Documentation archived.`
-        : 'One or more steps had errors. Review required.',
-    };
   }
 }
 
@@ -351,6 +420,8 @@ export const WORKFLOWS = {
           critical: true,
           escalateTo: 'ceo',
           authority: ['compliance-regulatory', 'escalation'],
+          type: 'regulatory',
+          onFailure: 'pause',
         },
       },
       {
@@ -391,12 +462,47 @@ export const WORKFLOWS = {
           critical: true,
           escalateTo: 'ceo',
           authority: ['compliance-regulatory', 'escalation'],
+          type: 'routine',
+          onFailure: 'exception-path',
+          exceptionPath: 'exception-underwriting',
         },
       },
     ],
     finalGate: {
       name: 'Loan Funding Complete Gate',
       criteria: 'All quality criteria met. Loan file examination-ready. Both Loan Officer and Compliance Officer sign-off obtained.',
+    },
+    exceptionPaths: {
+      'exception-underwriting': [
+        {
+          name: 'Exception Underwriting Review',
+          agentId: 'loan-underwriting-analyst',
+          agentName: 'Loan Underwriting Analyst',
+          mode: 'execute',
+          authority: ['credit-financial'],
+          description: 'Identify specific deficiencies from quality gate failure. Prepare exception request with compensating factors.',
+          prompt: 'The post-close quality gate has failed. Review all gate findings from the previous steps. Identify each deficiency by regulation and document precisely. Prepare an exception underwriting request with compensating factors for each finding. Distinguish between curable deficiencies (TILA inaccuracy, incomplete analysis worksheet) and uncurable ones (adverse action not issued within 30 days of application date). For uncurable findings, flag for immediate Compliance Officer and CEO notification.',
+          handoffTo: 'risk-manager',
+        },
+        {
+          name: 'Risk Manager Exception Decision',
+          agentId: 'risk-manager',
+          agentName: 'Risk Manager',
+          mode: 'gate',
+          authority: ['credit-financial', 'escalation'],
+          description: 'Evaluate exception request. Approve with conditions, require additional remediation, or escalate to CEO.',
+          prompt: 'Review the exception underwriting request from the Loan Underwriting Analyst. Each identified deficiency requires a disposition: (1) Approve with documented compensating factors and corrective timeline; (2) Require specific corrective action before approving — name the action and the person responsible; (3) Escalate to CEO if the finding is systemic, uncurable, or creates material regulatory exposure. Document your disposition for each finding individually. No bundled approvals.',
+          gate: {
+            name: 'Exception Underwriting Gate',
+            criteria: 'All post-close deficiencies dispositioned. Curable items have documented remediation plans with owners and timelines. Uncurable items escalated to CEO. No unresolved findings.',
+            critical: true,
+            escalateTo: 'ceo',
+            authority: ['credit-financial', 'escalation'],
+            type: 'routine',
+            onFailure: 'pause',
+          },
+        },
+      ],
     },
   },
 
@@ -447,6 +553,31 @@ export const WORKFLOWS = {
           critical: true,
           escalateTo: 'ceo',
           authority: ['compliance-regulatory', 'escalation'],
+          type: 'regulatory',
+          onFailure: 'pause',
+        },
+      },
+      {
+        name: 'Appraisal Review',
+        agentId: 'loan-officer',
+        agentName: 'Loan Officer',
+        mode: 'gate',
+        authority: ['credit-financial'],
+        advisors: [
+          { agentId: 'risk-manager', agentName: 'Risk Manager', authority: ['credit-financial', 'escalation'] },
+        ],
+        description: 'Review completed appraisal. Confirm appraised value supports contracted purchase price and LTV guidelines.',
+        prompt: 'Review the completed appraisal report. Compare the appraised value to the contracted purchase price. Calculate the resulting LTV. If appraised value >= purchase price: confirm LTV is within guidelines and clear for underwriting. If appraised value < purchase price: document the gap amount, calculate the LTV impact, identify whether the gap exceeds down payment tolerance, and issue a gate finding with specific numbers. Include appraisal report date, appraiser name, and comparable sales used.',
+        gate: {
+          name: 'Appraisal Support Gate',
+          criteria: 'Appraised value supports contracted purchase price. LTV within product guidelines. No material limiting conditions affecting marketability or value.',
+          critical: true,
+          escalateTo: 'risk-manager',
+          authority: ['credit-financial'],
+          type: 'routine',
+          retryPolicy: { maxRetries: 1 },
+          onFailure: 'exception-path',
+          exceptionPath: 'appraisal-exception',
         },
       },
       {
@@ -490,12 +621,46 @@ export const WORKFLOWS = {
           critical: true,
           escalateTo: 'compliance-officer',
           authority: ['compliance-regulatory', 'escalation'],
+          type: 'regulatory',
+          onFailure: 'pause',
         },
       },
     ],
     finalGate: {
       name: 'Mortgage Closing Complete Gate',
       criteria: 'TRID timing requirements met. CD accurate. All conditions satisfied. Lien recorded. File investor-ready.',
+    },
+    exceptionPaths: {
+      'appraisal-exception': [
+        {
+          name: 'Low Appraisal Options Analysis',
+          agentId: 'loan-officer',
+          agentName: 'Loan Officer',
+          mode: 'execute',
+          authority: ['credit-financial'],
+          description: 'Present member with all options when appraisal comes in below contract price.',
+          prompt: 'The appraisal has come in below the contracted purchase price. Present the member with all available paths forward: (1) Request Reconsideration of Value (ROV) — document specific comparable sales the appraiser may have missed, cite market data, and submit formal ROV to the AMC; (2) Increase down payment — calculate the exact additional amount required to bring LTV into guidelines and confirm member ability; (3) Renegotiate purchase price — explain seller negotiation and require updated purchase agreement; (4) Withdraw application — member elects to cancel, adverse action notice required. Document the gap amount, LTV impact, each option with specific numbers, and member\'s indicated preference. Note: if fees change due to this event, this is a Changed Circumstance requiring a revised Loan Estimate and new 3-business-day waiting period.',
+          handoffTo: 'risk-manager',
+        },
+        {
+          name: 'Risk Manager Appraisal Exception Decision',
+          agentId: 'risk-manager',
+          agentName: 'Risk Manager',
+          mode: 'gate',
+          authority: ['credit-financial', 'escalation'],
+          description: 'Evaluate the selected path and issue disposition with conditions.',
+          prompt: 'Review the low appraisal options analysis from the Loan Officer. Issue a disposition for the selected path: (1) ROV authorized — confirm specific comps were identified and submitted to AMC; note expected timeline and that underwriting is suspended pending ROV result; (2) Additional down payment approved — confirm new LTV meets policy, document exception basis if any LTV policy waiver required, note closing date impact; (3) Price renegotiation approved — require updated executed purchase agreement before re-underwriting, note TRID Changed Circumstance implications; (4) Denial confirmed — confirm adverse action notice will be issued within 30 days of application date with accurate reason codes. Document your disposition with conditions. Escalate to CEO if LTV exception exceeds your delegated authority.',
+          gate: {
+            name: 'Appraisal Exception Gate',
+            criteria: 'Selected exception path has documented disposition. All conditions specified. TRID Changed Circumstance identified if fees affected. Adverse action notice prepared if applicable.',
+            critical: true,
+            escalateTo: 'ceo',
+            authority: ['credit-financial', 'escalation'],
+            type: 'routine',
+            onFailure: 'pause',
+          },
+        },
+      ],
     },
   },
 

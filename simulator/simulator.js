@@ -120,6 +120,72 @@ const SCENARIOS = {
     workflow: 'G',
     context: 'Annual strategic planning cycle for FY2027. Board retreat scheduled for November. Key considerations: digital banking upgrade, potential branch expansion, rising interest rate environment, competitive pressure from fintech.',
   },
+
+  // ── Failure-path test scenarios ─────────────────────────────────────────────
+  // These scenarios use forceFail on gates to exercise exception paths and
+  // fallback outcomes in mock mode. Run with --mock to test without an API key.
+
+  'low-appraisal': {
+    name: 'Mortgage — Low Appraisal Exception Path',
+    workflow: 'C',
+    member: {
+      id: 'MBR-2022-01104',
+      name: 'Sarah & David Chen',
+      memberSince: '2022-06-20',
+      products: ['Joint Savings', 'Joint Checking', 'Auto Loan (paid)', 'Credit Card'],
+      creditScores: { sarah: 742, david: 728 },
+      combinedIncome: 11200,
+    },
+    loan: {
+      type: 'Conventional Mortgage — Purchase',
+      amount: 285000,
+      purpose: 'Primary residence purchase',
+      term: 360,
+      property: '421 Maple Avenue, Springfield, IL 62704',
+      purchasePrice: 310000,
+      downPayment: 25000,
+      appraisedValue: 285000,   // $25,000 below contract price
+      appraisalGap: 25000,
+      ltv_at_contract: '91.9%',
+      ltv_at_appraised: '100%', // exceeds guideline maximum
+    },
+    // forceFail injected on the Appraisal Support Gate to trigger exception path
+    _gateOverrides: {
+      'Appraisal Support Gate': {
+        forceFail: true,
+        forceFailReason: 'Appraised value $285,000 is $25,000 below contracted purchase price of $310,000. LTV at appraised value is 100%, exceeding product maximum of 95%. Two comparable sales used by appraiser are 18-24 months old and do not reflect current market. Reconsideration of Value recommended with recent comps.',
+      },
+    },
+  },
+
+  'loan-doc-exception': {
+    name: 'Loan Origination — Post-Close Exception Underwriting Path',
+    workflow: 'B',
+    member: {
+      id: 'MBR-2024-03291',
+      name: 'James Rodriguez',
+      memberSince: '2024-03-15',
+      products: ['Share Savings', 'Share Draft Checking', 'Debit Card'],
+      creditScore: 718,
+      employer: 'Springfield Manufacturing Inc.',
+      grossMonthlyIncome: 5200,
+    },
+    loan: {
+      type: 'Auto Loan Refinance',
+      amount: 18500,
+      purpose: 'Refinance existing auto loan at Big Bank (7.9% APR)',
+      term: 60,
+      collateral: '2022 Honda Civic — NADA value: $21,200',
+      existingLoan: { balance: 19200, rate: 7.9, payment: 389, lender: 'Big Bank' },
+    },
+    // forceFail injected on the Quality Gate to trigger exception underwriting path
+    _gateOverrides: {
+      'Loan Origination Quality Gate': {
+        forceFail: true,
+        forceFailReason: 'Post-close review identified two deficiencies: (1) Loan analysis worksheet missing payment-to-income ratio calculation — worksheet incomplete per policy; (2) TILA disclosure shows APR of 5.49% but rate note reflects 5.74% — tolerance violation of 0.25%. Both items require remediation before file can be considered examination-ready.',
+      },
+    },
+  },
 };
 
 // ═══════════════════════════════════════════════════════════════
@@ -306,6 +372,27 @@ async function main() {
   } else if (!process.env.OPENAI_API_KEY) {
     display.error('OPENAI_API_KEY not set. Use --mock for simulation mode.');
     process.exit(1);
+  }
+
+  // Apply gate overrides for failure-path test scenarios (mock mode only)
+  // _gateOverrides: { [gateName]: { forceFail, forceFailReason } }
+  if (opts.mock && scenario._gateOverrides) {
+    display.info(`Applying ${Object.keys(scenario._gateOverrides).length} gate override(s) for failure-path testing`);
+    for (const [gateName, override] of Object.entries(scenario._gateOverrides)) {
+      display.info(`  Gate override: "${gateName}" → forceFail=${override.forceFail}`);
+    }
+    // Patch the engine's evaluateGateMock to check scenario overrides
+    const origEvaluateGateMock = WorkflowEngine.prototype.evaluateGateMock;
+    WorkflowEngine.prototype.evaluateGateMock = function(gate, ctx) {
+      const override = scenario._gateOverrides[gate.name];
+      if (override?.forceFail) {
+        return {
+          passed: false,
+          details: override.forceFailReason || `Forced gate failure for scenario testing: ${gate.name}`,
+        };
+      }
+      return origEvaluateGateMock.call(this, gate, ctx);
+    };
   }
 
   // Run workflow

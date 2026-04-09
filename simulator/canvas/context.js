@@ -11,6 +11,10 @@ export class WorkflowContext {
     this.escalations = [];
     this.sharedState = {};
     this.startTime = new Date();
+    // Failure handling state
+    this.status = 'running'; // 'running' | 'paused' | 'exception-path' | 'rolled-back' | 'completed'
+    this.failureRecords = []; // { gateName, attempts, outcome, details, timestamp }
+    this.currentExceptionPath = null; // e.g. 'exception-underwriting'
   }
 
   addStep(stepResult) {
@@ -54,6 +58,22 @@ export class WorkflowContext {
     return this.sharedState[key];
   }
 
+  setStatus(status) {
+    this.status = status;
+  }
+
+  addFailureRecord(record) {
+    this.failureRecords.push({
+      ...record,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  setCurrentExceptionPath(name) {
+    this.currentExceptionPath = name;
+    this.status = 'exception-path';
+  }
+
   getStepHistory() {
     return this.steps.map(s => ({
       agent: s.agentName,
@@ -85,6 +105,9 @@ export class WorkflowContext {
       complianceFlags: this.complianceFlags.length,
       escalations: this.escalations.length,
       elapsedSeconds: parseFloat(elapsed),
+      status: this.status,
+      failureRecords: this.failureRecords.length,
+      exceptionPath: this.currentExceptionPath,
     };
   }
 }

@@ -222,4 +222,68 @@ Each workflow playbook contains a `## Step-Level Matrix` section with a complete
 
 ---
 
+## 8. Failure Handling Protocol
+
+Failure in a credit union is not an exception — it is Tuesday. Appraisals come in low. Members don't return calls. Documents are missing at closing. CIP can't verify an identity. The CANVAS failure handling protocol treats these scenarios as first-class workflow paths, not error conditions.
+
+### 8.1 Gate Types and Retry Policy
+
+Every gate carries a `type` designation that determines how many re-evaluations the workflow attempts before escalating to a fallback outcome.
+
+| Gate Type | Description | Retries | Trigger Examples |
+|-----------|-------------|---------|-----------------|
+| **Regulatory** | Governs statutory or regulatory requirement — a single failure is a compliance event that cannot be cured by re-evaluation alone | 0 | TRID timing gates, CIP/BSA compliance gate, ECOA/pre-decision compliance gate |
+| **Routine** | Governs process quality or completeness — a deficiency may be curable if the gate agent is given the specific finding and an opportunity to address it | 1 | Post-close quality gate, appraisal support gate, loan file completeness |
+
+**How retry works for routine gates:** On first failure, the gate evaluator receives the specific deficiency finding and re-evaluates. The gate agent is expected to either address the finding or confirm it is not addressable. One re-evaluation is allowed. If the gate still fails, retries are exhausted and the fallback outcome triggers.
+
+**`retryPolicy.maxRetries` overrides the type-based default** — a gate definition can explicitly set `retryPolicy: { maxRetries: 0 }` to suppress retries even for routine gates, or `retryPolicy: { maxRetries: 2 }` to allow more attempts for complex conditions gates.
+
+**Regulatory gates receive zero retries by design.** A TRID timing violation has already occurred by the time the gate evaluates it. Re-evaluation does not undo the violation — it only documents it more precisely. The correct response is immediate escalation and workflow halt pending regulatory counsel.
+
+### 8.2 Fallback Outcomes
+
+When a gate exhausts its retries, the workflow transitions to one of three defined outcomes:
+
+| Outcome | Behavior | When to Use |
+|---------|----------|-------------|
+| **`pause`** | Workflow execution stops. Status set to `paused`. Context preserved. Manual intervention required to continue or terminate. | Regulatory gate failures; conditions that require human judgment before proceeding |
+| **`rollback`** | Workflow execution stops. Status set to `rolled-back`. Compensating actions documented. Used when prior steps must be undone. | Funding disbursed before a condition was cleared; system boarding before CIP completed |
+| **`exception-path`** | Workflow branches to a defined exception step sequence. Status set to `exception-path`. Normal steps are abandoned. | Predictable alternative paths — low appraisal, document gap, borderline credit — where a known resolution process exists |
+
+**Default fallback is `pause`.** A gate without an explicit `onFailure` field pauses the workflow on failure. This is the safe default: it halts forward progress without destroying work and requires a human to make the next call.
+
+**Escalation always fires on critical gate failure**, regardless of whether a retry or fallback is configured. The escalation to the named authority (CEO, Risk Manager, Compliance Officer) happens at the moment of first failure and is not blocked by retries.
+
+### 8.3 Exception Paths and Degraded-Mode Operations
+
+An exception path is a named sequence of workflow steps that executes in place of the remaining normal steps when a gate triggers `exception-path`. Exception paths encode the degraded-mode operations that experienced credit union officers already know how to run — the CANVAS system just makes them explicit and auditable.
+
+**Exception paths are not failure.** They are known alternative routes through a workflow for predictable real-world scenarios. A loan origination that branches to exception underwriting is still producing a loan — it's producing it through a different approval chain. A mortgage that branches to appraisal exception handling is still working toward closing — it's working through the options a low appraisal creates.
+
+**Design principle:** If a failure scenario is predictable enough to name, it is predictable enough to define an exception path for. "Member doesn't return calls" is predictable — the exception path is the escalation/collections handoff sequence. "Appraisal comes in low" is predictable — the exception path is the ROV/down payment/renegotiation analysis. "Post-close file has a deficiency" is predictable — the exception path is the exception underwriting review.
+
+**Exception path steps execute with full workflow context.** The gate finding, all prior step outputs, compliance flags, and escalations are visible to every agent in the exception path. The exception path agents know exactly what failed and why.
+
+**Current exception paths:**
+
+| Workflow | Gate | Exception Path | Agents |
+|----------|------|---------------|--------|
+| B — Loan Origination | Loan Origination Quality Gate | `exception-underwriting` | Loan Underwriting Analyst (Execute) → Risk Manager (Gate) |
+| C — Mortgage Processing | Appraisal Support Gate | `appraisal-exception` | Loan Officer (Execute) → Risk Manager (Gate) |
+
+### 8.4 Degraded-Mode Completion Standard
+
+A workflow in degraded mode must still produce a documentable, defensible result. The minimum viable completion of a workflow is:
+
+1. **Every agent action documented** — no undocumented decisions, even in exception paths
+2. **Every gate finding recorded** — with specific criterion failures, not general statements
+3. **Every escalation documented** — who was notified, when, and what they were told
+4. **Every exception path disposition recorded** — which option was selected and why
+5. **Every regulatory deadline tracked** — exception paths do not pause the adverse action clock, TRID timers, or SAR filing obligations
+
+A workflow that pauses mid-execution must preserve its full context so that a human reviewer or a resumed workflow execution can pick up exactly where it stopped. Context is never discarded on pause or rollback.
+
+---
+
 *This framework is the governance baseline for CANVAS multi-agent operations. Changes to mode or authority assignments require Compliance Officer and CEO sign-off.*

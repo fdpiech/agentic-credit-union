@@ -222,4 +222,68 @@ Red flags to escalate:
 
 ---
 
+## Exception Paths
+
+### `exception-underwriting` — Post-Close Quality Gate Failure
+
+**Triggered when:** The Loan Origination Quality Gate fails after one retry attempt. This indicates a deficiency in the completed loan file that the post-close review could not clear.
+
+**Retry behavior:** The Quality Gate is a routine gate. On first failure, the gate evaluator receives the specific finding and re-evaluates. If still failing after one retry, the exception path activates.
+
+**Contrast with Pre-Decision Compliance Gate:** The Pre-Decision Compliance Gate is a regulatory gate (zero retries). If that gate fails, the workflow pauses immediately — no exception path. Exception underwriting only applies to post-close quality deficiencies.
+
+---
+
+#### Exception Step 1: Exception Underwriting Review
+**Agent:** Loan Underwriting Analyst (Execute, Credit/Financial authority)
+**Handoff to:** Risk Manager
+
+Review all gate findings from the failed post-close quality check. For each deficiency:
+
+1. **Identify by regulation** — cite the specific rule (e.g., ECOA Reg B §202.9 — adverse action notice; TILA Reg Z §1026.23 — right of rescission notice)
+2. **Classify as curable or uncurable:**
+   - **Curable:** TILA inaccuracy, incomplete analysis worksheet, missing lien confirmation — can be remediated with corrective action
+   - **Uncurable:** Adverse action notice not issued within 30 days of application date, credit pull without authorization — the violation is already a fact
+3. **Prepare exception request** with documented compensating factors for curable items
+4. **Flag uncurable items** for immediate Compliance Officer and CEO notification — these require regulatory counsel involvement
+
+The Loan Underwriting Analyst does not make the final disposition. That is the Risk Manager's authority.
+
+**Deliverable:** Exception underwriting memorandum with each finding classified, compensating factors documented for curable items, and uncurable items flagged with regulatory citation.
+
+---
+
+#### Exception Step 2: Risk Manager Exception Decision
+**Agent:** Risk Manager (Gate, Credit/Financial + Escalation authority)
+
+Review the exception underwriting memorandum. Each finding requires an individual disposition:
+
+| Disposition | When to Apply | Requirements |
+|-------------|--------------|--------------|
+| **Approve with conditions** | Curable deficiency with documented compensating factors | Specific corrective action, responsible party, and completion date |
+| **Require corrective action** | Curable deficiency that needs remediation before approval | Name the action required, the party responsible, and the deadline |
+| **Escalate to CEO** | Uncurable finding, systemic issue, or regulatory exposure beyond Risk Manager authority | Written escalation memo with regulatory citation and recommended response |
+
+**No bundled approvals.** Each finding is dispositioned individually. A memo that approves "all curable items" without specifying them is not a valid disposition.
+
+**Gate:** Exception Underwriting Gate (routine, fallback: pause)
+- Pass: All findings dispositioned. Curable items have remediation plans with owners. Uncurable items escalated to CEO.
+- Fail: Any finding without a documented disposition — workflow pauses for manual review.
+
+---
+
+#### Degraded-Mode Completion Standard for Loan Origination
+
+A loan origination that routes through exception underwriting is still a loan origination. The minimum viable completion requires:
+
+- All post-close deficiencies documented with regulatory citations
+- Curable deficiencies: remediation plan with named owner and completion date
+- Uncurable deficiencies: CEO notification with written escalation memo
+- Adverse action notice obligations: tracked against original 30-day clock (exception path does not reset the clock)
+- Exception underwriting decision: signed by Risk Manager with authority documentation
+
+A loan file that exits exception underwriting with every finding dispositioned is a documentable, defensible file. A loan file that exits with unresolved findings is not.
+
+---
+
 *Workflow B is complete when Loan Officer and Compliance Officer both confirm the quality gate, the funded loan is boarding-verified, and all regulatory documentation is archived.*
