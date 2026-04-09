@@ -304,6 +304,23 @@ CEO notification:
 
 ---
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Reg E Dispute Intake | Member Services Representative | Execute | Operational |
+| 2. BSA/Fraud Screening | BSA Officer | Execute | Compliance/Regulatory |
+| 2. BSA/Fraud Screening | Fraud Detection & Security Analyst | Advise | Compliance/Regulatory |
+| 3. Provisional Credit & Investigation | Deposit Operations Manager | Execute | Operational |
+| 3. Provisional Credit & Investigation | BSA Officer | Advise | Compliance/Regulatory |
+| 4. Compliance Verification | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Common Deposit Compliance Risks
 
 | Risk | Prevention | If Identified |

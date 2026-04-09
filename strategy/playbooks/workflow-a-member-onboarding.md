@@ -173,6 +173,27 @@ Gate: ALL items must be complete before file is closed as "onboarded"
 - **INCOMPLETE**: Specific missing items identified — Member Services Rep completes within 1 business day
 - **BLOCKED**: Identity cannot be verified or OFAC hit — Compliance Officer determines resolution; do not open account
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Initial Contact & Eligibility | Member Services Representative | Execute | Operational |
+| 1. Initial Contact & Eligibility | BSA Officer | Advise | Compliance/Regulatory |
+| 2. CIP/BSA Verification | BSA Officer | Execute | Compliance/Regulatory |
+| 2. CIP/BSA Verification | Compliance Officer | Advise | Compliance/Regulatory + Escalation |
+| 3. Account Opening & Disclosures | Member Services Representative | Execute | Operational |
+| 3. Account Opening & Disclosures | Compliance Officer | Advise | Compliance/Regulatory |
+| 4. Needs Discovery | Financial Advisor | Execute | Operational |
+| 5. Cross-Sell & Welcome Sequence | Marketing Manager | Execute | Operational |
+| 5. Cross-Sell & Welcome Sequence | Financial Advisor | Advise | Credit/Financial |
+| 6. Quality Gate — Compliance Verification | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Handoff to Financial Advisor
 
 ```markdown

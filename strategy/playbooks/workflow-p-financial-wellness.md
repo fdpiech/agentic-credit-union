@@ -286,6 +286,26 @@ Timeline: 30-day check-in, 90-day review, and 12-month outcome assessment are ma
 
 ---
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Referral & Initial Assessment | Financial Advisor | Execute | Operational |
+| 2. Budget Development | Financial Advisor | Execute | Operational |
+| 2. Budget Development | Collections Specialist | Advise | Credit/Financial |
+| 3. Debt Payoff Planning | Financial Advisor | Execute | Operational |
+| 3. Debt Payoff Planning | Loan Officer | Advise | Credit/Financial |
+| 4. Savings Goal Setting | Financial Advisor | Execute | Operational |
+| 5. External Resource Referrals | Financial Advisor | Execute | Operational |
+| 6. Progress Monitoring & Follow-Up | Financial Advisor | Execute | Operational |
+| 6. Progress Monitoring & Follow-Up | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Financial Wellness Program Performance Metrics
 
 | Metric | Target | Measurement Frequency |

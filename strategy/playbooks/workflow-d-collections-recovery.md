@@ -277,6 +277,26 @@ Risk Manager monthly reporting:
 
 ---
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Early Intervention (1–29 DPD) | Collections Specialist | Execute | Operational |
+| 2. Hardship Screening | Financial Advisor | Execute | Operational |
+| 2. Hardship Screening | Collections Specialist | Advise | Credit/Financial |
+| 3. Escalated Outreach (30–59 DPD) | Collections Specialist | Execute | Operational |
+| 3. Escalated Outreach (30–59 DPD) | Compliance Officer | Advise | Compliance/Regulatory + Escalation |
+| 4. Workout Evaluation | Loan Officer | Execute | Credit/Financial |
+| 4. Workout Evaluation | Risk Manager | Advise | Credit/Financial + Escalation |
+| 4. Workout Evaluation | Collections Specialist | Advise | Credit/Financial |
+| 5. Compliance — FDCPA Review | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Financial Hardship Member Referral Protocol
 
 When any agent identifies hardship at any workflow stage, complete and route this form:

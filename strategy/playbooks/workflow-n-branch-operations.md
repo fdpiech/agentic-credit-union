@@ -278,6 +278,31 @@ Timeline: 90-day review presented to board at next regularly scheduled meeting a
 
 ---
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Site Selection & Business Case | CEO | Execute | Escalation |
+| 1. Site Selection & Business Case | CFO | Advise | Credit/Financial + Escalation |
+| 1. Site Selection & Business Case | Branch Manager | Advise | Operational + Escalation |
+| 2. Field of Membership Analysis | Compliance Officer | Execute | Compliance/Regulatory + Escalation |
+| 2. Field of Membership Analysis | CEO | Advise | Escalation |
+| 3. Regulatory Approval | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+| 4. Staffing Model & Hiring | CHRO | Execute | Operational |
+| 4. Staffing Model & Hiring | Branch Manager | Advise | Operational + Escalation |
+| 5. Equipment, Technology & Installation | IT Infrastructure Engineer | Execute | Operational |
+| 5. Equipment, Technology & Installation | Core Systems Administrator | Advise | Operational |
+| 6. Pre-Opening Member Communication | Marketing Manager | Execute | Operational |
+| 6. Pre-Opening Member Communication | Branch Manager | Advise | Operational + Escalation |
+| 7. Grand Opening & Post-Opening Review | Branch Manager | Execute | Operational + Escalation |
+| 7. Grand Opening & Post-Opening Review | CEO | Gate | Escalation |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Branch Operations Performance Metrics
 
 | Metric | Target | Measurement Frequency |

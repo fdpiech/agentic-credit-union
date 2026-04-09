@@ -190,6 +190,26 @@ Red flags to escalate:
 - **CORRECTION NEEDED**: Specific items identified — correct within 1 business day
 - **MATERIAL FINDING**: Compliance violation identified — escalate to Compliance Officer + CEO
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Application & Pre-Qualification | Loan Officer | Execute | Operational |
+| 1. Application & Pre-Qualification | Member Services Representative | Advise | Operational |
+| 2. Underwriting Analysis | Loan Officer | Execute | Credit/Financial |
+| 2. Underwriting Analysis | Risk Manager | Advise | Credit/Financial + Escalation |
+| 3. Compliance Review | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+| 4. Decision Communication | Loan Officer | Execute | Credit/Financial |
+| 4. Decision Communication | Financial Advisor | Advise | Operational |
+| 5. Closing & Funding | Loan Officer | Execute | Operational |
+| 6. Post-Close Quality Check | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Common Compliance Risks
 
 | Risk | Prevention | If Identified |

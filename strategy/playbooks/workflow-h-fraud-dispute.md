@@ -299,6 +299,26 @@ Close case file:
 
 ---
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Fraud Report Intake & Classification | Fraud Detection & Security Analyst | Execute | Compliance/Regulatory |
+| 1. Fraud Report Intake & Classification | Member Services Representative | Advise | Operational |
+| 2. Initial Member Communication | Member Services Representative | Execute | Operational |
+| 2. Initial Member Communication | Fraud Detection & Security Analyst | Advise | Compliance/Regulatory |
+| 3. Investigation | Fraud Detection & Security Analyst | Execute | Compliance/Regulatory |
+| 3. Investigation | BSA Officer | Advise | Compliance/Regulatory |
+| 3. Investigation | Risk Manager | Advise | Credit/Financial + Escalation |
+| 4. Provisional Credit & Reg E Compliance | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+| 5. Final Disposition & Member Notification | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Handoff Templates
 
 ### Fraud Detection → BSA Officer (SAR Threshold)

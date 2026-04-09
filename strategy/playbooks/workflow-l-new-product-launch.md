@@ -348,6 +348,34 @@ Board reporting: Material new products require 90-day performance report in boar
 
 ---
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Product Concept & Business Case | CEO | Execute | Escalation |
+| 1. Product Concept & Business Case | CFO | Advise | Credit/Financial + Escalation |
+| 2. Compliance Impact Assessment | Compliance Officer | Execute | Compliance/Regulatory + Escalation |
+| 2. Compliance Impact Assessment | Risk Manager | Advise | Credit/Financial + Escalation |
+| 3. Pricing & Terms Development | CFO | Execute | Credit/Financial + Escalation |
+| 3. Pricing & Terms Development | Compliance Officer | Advise | Compliance/Regulatory |
+| 4. System & Process Requirements | Core Systems Administrator | Execute | Operational |
+| 4. System & Process Requirements | Software Engineer | Advise | Operational |
+| 5. Staff Training Plan | CHRO | Execute | Operational |
+| 6. Marketing & Disclosure Review | Marketing Manager | Execute | Operational |
+| 6. Marketing & Disclosure Review | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+| 7. Soft Launch / Pilot | Branch Manager | Execute | Operational + Escalation |
+| 7. Soft Launch / Pilot | Member Services Representative | Advise | Operational |
+| 8. Full Launch | Marketing Manager | Execute | Operational |
+| 8. Full Launch | CEO | Advise | Escalation |
+| 9. Post-Launch Review | CFO | Execute | Credit/Financial + Escalation |
+| 9. Post-Launch Review | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Performance Metrics
 
 | Metric | Definition | Target | Measurement Frequency |

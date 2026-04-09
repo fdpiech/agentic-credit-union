@@ -365,6 +365,33 @@ Compliance Officer post-conversion audit:
 
 ---
 
+## Step-Level Matrix
+
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 1. Vendor Selection | CFO | Execute | Credit/Financial + Escalation |
+| 1. Vendor Selection | Core Systems Administrator | Advise | Operational |
+| 2. Requirements Gathering & Project Planning | Core Systems Administrator | Execute | Operational |
+| 2. Requirements Gathering & Project Planning | IT Infrastructure Engineer | Advise | Operational |
+| 3. Data Mapping & Cleansing | Core Systems Administrator | Execute | Operational |
+| 3. Data Mapping & Cleansing | IT Systems Administrator | Advise | Operational |
+| 4. Parallel Processing & Testing | Core Systems Administrator | Execute | Operational |
+| 4. Parallel Processing & Testing | IT Infrastructure Engineer | Advise | Operational |
+| 5. Member Notification | Marketing Manager | Execute | Operational |
+| 5. Member Notification | Member Services Representative | Advise | Operational |
+| 6. Go-Live Cutover | Core Systems Administrator | Gate | Operational |
+| 6. Go-Live Cutover | IT Infrastructure Engineer | Advise | Operational |
+| 7. Post-Conversion Support | Core Systems Administrator | Execute | Operational |
+| 7. Post-Conversion Support | IT Systems Administrator | Advise | Operational |
+| 8. Post-Conversion Review | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+| 8. Post-Conversion Review | Core Systems Administrator | Advise | Operational |
+
+**Mode key:** Execute — owns the deliverable, one per step; Advise — contributes expertise, workflow does not wait; Gate — veto authority, workflow stops until cleared.
+
+**Authority key:** Operational — process execution; Credit/Financial — lending and financial judgments; Compliance/Regulatory — regulatory determinations; Escalation — stop/elevate decisions.
+
+---
+
 ## Core Conversion Performance Metrics
 
 | Metric | Target | Measurement |
