@@ -1,6 +1,6 @@
 # Workflow P Playbook — Member Financial Wellness Program
 
-> **Cycle Time**: 1 session (acute crisis) – 12 months (ongoing coaching) | **Agents**: 4 | **Gate Keepers**: Financial Wellness Advisor + Financial Advisor
+> **Cycle Time**: 1 session (acute crisis) – 12 months (ongoing coaching) | **Agents**: 3 | **Gate Keeper**: Financial Advisor
 
 ---
 
@@ -12,7 +12,7 @@ Deliver structured, member-centered financial coaching that measurably improves 
 
 - [ ] Member referred by internal workflow trigger, self-referral, or proactive outreach (see Triggers below)
 - [ ] Member account is active and in good standing, or hardship is confirmed and collections referral has been received
-- [ ] Financial Wellness Advisor availability confirmed; appointment scheduled within 5 business days of referral
+- [ ] Financial Advisor availability confirmed; appointment scheduled within 5 business days of referral
 
 ## Workflow Triggers
 
@@ -29,21 +29,21 @@ This workflow is initiated by any of the following:
 
 | Regulation | Requirement | Enforcement Agent |
 |------------|-------------|-------------------|
-| CFPB Financial Wellness Guidelines | Wellness advice must be member-centered, not product-pushing; documented in file | Financial Wellness Advisor |
+| CFPB Financial Wellness Guidelines | Wellness advice must be member-centered, not product-pushing; documented in file | Financial Advisor |
 | UDAAP (Dodd-Frank § 1031) | Financial wellness advice must not be deceptive, unfair, or abusive; no steering to high-cost products | Compliance Officer (audit) |
-| FCRA (15 U.S.C. § 1681) | If credit report is accessed for counseling purposes, written authorization required; adverse action does not apply if no credit decision is made | Financial Wellness Advisor |
-| State Debt Counseling Licensing | Some states require licensure for debt management plan (DMP) facilitation; do NOT facilitate DMPs directly — refer to NFCC-member agency | Financial Wellness Advisor + Compliance Officer |
-| GLB Act / NCUA Part 716 | Member financial data gathered during wellness sessions is subject to the same privacy protections as account data | Financial Wellness Advisor |
+| FCRA (15 U.S.C. § 1681) | If credit report is accessed for counseling purposes, written authorization required; adverse action does not apply if no credit decision is made | Financial Advisor |
+| State Debt Counseling Licensing | Some states require licensure for debt management plan (DMP) facilitation; do NOT facilitate DMPs directly — refer to NFCC-member agency | Financial Advisor + Compliance Officer |
+| GLB Act / NCUA Part 716 | Member financial data gathered during wellness sessions is subject to the same privacy protections as account data | Financial Advisor |
 | TCPA (47 U.S.C. § 227) | Outbound proactive wellness outreach by phone or text requires appropriate consent; do not use auto-dialer to new contacts without consent | Marketing Manager |
 
 ---
 
 ## Agent Activation Sequence
 
-### Step 1: Referral & Initial Assessment (Financial Wellness Advisor)
+### Step 1: Referral & Initial Assessment (Financial Advisor)
 
 ```
-Activate Financial Wellness Advisor for member financial wellness intake.
+Activate Financial Advisor for member financial wellness intake.
 
 Member: [Name] | Account #: [Number] | Referral source: [Workflow D / Loan Officer / Self-referral / Branch / Proactive]
 Referral date: [Date] | Appointment date: [Date]
@@ -76,10 +76,10 @@ UDAAP: Do NOT offer or suggest any credit union product at this stage — assess
 Timeline: 45–60 minute intake session
 ```
 
-### Step 2: Budget Development (Financial Wellness Advisor)
+### Step 2: Budget Development (Financial Advisor)
 
 ```
-Activate Financial Wellness Advisor for budget development session.
+Activate Financial Advisor for budget development session.
 
 Member: [Name] | Severity level: [Acute / Moderate / Stable with Goals]
 Input: Completed intake form from Step 1
@@ -107,10 +107,10 @@ UDAAP guardrail:
 Timeline: 45–60 minute budget session; may combine with Step 1 for moderate/stable members
 ```
 
-### Step 3: Debt Payoff Planning (Financial Wellness Advisor + Financial Advisor)
+### Step 3: Debt Payoff Planning (Financial Advisor)
 
 ```
-Activate Financial Wellness Advisor and Financial Advisor for debt payoff strategy development.
+Activate Financial Advisor and Financial Advisor for debt payoff strategy development.
 
 Member: [Name] | Total debt identified: $[Amount]
 Debt inventory:
@@ -118,7 +118,7 @@ Debt inventory:
   - [Creditor 2]: $[Balance] | [Rate]% | $[Min. Payment]/mo
   - [continue for all obligations]
 
-Financial Wellness Advisor deliverables:
+Financial Advisor deliverables:
 1. Present two debt payoff strategies and help member choose:
    - Avalanche method: pay minimums on all; throw extra cash at highest-rate debt first (mathematically optimal)
    - Snowball method: pay minimums on all; throw extra cash at smallest balance first (psychologically motivating)
@@ -145,10 +145,10 @@ UDAAP guardrail:
 Timeline: 60–90 minute session; debt payoff plan delivered in writing before member leaves
 ```
 
-### Step 4: Savings Goal Setting (Financial Advisor + Financial Wellness Advisor)
+### Step 4: Savings Goal Setting (Financial Advisor)
 
 ```
-Activate Financial Advisor and Financial Wellness Advisor for savings goal-setting session.
+Activate Financial Advisor and Financial Advisor for savings goal-setting session.
 
 Member: [Name] | Monthly savings capacity identified: $[Amount]
 Budget surplus available for savings: $[Amount]/month
@@ -168,7 +168,7 @@ Financial Advisor deliverables:
 3. Open accounts or set up auto-transfers if member agrees — do NOT pressure; document consent
 4. For members with retirement savings opportunity: provide IRA educational materials; do NOT provide tax advice
 
-Financial Wellness Advisor deliverables:
+Financial Advisor deliverables:
 1. Tie savings goals back to the budget developed in Step 2 — confirm the savings targets are realistic
 2. Set a 30-day check-in appointment to review whether auto-transfer is working
 3. Document savings goals and product enrollment in member wellness file
@@ -181,10 +181,10 @@ UDAAP guardrail:
 Timeline: 45–60 minute session; savings plan documented and accounts set up by end of session
 ```
 
-### Step 5: External Resource Referrals (Financial Wellness Advisor)
+### Step 5: External Resource Referrals (Financial Advisor)
 
 ```
-Activate Financial Wellness Advisor for external resource identification and referral.
+Activate Financial Advisor for external resource identification and referral.
 
 Member: [Name] | Severity: [Acute / Moderate / Stable]
 Specific gaps identified: [List: food insecurity / utility shutoff / housing / medical / legal / other]
@@ -214,10 +214,10 @@ State licensing compliance:
 Timeline: Referral list provided in writing to member during or immediately after the relevant session
 ```
 
-### Step 6: Progress Monitoring & Follow-Up (Financial Wellness Advisor)
+### Step 6: Progress Monitoring & Follow-Up (Financial Advisor)
 
 ```
-Activate Financial Wellness Advisor for ongoing progress monitoring and coaching continuity.
+Activate Financial Advisor for ongoing progress monitoring and coaching continuity.
 
 Member: [Name] | Program start date: [Date] | Severity at intake: [Acute / Moderate / Stable]
 Agreed check-in cadence: [Monthly / Quarterly / As-needed]
@@ -276,13 +276,13 @@ Timeline: 30-day check-in, 90-day review, and 12-month outcome assessment are ma
 | 7 | 30-day and 90-day check-ins completed (ACUTE/MODERATE severity) | 100% | Check-in notes in member wellness file | ☐ |
 | 8 | 12-month outcome report completed | 100% of active program members | Outcome report in file; results reported to management | ☐ |
 
-**Gate Keepers**: Financial Wellness Advisor (coaching quality and member progress) + Financial Advisor (product suitability and savings plan appropriateness) — joint review required at 90-day milestone for any member where a credit union product was recommended
+**Gate Keeper**: Financial Advisor — review required at 90-day milestone for any member where a credit union product was recommended; confirm coaching quality, member progress, and product suitability
 
 **Gate Decision**:
 - **COMPLETE — GRADUATED**: Member has met stated goals; file closed with outcome report; enrolled in ongoing periodic outreach
 - **COMPLETE — REFERRED OUT**: Member's needs exceed credit union scope; all external referrals documented; file closed with referral summary
 - **CONTINUING**: Member in active progress; program extended with updated goals and next check-in date
-- **ESCALATE**: Member in acute crisis with immediate safety or housing need — Financial Wellness Advisor contacts Branch Manager and activates emergency resource referrals immediately
+- **ESCALATE**: Member in acute crisis with immediate safety or housing need — Financial Advisor contacts Branch Manager and activates emergency resource referrals immediately
 
 ---
 
@@ -303,7 +303,7 @@ Timeline: 30-day check-in, 90-day review, and 12-month outcome assessment are ma
 
 ## Handoff Templates
 
-### Referring Workflow → Financial Wellness Advisor
+### Referring Workflow → Financial Advisor
 
 ```markdown
 ## Financial Wellness Referral
@@ -320,7 +320,7 @@ Timeline: 30-day check-in, 90-day review, and 12-month outcome assessment are ma
 **Consent to share data with Wellness Advisor**: [Yes — member acknowledged referral / No — outreach only, no account data shared until member consents]
 ```
 
-### Financial Wellness Advisor → Loan Officer (Workflow B/C Handoff)
+### Financial Advisor → Loan Officer (Workflow B/C Handoff)
 
 ```markdown
 ## Financial Wellness → Loan Readiness Handoff
@@ -346,4 +346,4 @@ Timeline: 30-day check-in, 90-day review, and 12-month outcome assessment are ma
 
 ---
 
-*Workflow P is complete when the Financial Wellness Advisor and Financial Advisor confirm the member has either graduated with documented goal achievement, been successfully referred to appropriate external resources, or is actively continuing in a well-documented ongoing program with a clear next milestone.*
+*Workflow P is complete when the Financial Advisor and Financial Advisor confirm the member has either graduated with documented goal achievement, been successfully referred to appropriate external resources, or is actively continuing in a well-documented ongoing program with a clear next milestone.*
