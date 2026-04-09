@@ -6,7 +6,7 @@
 
 ## What is CANVAS?
 
-**CANVAS** (Credit Union Agent Network for Value, Advice, and Service) turns the credit union's **35 specialist AI agents** into a coordinated operational pipeline across **17 workflows (A–Q)**. Instead of activating agents one at a time and hoping they work together, CANVAS defines exactly who does what, when, and how compliance is verified at every step.
+**CANVAS** (Credit Union Agent Network for Value, Advice, and Service) turns the credit union's **32 specialist AI agents** into a coordinated operational pipeline across **17 workflows (A–Q)**. Instead of activating agents one at a time and hoping they work together, CANVAS defines exactly who does what, when, and how compliance is verified at every step.
 
 ## Choose Your Mode
 
@@ -73,7 +73,7 @@ Quality gate verification required before workflow completion.
 | Onboard or review a vendor | M — Vendor Management & Due Diligence | Risk Manager |
 | Open, relocate, or close a branch | N — Branch Operations & Expansion | Branch Manager |
 | Execute a merger or acquisition | O — Merger & Acquisition | CEO |
-| Provide financial wellness coaching | P — Member Financial Wellness | Financial Wellness Advisor |
+| Provide financial wellness coaching | P — Member Financial Wellness | Financial Advisor (Coaching mode) |
 | Convert the core banking system | Q — Core System Conversion | Chief Technology Officer |
 
 ---
@@ -186,19 +186,18 @@ CEO notified if material compliance issue identified.
 EXECUTIVE / STRATEGY          │ LENDING                   │ MEMBER SERVICES
 Credit Union CEO              │ Loan Officer              │ Member Services Rep
 CFO                           │ Business Lending Officer  │ Financial Advisor
-CHRO                          │ Mortgage Loan Processor   │ Financial Wellness Advisor
-Chief Operating Officer       │ Loan Underwriting Analyst │ Member Concierge
-Chief Technology Officer      │                           │ Branch Manager
+CHRO                          │ Mortgage Loan Processor   │ Branch Manager
+Chief Operating Officer       │ Loan Underwriting Analyst │
+Chief Technology Officer      │                           │
 Chief Information Officer     │                           │
 ──────────────────────────────┼───────────────────────────┼──────────────────────────
 RISK & COMPLIANCE             │ OPERATIONS                │ STRATEGIC / MARKETING
 Compliance Officer            │ Deposit Operations Mgr    │ Marketing Manager
 BSA Officer                   │ Card Services Specialist  │ Competitive Intelligence
 Risk Manager                  │ Collections Specialist    │   Analyst
-Internal Auditor              │ Collections Strategist    │
-Regulatory Affairs Analyst    │                           │
-Fraud Detection Analyst       │ IT                        │
-                              │ Core Systems Admin        │
+Internal Auditor              │                           │
+Regulatory Affairs Analyst    │ IT                        │
+Fraud Detection Analyst       │ Core Systems Admin        │
                               │ IT Infrastructure Eng     │
                               │ Database Administrator    │
                               │ IT Systems Administrator  │

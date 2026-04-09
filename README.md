@@ -1,13 +1,13 @@
 # CANVAS — Credit Union Agent Network
 
-**CANVAS** (Credit Union Agent Network for Value, Advice, and Service) is a coordinated AI agent system for credit union operations. It transforms 35 specialized AI agents into an orchestrated operational pipeline with defined workflows, compliance gates, and measurable outcomes grounded in cooperative values.
+**CANVAS** (Credit Union Agent Network for Value, Advice, and Service) is a coordinated AI agent system for credit union operations. It transforms 32 specialized AI agents into an orchestrated operational pipeline with defined workflows, compliance gates, and measurable outcomes grounded in cooperative values.
 
 ---
 
 ## Overview
 
 The system includes:
-- **35 specialized AI agents** covering every major credit union function
+- **32 specialized AI agents** covering every major credit union function
 - **17 workflows** covering every major credit union function and regulatory obligation
 - **Standardized handoff protocols** ensuring compliance at every step
 - **Scenario runbooks** for exam preparation, new product launches, mergers, and crisis response
@@ -18,7 +18,7 @@ The system includes:
 
 ```
 agentic-credit-union/
-├── agents/                    # 35 AI agent definitions
+├── agents/                    # 32 AI agent definitions
 │   ├── cu-ceo.md              # Executive leadership
 │   ├── cu-cfo.md              # Finance
 │   ├── cu-chro.md             # Human Resources
@@ -36,11 +36,8 @@ agentic-credit-union/
 │   ├── cu-business-lending-officer.md
 │   ├── cu-loan-underwriting.md   # Loan Underwriting Analyst
 │   ├── cu-collections-specialist.md
-│   ├── cu-collections-strategist.md
 │   ├── cu-financial-advisor.md
-│   ├── cu-financial-wellness.md  # Financial Wellness Advisor
 │   ├── cu-member-services-representative.md
-│   ├── cu-member-concierge.md
 │   ├── cu-branch-manager.md
 │   ├── cu-marketing-manager.md
 │   ├── cu-competitive-intelligence.md
@@ -99,15 +96,15 @@ agentic-credit-union/
 
 ---
 
-## The 35 Agents
+## The 32 Agents
 
 | Category | Agents |
 |----------|-------|
 | **Executive** | CEO, CFO, CHRO, Chief Operating Officer, Chief Technology Officer, Chief Information Officer |
 | **Lending** | Loan Officer, Mortgage Loan Processor, Business Lending Officer, Loan Underwriting Analyst |
-| **Member Services** | Member Services Rep, Financial Advisor, Financial Wellness Advisor, Branch Manager, Member Concierge |
+| **Member Services** | Member Services Representative, Financial Advisor, Branch Manager |
 | **Risk & Compliance** | Compliance Officer, BSA Officer, Risk Manager, Internal Auditor, Regulatory Affairs Analyst, Fraud Detection Analyst |
-| **Operations** | Deposit Operations Manager, Card Services Specialist, Collections Specialist, Collections Strategist |
+| **Operations** | Deposit Operations Manager, Card Services Specialist, Collections Specialist |
 | **IT (8 agents)** | Core Systems Admin, IT Infrastructure Engineer, Database Administrator, IT Systems Administrator, Software Engineer, RPA & Automation Engineer, Business Intelligence Analyst, IT Services Manager |
 | **Strategic** | Marketing Manager, Competitive Intelligence Analyst |
 
@@ -150,7 +147,7 @@ agentic-credit-union/
 |----------|-------------|------------|
 | **N** | Branch Operations & Expansion | Branch Manager |
 | **O** | Merger & Acquisition | CEO |
-| **P** | Member Financial Wellness Program | Financial Wellness Advisor |
+| **P** | Member Financial Wellness Program | Financial Advisor (Coaching mode) |
 
 ---
 
@@ -158,7 +155,7 @@ agentic-credit-union/
 
 | Mode | Agents | Timeline | Use Case |
 |------|-------|----------|----------|
-| **CANVAS-Full** | All 35 | 4-12 weeks | Strategic initiatives, exam cycles |
+| **CANVAS-Full** | All 32 | 4-12 weeks | Strategic initiatives, exam cycles |
 | **CANVAS-Process** | 5-10 | 1-4 weeks | Single workflow end-to-end |
 | **CANVAS-Micro** | 2-4 | 1-5 days | Specific transaction or issue |
 
@@ -231,4 +228,4 @@ For the full operational doctrine, see [`strategy/cu-strategy.md`](strategy/cu-s
 
 ---
 
-*CANVAS: 35 Agents. 17 Workflows. One Unified Credit Union Strategy.*
+*CANVAS: 32 Agents. 17 Workflows. One Unified Credit Union Strategy.*

@@ -22,6 +22,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.1.0] - 2026-04-09
+
+### Changed
+
+**Agent consolidation — 35 → 32 agents (3 redundant pairs merged)**
+
+- **Financial Advisor** absorbs Financial Wellness Advisor: Wellness coaching capabilities (budget development, debt payoff planning, savings goal coaching, external resource referrals, progress monitoring) become the Financial Advisor's "Coaching mode." Workflow P now activates the Financial Advisor in Coaching mode. All hardship assessments, onboarding discovery, and coaching engagements flow through one agent operating at the right intensity for the situation.
+
+- **Collections Specialist** absorbs Collections Strategist: Portfolio-level strategic thinking (risk segmentation, workout program design, loss forecasting, queue strategy, agency placement, strategic planning input) folds into the Collections Specialist's Advanced Capabilities and a new daily/weekly/monthly/quarterly strategic cadence. The member-interaction and portfolio-strategy functions were always one job — now they're one agent.
+
+- **Member Services Representative** absorbs Member Concierge: MSR gains a "Coordination Mode" that activates when a member's issue spans multiple departments or has been unresolved across 3+ days/agents. In Coordination Mode, the MSR shifts from direct service to end-to-end case ownership: maps open items, briefs specialists, maintains a daily member callback cadence, and closes with a COO process-improvement note.
+
+### Removed
+
+- `agents/cu-financial-wellness.md` — capabilities merged into `cu-financial-advisor.md`
+- `agents/cu-collections-strategist.md` — capabilities merged into `cu-collections-specialist.md`
+- `agents/cu-member-concierge.md` — capabilities merged into `cu-member-services-representative.md`
+
+### Updated
+
+- `strategy/ROUTER.md`: Financial Wellness → Financial Advisor (Coaching mode); Member Concierge → Member Services Representative (Coordination Mode); Collections Strategist removed from co-routing
+- `strategy/cu-strategy.md`: All agent tables, workflow tables, coordination matrix, and activation triggers updated
+- `strategy/coordination/agent-activation-prompts.md`: Merged agent prompts removed; surviving agent prompts expanded with absorbed responsibilities
+- `strategy/playbooks/workflow-p-financial-wellness.md`: All Financial Wellness Advisor references updated to Financial Advisor
+- `strategy/EXECUTIVE-BRIEF.md`, `README.md`, `strategy/QUICKSTART.md`: Agent count updated to 32
+
+---
+
 ## [2.0.1] - 2026-04-05
 
 ### Added

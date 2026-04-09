@@ -74,10 +74,10 @@ CANVAS coordinates **35 specialist agents** across 12 functional areas. The C-su
 |----------|--------|---------------------|
 | **Executive / C-Suite** | CEO, CFO, CHRO, COO, CTO, CIO | Strategic direction, financial governance, talent, operations, technology, and information strategy |
 | **Lending** | Loan Officer, Business Lending Officer, Mortgage Loan Processor, Loan Underwriting Analyst | Originate, underwrite, and close consumer, business, and real estate loans |
-| **Member Services** | Member Services Representative, Financial Advisor, Financial Wellness Advisor, Member Concierge | Onboard members, service accounts, deliver financial guidance and wellness coaching, resolve complex cross-functional issues |
+| **Member Services** | Member Services Representative, Financial Advisor | Onboard members, service accounts, deliver financial guidance and wellness coaching, resolve complex cross-functional issues |
 | **Operations** | Deposit Operations Manager, Card Services Specialist | Manage deposit products, card programs, and back-office operations |
 | **Risk & Compliance** | Compliance Officer, Risk Manager, BSA Officer, Fraud Detection Analyst, Regulatory Affairs Analyst | Regulatory compliance, enterprise risk, anti-money laundering, fraud detection, and regulatory horizon scanning |
-| **Collections** | Collections Specialist, Collections Strategist | Delinquency management, workouts, recovery strategy, and portfolio loss mitigation |
+| **Collections** | Collections Specialist | Delinquency management, workouts, recovery strategy, and portfolio loss mitigation |
 | **Branch** | Branch Manager | Front-line member experience, branch operations, and team leadership |
 | **Marketing & Strategy** | Marketing Manager, Competitive Intelligence Analyst | Member growth, product promotion, community presence, and competitive/market intelligence |
 | **Audit** | Internal Auditor | Independent assurance, exam support, and governance |
@@ -158,7 +158,7 @@ CANVAS supports three deployment configurations:
 | A: Member Onboarding | Member Services Rep, BSA Officer | Compliance Officer | Same day – 3 days |
 | B: Loan Origination | Loan Officer, Loan Underwriting Analyst, Compliance Officer | Loan Officer + Risk Manager | 1-7 days |
 | C: Mortgage Processing | Mortgage Loan Processor, Loan Officer | Mortgage Loan Processor | 15-45 days |
-| D: Collections & Recovery | Collections Specialist, Collections Strategist, Loan Officer | Collections Specialist | Ongoing |
+| D: Collections & Recovery | Collections Specialist, Loan Officer | Collections Specialist | Ongoing |
 | E: Deposit Operations | Deposit Operations Manager, BSA Officer | Deposit Operations Manager | Same day – 5 days |
 | F: Compliance & Examination | Compliance Officer, Internal Auditor, Regulatory Affairs Analyst | Compliance Officer | Annual cycle |
 | G: Annual Strategic Planning | CEO, CFO, COO, CTO, CIO, Branch Manager | CEO + Board | Annual cycle |
@@ -175,7 +175,7 @@ CANVAS supports three deployment configurations:
 | M: Vendor Management & Due Diligence | Risk Manager, Compliance Officer, CIO, Internal Auditor | Risk Manager + Compliance Officer | 4–12 weeks (onboard) – Annual review | `playbooks/workflow-m-vendor-management.md` |
 | N: Branch Operations & Expansion | Branch Manager, CEO, COO, Compliance Officer | Branch Manager + Compliance Officer | 3–12 months (new branch) | `playbooks/workflow-n-branch-operations.md` |
 | O: Merger & Acquisition | CEO, CFO, COO, Risk Manager, Compliance Officer, Internal Auditor | CEO + Compliance Officer | 12–24 months | `playbooks/workflow-o-merger-acquisition.md` |
-| P: Member Financial Wellness | Financial Wellness Advisor, Financial Advisor, Member Services Rep | Financial Wellness Advisor + Financial Advisor | 1 session – 12 months coaching | `playbooks/workflow-p-financial-wellness.md` |
+| P: Member Financial Wellness | Financial Advisor, Member Services Rep | Financial Advisor | 1 session – 12 months coaching | `playbooks/workflow-p-financial-wellness.md` |
 | Q: Core System Conversion | CTO, Core Systems Administrator, CIO, Compliance Officer, Internal Auditor | Core Systems Administrator + Compliance Officer | 6–18 months | `playbooks/workflow-q-core-system-conversion.md` |
 
 > **Doctrine vs. playbooks**: Sections 4–10 of this document narrate workflows A–G in full because they are continuous operations every staff member must internalize. Workflows H–Q are documented as standalone playbooks in `strategy/playbooks/` because they activate situationally and the playbook is the primary working artifact. All seventeen share the CANVAS handoff, gate, and escalation rules defined in Sections 11–14.
@@ -1243,7 +1243,7 @@ PHASE 6: 100-Day Integration & Post-Close Review
 
 | Agent | Role | Primary Output |
 |-------|------|----------------|
-| **Financial Wellness Advisor** | Primary coach; intake; budget; plan | Member-acknowledged written financial plan |
+| **Financial Advisor** | Primary coach; intake; budget; plan | Member-acknowledged written financial plan |
 | **Financial Advisor** | Investment, retirement, complex planning | Long-horizon planning artifacts |
 | **Member Services Representative** | Referral source and product enablement | Referral handoff with hardship indicators |
 | **Compliance Officer** | UDAAP / FCRA oversight; periodic audit | Wellness program compliance attestation |
@@ -1260,7 +1260,7 @@ PHASE 6: 100-Day Integration & Post-Close Review
 ### 19.3 Sequence
 
 ```
-STEP 1: Referral & Intake (Financial Wellness Advisor)
+STEP 1: Referral & Intake (Financial Advisor)
 ├── Pre-appointment account review
 ├── Non-judgmental intake; complete Wellness Intake Form
 └── Severity classification: Acute / Moderate / Stable-with-Goals
@@ -1294,7 +1294,7 @@ STEP 6: Follow-Up & Outcome Tracking
 
 ### 19.4 Quality Gate
 
-**Gate Keeper**: Financial Wellness Advisor + Financial Advisor
+**Gate Keeper**: Financial Advisor
 
 | Criterion | Threshold | Evidence |
 |-----------|-----------|----------|
@@ -1386,7 +1386,7 @@ PHASE 7: Closeout
 
 ### 21.1 Cross-Function Dependency Map
 
-This matrix shows which agents produce outputs consumed by other agents. Read as: **Row agent produces → Column agent consumes**. The matrix below covers the core continuous-operation agents; extended-workflow agents (Fraud Detection Analyst, Regulatory Affairs Analyst, Loan Underwriting Analyst, Financial Wellness Advisor, Member Concierge, Collections Strategist, Competitive Intelligence Analyst, IT Systems Administrator, COO, CTO, CIO) carry their own dependency maps inside the H–Q playbooks. The Critical Handoff Pairs table in §21.2 enumerates the highest-traffic cross-function exchanges spanning all 17 workflows.
+This matrix shows which agents produce outputs consumed by other agents. Read as: **Row agent produces → Column agent consumes**. The matrix below covers the core continuous-operation agents; extended-workflow agents (Fraud Detection Analyst, Regulatory Affairs Analyst, Loan Underwriting Analyst, Financial Advisor, Member Services Representative, Collections Specialist, Competitive Intelligence Analyst, IT Systems Administrator, COO, CTO, CIO) carry their own dependency maps inside the H–Q playbooks. The Critical Handoff Pairs table in §21.2 enumerates the highest-traffic cross-function exchanges spanning all 17 workflows.
 
 ```
 PRODUCER →          │ LEN │ MSR │ DEP │ BSA │ COM │ COL │ FIN │ MKT │ EXC │ AUD
@@ -1417,7 +1417,7 @@ COL=Collections | FIN=Finance/CFO | MKT=Marketing | EXC=Executive/CEO | AUD=Audi
 | Fraud Detection Analyst | Card Services Specialist | Confirmed card fraud — block, reissue, chargeback | Per alert |
 | Fraud Detection Analyst | BSA Officer | Fraud pattern indicating SAR potential | Per pattern |
 | Mortgage Loan Processor | Loan Officer | Processing condition clearance | Per loan |
-| Collections Specialist | Collections Strategist | Portfolio segmentation and workout strategy refresh | Monthly |
+| Collections Specialist | Risk Manager | Portfolio segmentation and workout strategy refresh | Monthly |
 | Collections Specialist | Risk Manager | Charge-off recommendation | Per event |
 | CFO | Branch Manager | Rate sheet and product pricing | Per ALCO cycle |
 | Compliance Officer | CEO | Examination findings and material issues | Per finding |
@@ -1429,8 +1429,8 @@ COL=Collections | FIN=Finance/CFO | MKT=Marketing | EXC=Executive/CEO | AUD=Audi
 | COO | CEO | Operational performance and branch network status | Monthly |
 | IT Infrastructure Engineer | CIO + Compliance Officer | Security incident notifications (Workflow J) | Per incident |
 | Internal Auditor | Compliance Officer | Audit findings with management response requests | Per audit |
-| Member Services Rep | Financial Wellness Advisor | Member needs discovery referral with hardship indicators | Per eligible interaction |
-| Member Concierge | Any agent | Cross-functional escalation for members with multi-touch unresolved issues | Per case |
+| Member Services Rep | Financial Advisor | Member needs discovery referral with hardship indicators | Per eligible interaction |
+| Member Services Representative | Any agent | Cross-functional escalation for members with multi-touch unresolved issues | Per case |
 | Competitive Intelligence Analyst | CEO + Marketing Manager | Market and peer benchmarking briefs | Monthly |
 | CEO | Board | Strategic plan, financial results, risk summary | Monthly/Quarterly |
 
@@ -1550,7 +1550,7 @@ When a member indicates financial distress at any workflow stage:
 | M: Vendor Management | Third-Party Risk Gate | Risk Manager + Compliance Officer | SOC 2 reviewed, contract reviewed, ongoing monitoring scheduled |
 | N: Branch Operations | Branch Readiness Gate | Branch Manager + Compliance Officer | Site, staff, security, and signage compliant before opening |
 | O: Merger & Acquisition | Member & Regulatory Approval Gate | CEO + Compliance Officer | Member vote, NCUA approval, regulatory filings complete |
-| P: Financial Wellness | Member Outcome Gate | Financial Wellness Advisor + Financial Advisor | Documented plan, member-acknowledged, follow-up scheduled |
+| P: Financial Wellness | Member Outcome Gate | Financial Advisor | Documented plan, member-acknowledged, follow-up scheduled |
 | Q: Core Conversion | Conversion Readiness Gate | Core Systems Administrator + Compliance Officer | Data validation, parallel run, fallback plan, regulator notice |
 
 ### 23.2 Gate Failure Handling
@@ -1579,7 +1579,7 @@ IF gate FAILS:
 | Interest Rate Risk | CFO | Risk Manager | ALCO + Board |
 | Liquidity Risk | CFO | Deposit Operations Manager | CEO + Board |
 | Operational Risk | COO | Branch Manager + Core Systems Admin | CEO |
-| Reputation Risk | CEO | Marketing Manager + Member Concierge | Board |
+| Reputation Risk | CEO | Marketing Manager + Member Services Representative | Board |
 | Cybersecurity Risk | CIO | IT Infrastructure Engineer + Compliance Officer | CEO + Board |
 | Third-Party / Vendor Risk | Risk Manager | CIO + Compliance Officer | CEO |
 | Strategic / Competitive Risk | CEO | Competitive Intelligence Analyst | Board |
@@ -1720,10 +1720,8 @@ Quality gate verification required before workflow completion.
 ### Member Services
 | Agent | Superpower | Activation Trigger |
 |-------|-----------|-------------------|
-| Member Services Representative | Account opening, service, onboarding, cross-sell | Any member-facing account transaction or inquiry |
-| Financial Advisor | Financial planning, investment, retirement, debt coaching | Member with complex financial goals or hardship |
-| Financial Wellness Advisor | Budget coaching, debt management plans, financial literacy | Workflow P, hardship referrals, member-requested coaching |
-| Member Concierge | Cross-functional issue resolution, white-glove escalation | Members with multi-touch unresolved issues |
+| Member Services Representative | Account opening, service, onboarding, cross-sell, coordination mode for multi-touch issues | Any member-facing account transaction, inquiry, or multi-agent escalation |
+| Financial Advisor | Financial planning, investment, retirement, debt coaching, budget/wellness coaching (Coaching mode), hardship assessment | Member with financial goals, hardship, or need for budget/debt/savings guidance |
 
 ### Risk & Compliance
 | Agent | Superpower | Activation Trigger |
@@ -1740,8 +1738,7 @@ Quality gate verification required before workflow completion.
 |-------|-----------|-------------------|
 | Deposit Operations Manager | Account processing, Reg CC, Reg E, Truth in Savings | Any deposit product operation, exception, or dispute |
 | Card Services Specialist | Debit/credit card programs, fraud, chargebacks | Card disputes, fraud alerts, program management |
-| Collections Specialist | Delinquency, workouts, recovery, FDCPA | Any account past due 5+ days |
-| Collections Strategist | Portfolio segmentation, workout program design, loss forecasting | Portfolio review, workout policy, loss-mitigation strategy |
+| Collections Specialist | Delinquency, workouts, recovery, FDCPA, portfolio segmentation, workout program design, loss forecasting | Any account past due 5+ days; portfolio strategy review |
 | Core Systems Administrator | Core systems, cybersecurity, NCUA Part 748, IS program | Core banking issues, security events, EOD processing, vendor management |
 | IT Infrastructure Engineer | Network, servers, cloud, ATM connectivity, DR | Network outages, infrastructure incidents, DR testing |
 | Database Administrator | Database performance, integrity, backup/recovery | Data issues, query performance, DB incidents |

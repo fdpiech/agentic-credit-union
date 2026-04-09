@@ -37,7 +37,7 @@ What area does this fall into?
 | **Membership & Accounts** | "I want to join," "open an account," "new member," "switching banks" | Member Services Rep → Workflow A |
 | **Consumer Lending** | "car loan," "refinance," "personal loan," "credit score" | Loan Officer → Workflow B |
 | **Mortgage** | "buy a house," "mortgage," "home equity," "refinance my home" | Mortgage Loan Processor → Workflow C |
-| **Collections & Hardship** | "can't pay," "behind on payments," "lost my job," "past due" | Collections Specialist + Collections Strategist → Workflow D |
+| **Collections & Hardship** | "can't pay," "behind on payments," "lost my job," "past due" | Collections Specialist → Workflow D |
 | **Deposits & Disputes** | "unauthorized charge," "dispute," "Reg E," "my money is missing" | Deposit Operations Manager → Workflow E |
 | **Compliance & Exams** | "exam," "finding," "BSA," "SAR," "audit," "regulation" | Compliance Officer → Workflow F |
 | **Strategy & Planning** | "where are we going," "budget," "growth," "board presentation" | CEO + CFO + COO → Workflow G |
@@ -47,7 +47,7 @@ What area does this fall into?
 | **Marketing & Growth** | "new members," "campaign," "community event," "brand" | Marketing Manager |
 | **Risk** | "risk assessment," "insurance," "what if," "contingency" | Risk Manager |
 | **Competitive Intelligence** | "competitors are offering," "what's the market," "fintech trends," "peer rates" | Competitive Intelligence Analyst |
-| **Member Concierge** | "I've talked to multiple people," "nobody can help," "complex issue" | Member Concierge |
+| **Complex / Multi-touch Issue** | "I've talked to multiple people," "nobody can help," "complex issue" | Member Services Representative (Coordination Mode) |
 | **Fraud & Security** | "suspicious transaction," "identity theft," "scam," "compromised" | Fraud Detection Analyst → Workflow H |
 | **Card Services** | "card blocked," "chargeback," "card fraud," "replace my card" | Card Services Specialist → Workflow I |
 | **IT Security Incident** | "ransomware," "data breach," "system hacked," "security incident" | IT Infrastructure Engineer → Workflow J |
@@ -56,10 +56,10 @@ What area does this fall into?
 | **Vendor Management** | "new vendor," "vendor review," "vendor contract," "third-party risk" | Risk Manager → Workflow M |
 | **Branch Operations** | "new branch," "branch expansion," "branch closure," "site selection" | Branch Manager → Workflow N |
 | **Merger & Acquisition** | "merger," "acquisition," "buy another credit union," "LOI" | CEO → Workflow O |
-| **Financial Wellness** | "budget help," "debt management," "financial goals," "planning" | Financial Wellness Advisor → Workflow P |
+| **Financial Wellness** | "budget help," "debt management," "financial goals," "planning" | Financial Advisor (Coaching mode) → Workflow P |
 | **Core Conversion** | "core system," "new core," "system conversion," "core vendor" | CTO → Workflow Q |
 | **Regulatory Watch** | "new rule," "CFPB proposed," "effective date," "comment period" | Regulatory Affairs Analyst |
-| **Financial Wellness** | "budget help," "debt management," "financial goals," "planning" | Financial Wellness Advisor |
+| **Financial Wellness** | "budget help," "debt management," "financial goals," "planning" | Financial Advisor (Coaching mode) |
 | **Loan Underwriting** | "application review," "credit decision," "complex file" | Loan Underwriting Analyst |
 | **I don't know** | Vague, confused, "something isn't right" | Branch Manager (triage) |
 
@@ -100,7 +100,7 @@ How many agents or workflows does this touch?
 | "I want to join the credit union" | **Member Services Rep** | A |
 | "I need a car loan / personal loan" | **Loan Officer** | B |
 | "I want to buy a house / get a mortgage" | **Mortgage Loan Processor** | C |
-| "I can't make my payment this month" | **Collections Specialist** + **Collections Strategist** | D |
+| "I can't make my payment this month" | **Collections Specialist** | D |
 | "There's a charge I didn't make" | **Fraud Detection Analyst** | H |
 | "Something suspicious on my account" | **Fraud Detection Analyst** | H |
 | "My card is blocked / I need a new card" | **Card Services Specialist** | I |
@@ -110,7 +110,7 @@ How many agents or workflows does this touch?
 | "We need to onboard a new vendor" | **Risk Manager** | M |
 | "We're considering a new branch" | **Branch Manager** + **CEO** | N |
 | "We're considering a merger" | **CEO** + **CFO** + **Risk Manager** | O |
-| "A member needs budget/debt help" | **Financial Wellness Advisor** | P |
+| "A member needs budget/debt help" | **Financial Advisor** (Coaching mode) | P |
 | "We need to convert our core system" | **CTO** + **Core Systems Admin** | Q |
 | "The NCUA exam is coming" | **Compliance Officer** | F |
 | "A new regulation is coming" | **Regulatory Affairs Analyst** | — |
@@ -121,8 +121,8 @@ How many agents or workflows does this touch?
 | "What are competitors offering?" | **Competitive Intelligence Analyst** | — |
 | "I found a compliance gap" | **Compliance Officer** + **Internal Auditor** | F |
 | "A member passed away — what do we do?" | **Member Services Rep** + **Compliance Officer** | — |
-| "I'm having trouble with my account — talked to multiple people" | **Member Concierge** | — |
-| "I need help with my finances / budget" | **Financial Wellness Advisor** | — |
+| "I'm having trouble with my account — talked to multiple people" | **Member Services Representative** (Coordination Mode) | — |
+| "I need help with my finances / budget" | **Financial Advisor** (Coaching mode) | — |
 | "We need a credit decision on a complex file" | **Loan Underwriting Analyst** | — |
 | "We're considering a merger" | **CEO** + **CFO** + **Risk Manager** | O |
 | "We need a technology strategy" | **CTO** | — |
@@ -270,7 +270,7 @@ Some routing decisions are non-negotiable. These are not suggestions — they ar
 Member wants to join        → Member Services Rep (Workflow A)
 Needs a loan                → Loan Officer (Workflow B)
 Needs a mortgage            → Mortgage Loan Processor (Workflow C)
-Can't pay / behind          → Collections + Financial Advisor (Workflow D)
+Can't pay / behind          → Collections Specialist (Workflow D)
 Dispute / unauthorized      → Deposit Operations Manager (Workflow E)
 Exam / compliance issue     → Compliance Officer (Workflow F)
 Strategy / budget / growth  → CEO + CFO (Workflow G)
