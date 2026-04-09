@@ -20,6 +20,11 @@ Use for any agent-to-agent work transfer within any workflow.
 | **Member / Account Reference** | [Member # / Account # / Loan #] |
 | **Priority** | [Urgent / Standard / Routine] |
 | **Timestamp** | [YYYY-MM-DDTHH:MM:SSZ] |
+| **Sender Mode** | [Execute / Advise / Gate] |
+| **Sender Decision Authority** | [Operational / Credit-Financial / Compliance-Regulatory / Escalation] |
+| **Receiver Mode** | [Execute / Advise / Gate] |
+| **Receiver Decision Authority** | [Which lane(s) the receiving agent exercises in this handoff] |
+| **Receiver Out-of-Lane Scope** | [What the receiving agent does NOT decide in this handoff context — be specific] |
 
 ### Member Context
 - **Member background**: [Relationship tenure, products held, prior interactions, prior hardship]
@@ -50,6 +55,8 @@ Use after account opening to route new member to needs discovery.
 
 ```markdown
 ## Onboarding → Financial Advisor Handoff
+
+> **Decision Authority Context** — Sender: Member Services Representative (Execute / Operational) → Receiver: Financial Advisor (Execute / Credit-Financial, Advise mode). Receiver provides financial guidance and planning — does not make binding credit decisions, does not approve loan terms, and does not make compliance determinations. Recommendations are advisory; commitments require Loan Officer underwriting.
 
 **Member**: [Name] | **Account #**: [Number] | **Member since**: [Date]
 **Eligibility basis**: [Employment / Family / Association / Geography — specific basis]
@@ -89,6 +96,8 @@ Use when new member indicates loan interest during onboarding.
 ```markdown
 ## Onboarding → Loan Origination Handoff
 
+> **Decision Authority Context** — Sender: Member Services Representative (Execute / Operational) → Receiver: Loan Officer (Execute / Credit-Financial). Receiver makes the credit decision — approve, decline, counter-offer, and price within delegated limits. Receiver does not make compliance determinations; every loan decision routes to the Compliance Officer gate before funding or adverse action delivery. Receiver must obtain written credit authorization before pulling credit.
+
 **Member**: [Name] | **Account #**: [Number] | **Member since**: [Date]
 **Loan inquiry**: [Product, amount, purpose — as stated by member]
 **Pre-qualification discussed**: [Yes / No — brief summary of verbal discussion if yes]
@@ -115,6 +124,8 @@ Use when a funded loan triggers early delinquency monitoring.
 
 ```markdown
 ## Loan Origination → Collections Handoff
+
+> **Decision Authority Context** — Sender: Loan Officer (Execute / Credit-Financial) → Receiver: Collections Specialist (Execute / Credit-Financial, workout recommendations only). Receiver recommends workout structures and manages delinquency within delegated authority — does not make final charge-off decisions above threshold (those require Risk Manager gate and CFO/CEO approval). Receiver does not make compliance determinations; FDCPA and SCRA compliance questions route to the Compliance Officer.
 
 **Member**: [Name] | **Loan #**: [Number] | **Funded**: [Date]
 **Product**: [Auto / Personal / HELOC / Visa / Other]
@@ -145,6 +156,8 @@ Use when any agent identifies member financial distress at any workflow stage.
 
 ```markdown
 ## Member Hardship Referral — CANVAS
+
+> **Decision Authority Context** — Sender: Any agent identifying hardship (Execute / their lane) → Receiver: Financial Advisor (Execute / Credit-Financial, Advise mode). Receiver conducts hardship assessment and provides financial planning guidance — does not make binding credit decisions, does not approve loan modifications or workout agreements (those require Loan Officer), and does not make compliance determinations. Receiver may pause collections outreach pending assessment but does not stop the workflow unilaterally.
 
 **Initiating Agent**: [Agent Name] | **Workflow**: [A through Q]
 **Member**: [Name] | **Member #**: [Number] | **Date**: [Date]
@@ -181,6 +194,8 @@ Use when any agent identifies a compliance issue mid-workflow.
 
 ```markdown
 ## CANVAS Compliance Exception Report
+
+> **Decision Authority Context** — Sender: Any identifying agent (Execute / their lane) → Receiver: Compliance Officer (Gate / Compliance-Regulatory + Escalation). Receiver evaluates whether the identified issue constitutes a regulatory violation and determines the required response — does not make the underlying credit decision that triggered the issue, does not manage day-to-day operational remediation. Receiver's gate determination can stop the workflow; it cannot retroactively approve or decline a credit application.
 
 **Workflow**: [A–G] | **Step**: [Step name] | **Date identified**: [Date]
 **Identifying Agent**: [Agent Name]
@@ -219,6 +234,8 @@ Use after every loan decision (approve, counter, or decline) for compliance veri
 
 ```markdown
 ## Loan Decision → Compliance Officer Handoff
+
+> **Decision Authority Context** — Sender: Loan Officer (Execute / Credit-Financial) → Receiver: Compliance Officer (Gate / Compliance-Regulatory). Receiver confirms whether the credit decision, disclosures, and adverse action process satisfy regulatory requirements — does NOT re-underwrite the loan, does NOT approve or decline on credit grounds, does NOT change the credit decision. The credit decision belongs to the Loan Officer; the compliance gate belongs to the Compliance Officer. Gate failure stops funding or adverse action delivery until resolved.
 
 **Loan Officer**: [Name] | **Application #**: [Number] | **Date**: [Date]
 **Member**: [Name] | **Account #**: [Number]
@@ -260,6 +277,8 @@ Use at Stage 4 (90+ DPD) when charge-off is being evaluated.
 
 ```markdown
 ## Collections → Risk Manager Charge-Off Referral
+
+> **Decision Authority Context** — Sender: Collections Specialist (Execute / Credit-Financial, workout recommendations) → Receiver: Risk Manager (Gate / Credit-Financial + Escalation). Receiver evaluates loss probability, makes or confirms the charge-off recommendation, and determines ALLL reserve impact — does not make compliance determinations (FDCPA, FCRA credit reporting accuracy route to Compliance Officer), does not manage day-to-day collections operations. Charge-offs above threshold require CFO/CEO approval after this gate.
 
 **Collections Specialist**: [Name] | **Date**: [Date]
 **Loan #**: [Number] | **Member**: [Name] | **Product**: [Type]
@@ -307,6 +326,8 @@ Use when ALCO approves rate changes requiring branch implementation.
 ```markdown
 ## CFO → Branch Manager Rate Sheet Update
 
+> **Decision Authority Context** — Sender: CFO (Execute / Credit-Financial + Escalation) → Receiver: Branch Manager (Execute / Operational + Escalation). Receiver implements the rate changes operationally — briefs staff, updates signage, ensures member communication — does not set or modify the rates (those are set by CFO/ALCO), does not make compliance determinations about Reg DD advance notice requirements (those are confirmed by CFO/Compliance Officer before this handoff). Branch Manager implements; does not negotiate or alter the rate sheet.
+
 **Issued by**: CFO | **Date of ALCO Decision**: [Date]
 **Effective date**: [Date] | **Branch implementation by**: [Date — day before effective]
 
@@ -339,6 +360,8 @@ Use when any material compliance issue, examination finding, or regulatory risk 
 
 ```markdown
 ## Material Compliance Issue Escalation — CANVAS
+
+> **Decision Authority Context** — Sender: Compliance Officer (Execute / Compliance-Regulatory + Escalation) → Receiver: CEO (Gate / Escalation). Receiver makes the final institutional authority call — corrective action approval, voluntary regulatory disclosure, legal counsel engagement, and board notification timing — does NOT re-examine compliance merits (the Compliance Officer has already made that determination), does NOT underwrite loans or make credit decisions. The CEO decides what the institution does about the compliance issue; the Compliance Officer determines what the issue is.
 
 **From**: Compliance Officer | **To**: Credit Union CEO
 **Date**: [Date] | **Time**: [Time]
@@ -386,6 +409,8 @@ Use to present NCUA examination report to the Board of Directors.
 ```markdown
 ## CEO → Board — Examination Results Presentation
 
+> **Decision Authority Context** — Sender: CEO (Execute / Escalation) → Receiver: Board of Directors (Gate / Escalation, governance). Receiver exercises board governance authority — accepts the examination report, approves the management response, and directs corrective action — does NOT conduct compliance testing, does NOT underwrite loans, does NOT make operational process decisions. The Board governs strategy and oversight; management executes. Board decisions recorded in minutes constitute institutional commitments.
+
 **Presented by**: Credit Union CEO
 **Board meeting date**: [Date]
 **Examination conducted**: [Month-Year] by NCUA [Region / State regulator]
@@ -430,6 +455,8 @@ Use when Fraud Detection Analyst confirms card-channel fraud (Workflows H/I).
 ```markdown
 ## Fraud Detection → Card Services Handoff
 
+> **Decision Authority Context** — Sender: Fraud Detection Analyst (Execute / Compliance-Regulatory) → Receiver: Card Services Specialist (Execute / Operational). Receiver executes card operations per the fraud determination already made by the Fraud Analyst — does NOT re-classify Reg E scope or fraud type (that determination was made in this handoff), does NOT make compliance determinations, does NOT make SAR filing decisions (route concurrent pattern to BSA Officer). Card Services executes; Fraud Analyst has already determined what the situation is.
+
 **Fraud Detection Analyst**: [Name] | **Date/Time identified**: [Timestamp]
 **Member**: [Name] | **Member #**: [Number] | **Card last 4**: [####]
 **Card type**: [ ] Debit  [ ] Credit  [ ] Prepaid
@@ -466,6 +493,8 @@ Use for any confirmed or suspected cybersecurity incident (Workflow J).
 
 ```markdown
 ## IT Security Incident Notification — CANVAS
+
+> **Decision Authority Context** — Sender: IT Infrastructure Engineer (Execute / Operational) → Receivers: CIO (Gate / Operational + Escalation) + Compliance Officer (Gate / Compliance-Regulatory + Escalation). CIO makes IT architecture and incident response decisions — does NOT make compliance/regulatory determinations. Compliance Officer determines regulatory notification obligations (NCUA Part 748, state breach laws, GLBA) and escalation requirements — does NOT make IT architecture decisions. CEO receives both lanes' input and makes the final institutional authority call on external communications and legal counsel.
 
 **From**: IT Infrastructure Engineer | **To**: CIO, Compliance Officer, CEO
 **Date/Time detected**: [Timestamp] | **Severity**: [ ] P0 Critical [ ] P1 High [ ] P2 Medium
@@ -512,6 +541,8 @@ Use when BSA Officer reaches a SAR file/no-file decision (Workflow K).
 ```markdown
 ## SAR Filing Decision Memo — CANVAS
 
+> **Decision Authority Context** — Sender: BSA Officer (Execute / Compliance-Regulatory) → Receiver: Compliance Officer (Gate / Compliance-Regulatory + Escalation). Receiver reviews and concurs or non-concurs on the SAR filing determination — does NOT re-investigate the underlying suspicious activity (the BSA Officer completed the investigation), does NOT make credit decisions about the member's account. Compliance Officer concurrence is the gate; BSA Officer owns the filing. If material, Compliance Officer escalates to CEO — that Escalation decision belongs to the Compliance Officer, not the BSA Officer.
+
 **BSA Officer**: [Name] | **Date**: [Date]
 **Alert ID**: [Number] | **Subject account(s)**: [Account #s]
 **Subject member(s)**: [Member #s — confidential]
@@ -554,6 +585,8 @@ Use to hand off a completed due diligence package for final approval (Workflow M
 
 ```markdown
 ## Vendor Onboarding Handoff — CANVAS
+
+> **Decision Authority Context** — Sender: Risk Manager (Execute / Credit-Financial + Escalation) → Receiver: CIO (Gate / Operational + Escalation). CIO evaluates technology and data risk — does NOT make compliance determinations (Compliance Officer signs separately), does NOT make credit decisions. Compliance Officer signs separately on regulatory risk (GLBA, BSA/AML). Legal counsel reviews the contract. CEO approves Critical-tier vendors. All four signatures are required; each operates in their own lane.
 
 **Risk Manager**: [Name] | **Date**: [Date]
 **Vendor**: [Name] | **Service category**: [Core / Cloud / Card / Lending / Marketing / Other]
@@ -598,6 +631,8 @@ Use at each stage gate during a Workflow Q core system conversion.
 
 ```markdown
 ## Core Conversion Stage Gate Handoff — CANVAS
+
+> **Decision Authority Context** — Sender: CTO / Core Systems Administrator (Execute / Operational + Escalation) → Receivers: CEO (Gate / Escalation) + Compliance Officer (Gate / Compliance-Regulatory + Escalation) + Internal Auditor (Gate / Compliance-Regulatory, advisory). CEO makes the go/no-go escalation call — does NOT conduct compliance testing or IT review. Compliance Officer validates regulatory reporting continuity (HMDA, NCUA Call Report) — does NOT make IT architecture decisions. Internal Auditor reviews independent test sample and issues findings — does NOT issue binding compliance rulings, does NOT make the go/no-go decision. Each gate operates in its own lane; all three must clear before stage advance.
 
 **From**: CTO / Core Systems Administrator | **To**: CEO + Compliance Officer + Internal Auditor
 **Conversion**: [From core / To core] | **Stage**: [ ] RFP  [ ] Contract  [ ] Build  [ ] Test  [ ] Cutover  [ ] Stabilization
