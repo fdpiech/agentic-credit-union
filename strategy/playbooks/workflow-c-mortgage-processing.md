@@ -384,3 +384,74 @@ Compliance Officer final sign-off:
 ---
 
 *Workflow C is complete when the Mortgage Loan Processor and Compliance Officer both confirm the quality gate, the deed is recorded, HMDA data is on the LAR, and the loan file is archived as examination-ready.*
+
+---
+
+## Exception Paths
+
+### `appraisal-exception` — Appraisal Support Gate Failure
+
+**Triggered when:** The Appraisal Support Gate fails after one retry attempt (one reconsideration of value or re-review). The appraised value does not support the contracted purchase price within LTV guidelines.
+
+**Retry behavior:** The Appraisal Support Gate is a routine gate. On first failure, the gate evaluator receives the specific finding (gap amount, LTV impact, comparable support) and re-evaluates — typically after a Reconsideration of Value (ROV) request. If the appraisal still does not support value after one re-evaluation, the exception path activates.
+
+**Contrast with TRID gates:** The TRID Loan Estimate Compliance Gate and TRID Compliance Gate are regulatory gates (zero retries). Those gates pause the workflow immediately on failure. The appraisal exception path only applies to value support failures.
+
+**TRID notice:** If the low appraisal changes any fee disclosed on the Loan Estimate (e.g., PMI rate changes due to LTV shift, lender fee changes due to product change), this constitutes a Changed Circumstance requiring a revised Loan Estimate and a new 3-business-day waiting period before consummation.
+
+---
+
+#### Exception Step 1: Low Appraisal Options Analysis
+**Agent:** Loan Officer (Execute, Credit/Financial authority)
+**Handoff to:** Risk Manager
+
+Present the member with all available paths forward. Each option must be documented with specific numbers:
+
+| Option | Description | Requirements |
+|--------|------------|--------------|
+| **Reconsideration of Value (ROV)** | Request the AMC re-examine the appraisal using specific comparable sales the appraiser may have overlooked | Must provide specific comps with sale date, address, adjusted value; submit formal ROV to AMC; underwriting suspended pending result |
+| **Increase down payment** | Member contributes additional funds to bring LTV into guidelines | Calculate exact additional amount required; confirm member's ability to fund; document source of funds |
+| **Renegotiate purchase price** | Seller accepts lower price equal to or below appraised value | Require updated executed purchase agreement; re-underwriting required; TRID Changed Circumstance if fees change |
+| **Withdraw application** | Member elects to cancel; adverse action notice required | Adverse action notice with accurate reason codes within 30 days of application date |
+
+Document the gap amount, the resulting LTV at contracted price vs. appraised value, each option with specific dollar amounts, and the member's indicated preference.
+
+**Deliverable:** Low appraisal options memorandum with all four options presented with specific figures and member's elected path.
+
+---
+
+#### Exception Step 2: Risk Manager Appraisal Exception Decision
+**Agent:** Risk Manager (Gate, Credit/Financial + Escalation authority)
+
+Review the options memorandum and issue a disposition for the member's elected path:
+
+**If ROV:** Confirm that specific comparable sales were identified and submitted. Note that underwriting is suspended pending the AMC's ROV response. Set a timeline for ROV receipt. If ROV succeeds (value supported), workflow resumes at Underwriting & Conditions. If ROV fails, the Risk Manager reconvenes to disposition the remaining options.
+
+**If additional down payment:** Confirm the new LTV meets product guidelines. Document the exception basis if any LTV policy waiver is required. Note the updated closing date to accommodate revised closing disclosure timing. Confirm source of funds documentation.
+
+**If price renegotiation:** Require the updated executed purchase agreement before re-underwriting begins. Identify whether fee changes constitute a TRID Changed Circumstance — if so, revised LE required with new 3-day wait. Note updated closing date.
+
+**If withdrawal/denial:** Confirm the adverse action notice will be issued within 30 days of the original application date with reason codes that accurately describe the appraisal deficiency. Note: "appraisal did not support value" is an accurate reason code; "collateral not sufficient" is acceptable; "credit denied" alone is not specific enough.
+
+**LTV exception authority:** If the member's elected path requires an LTV exception beyond Risk Manager delegated authority, escalate to CEO with a written exception request.
+
+**Gate:** Appraisal Exception Gate (routine, fallback: pause)
+- Pass: Elected path has documented disposition with conditions. TRID Changed Circumstance identified if applicable. Adverse action notice prepared if applicable.
+- Fail: No documented disposition — workflow pauses for manual review.
+
+---
+
+#### Degraded-Mode Completion Standard for Mortgage Processing
+
+A mortgage that routes through appraisal exception handling is still a mortgage. The minimum viable completion requires:
+
+- Appraised value gap documented with specific numbers
+- All four options presented to member with specific figures
+- Member's elected path documented and Risk Manager-approved
+- TRID Changed Circumstance assessed and disclosed if applicable
+- Adverse action notice obligations tracked against original 30-day clock (exception path does not reset the clock)
+- Rate lock expiration monitored — extended processing timelines may require rate lock extension
+
+A mortgage file that exits appraisal exception handling with an approved path and documented conditions is a documentable, defensible file moving forward. A mortgage that exits with no disposition is a stalled file creating regulatory and member-service risk.
+
+---

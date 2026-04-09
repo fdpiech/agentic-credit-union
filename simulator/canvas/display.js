@@ -121,8 +121,38 @@ export function escalation(escalation) {
   console.log(`  ${escalation.reason}${COLORS.reset}\n`);
 }
 
+export function gateRetry(gateName, attempt, maxRetries) {
+  console.log(`\n${COLORS.yellow}${COLORS.bright}  GATE RETRY (${attempt}/${maxRetries}): ${gateName}`);
+  console.log(`  Re-evaluating gate after deficiency noted...${COLORS.reset}\n`);
+}
+
+export function exceptionBranch(gateName, pathName) {
+  console.log(`\n${COLORS.magenta}${COLORS.bright}  ══ EXCEPTION BRANCH ════════════════════════════`);
+  console.log(`  Gate:  ${gateName}`);
+  console.log(`  Path:  ${pathName}`);
+  console.log(`  Retries exhausted. Routing to defined exception path.${COLORS.reset}\n`);
+}
+
+export function workflowPaused(gateName, reason) {
+  console.log(`\n${COLORS.bgYellow}${COLORS.white}${COLORS.bright}  WORKFLOW PAUSED`);
+  console.log(`  Gate:   ${gateName}`);
+  console.log(`  Reason: ${reason}`);
+  console.log(`  Workflow suspended pending remediation. Manual review required.${COLORS.reset}\n`);
+}
+
+export function workflowRollback(gateName, reason) {
+  console.log(`\n${COLORS.bgRed}${COLORS.white}${COLORS.bright}  WORKFLOW ROLLBACK`);
+  console.log(`  Gate:   ${gateName}`);
+  console.log(`  Reason: ${reason}`);
+  console.log(`  Compensating actions required. Workflow marked rolled-back.${COLORS.reset}\n`);
+}
+
 export function summary(ctx) {
   const s = ctx.summary();
+  const statusColor = s.status === 'completed' || s.status === 'running' ? COLORS.green
+    : s.status === 'exception-path' ? COLORS.magenta
+    : s.status === 'paused' ? COLORS.yellow
+    : COLORS.red;
   console.log(`\n${COLORS.bright}${COLORS.cyan}╔══════════════════════════════════════════════════════════════╗`);
   console.log(`║                    WORKFLOW SIMULATION SUMMARY              ║`);
   console.log(`╠══════════════════════════════════════════════════════════════╣`);
@@ -134,7 +164,13 @@ export function summary(ctx) {
   console.log(`║  Gates Failed:   ${String(s.gatesFailed).padEnd(42)}║`);
   console.log(`║  Comp. Flags:    ${String(s.complianceFlags).padEnd(42)}║`);
   console.log(`║  Escalations:    ${String(s.escalations).padEnd(42)}║`);
+  console.log(`║  Failures:       ${String(s.failureRecords).padEnd(42)}║`);
   console.log(`║  Elapsed:        ${(s.elapsedSeconds + 's').padEnd(42)}║`);
+  console.log(`╠══════════════════════════════════════════════════════════════╣`);
+  console.log(`║  Status:         ${COLORS.reset}${statusColor}${COLORS.bright}${String(s.status.toUpperCase()).padEnd(42)}${COLORS.cyan}║`);
+  if (s.exceptionPath) {
+    console.log(`║  Exception Path: ${COLORS.reset}${COLORS.magenta}${COLORS.bright}${String(s.exceptionPath).padEnd(42)}${COLORS.cyan}║`);
+  }
   console.log(`╚══════════════════════════════════════════════════════════════╝${COLORS.reset}\n`);
 }
 
