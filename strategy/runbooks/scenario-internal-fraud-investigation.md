@@ -267,3 +267,132 @@ partially disclosed to Track B agents on a need-to-know basis:
 - CFO: Informed of financial impact for accounting and reporting purposes
 - Track B agents receive NO details about SAR filing — SAR confidentiality is permanent
 ```
+
+---
+
+## TRACK B: Normal Operations
+
+```
+Track B is not a set of instructions — it is a constraint.
+
+TRACK B RULE: All agents NOT listed in Track A continue their normal duties
+as defined by their standard workflows and playbooks. They receive NO information
+about the investigation. This includes:
+
+- No changes to the subject's duties, access, or schedule (unless CEO determines
+  the risk of continued access outweighs the risk of alerting the subject)
+- No unusual audit requests directed at the subject's area (route through
+  Internal Auditor's normal audit program to avoid suspicion)
+- No changes to reporting relationships or supervision that would signal investigation
+- No "casual" inquiries to the subject's colleagues about the subject's behavior
+
+IF a Track B agent independently discovers suspicious activity:
+1. The discovering agent should report to Internal Auditor or CEO per normal policy
+2. Internal Auditor assesses whether the report relates to the existing investigation
+3. If related: The discovering agent is briefed ONLY to the extent necessary and
+   added to Track A if required — otherwise thanked and asked to keep the report confidential
+4. The discovering agent is NOT told about the existing investigation scope or findings
+```
+
+---
+
+## Escalation: When the Subject Is a Senior Leader
+
+```
+SPECIAL PROTOCOL — Subject is CEO, CFO, or other senior executive:
+
+If the subject of the investigation IS the CEO:
+- Internal Auditor reports directly to Board Chair or Supervisory Committee Chair
+- CEO is EXCLUDED from Track A entirely
+- Board Chair assumes CEO's Track A role (authority and decisions)
+- Outside legal counsel engaged by Board Chair — not by CEO
+- Board Chair authorizes all investigation actions
+- NCUA may need to be notified if CEO fraud is confirmed
+
+If the subject is another C-suite executive:
+- CEO remains in Track A but the subject is excluded
+- Internal Auditor reports to CEO with Board Chair awareness
+- Subject's direct reports continue normal operations (Track B)
+- Legal counsel advises on specific employment and regulatory implications
+
+In all cases: The subject must NOT have any role in, awareness of, or
+influence over the investigation — regardless of their position.
+```
+
+---
+
+## Quality Gate Checklist
+
+| # | Criterion | Owner | Deadline | Status |
+|---|-----------|-------|---------|--------|
+| 1 | Investigation authorized by CEO (or Board Chair if CEO is subject) | CEO | Day 1 | ☐ |
+| 2 | Outside legal counsel engaged — privilege established | CEO | Day 2 | ☐ |
+| 3 | Evidence preservation initiated — system logs, documents, records | Internal Auditor + Core Systems Administrator | Day 3 | ☐ |
+| 4 | SAR filing obligation assessed | Compliance Officer | Day 7 | ☐ |
+| 5 | Whistleblower protection documented | Compliance Officer + CEO | Day 7 | ☐ |
+| 6 | Investigation report complete — findings documented | Internal Auditor | Day 30 | ☐ |
+| 7 | SAR filed (if warranted) — within 30 days of determination | BSA Officer | Per regulatory deadline | ☐ |
+| 8 | Employment action executed (if substantiated) — legal counsel reviewed | CEO + CHRO | Day 31+ | ☐ |
+| 9 | Bond claim filed (if applicable) | CEO + CFO | Per bond policy | ☐ |
+| 10 | Board report delivered (executive session) | CEO | Day 31+ | ☐ |
+| 11 | Law enforcement referral made (if applicable) | CEO + Legal Counsel | Per counsel advice | ☐ |
+| 12 | Case file complete — retained per policy | Internal Auditor | Day 45 | ☐ |
+
+**Gate Keepers**: Internal Auditor (investigation integrity) + CEO (authority and decisions) + Compliance Officer (regulatory compliance)
+
+**Gate Decision**:
+- **INVESTIGATING**: Track A active; evidence gathering in progress; Track B unaware
+- **SUBSTANTIATED**: Allegation confirmed — proceed to employment action, financial recovery, law enforcement assessment
+- **UNSUBSTANTIATED**: Investigation complete — no finding; case closed; whistleblower protected
+- **CLOSED**: All actions complete — employment action taken, bond claim filed, SAR filed, board reported, case file sealed
+
+---
+
+## Key Risks to Manage
+
+| Risk | Owner | Mitigation |
+|------|-------|-----------|
+| Subject becomes aware of investigation — destroys evidence or flees | Internal Auditor + Core Systems Administrator | Evidence preserved first; no visible changes to subject's access or duties until resolution |
+| SAR tipping violation — someone tells the subject about SAR | BSA Officer + all Track A agents | Explicit prohibition in every sealed handoff; legal counsel reinforces at every meeting |
+| Whistleblower retaliation — actual or perceived | CEO + CHRO | Document all employment actions regarding whistleblower; no adverse changes during or after investigation |
+| Attorney-client privilege waived by careless disclosure | CEO + Legal Counsel | All investigation work product routed through counsel; sealed handoffs only |
+| Investigation scope creep — additional subjects discovered | Internal Auditor + CEO | Expand Track A carefully; each new subject gets separate sealed case file |
+| Track B agent independently discovers same issue | Internal Auditor | Absorb into Track A with minimum disclosure; thank and compartmentalize |
+| Loss exceeds bond coverage | CEO + CFO | Early bond carrier notification; assess supplemental recovery options |
+| Employment action challenged — wrongful termination claim | CHRO + Legal Counsel | Legal counsel reviews all employment actions before execution; documentation complete |
+
+---
+
+## Activation Prompt
+
+```
+Activate Internal Auditor in CANVAS-Full mode for Internal Fraud Investigation.
+
+Allegation source: [Whistleblower / Internal controls / Audit finding / Examiner / Law enforcement]
+Subject: [Name, Title — or "Unknown"]
+Allegation type: [Embezzlement / Cash theft / Loan fraud / Vendor kickback / Conflict of interest / Other]
+Estimated exposure: [$Amount or "Unknown"]
+Whistleblower identity: [Known / Anonymous]
+
+Execute the CANVAS Internal Fraud Investigation — Compartmentalized Investigation protocol:
+
+TRACK A (SEALED — need-to-know only):
+- Phase 1: Assessment — Days 1-7 (evidence preservation, regulatory assessment)
+- Phase 2: Investigation — Days 8-30 (transaction analysis, forensics, interviews)
+- Phase 3: Resolution — Day 31+ (employment action, financial recovery, law enforcement)
+
+TRACK B (NORMAL OPERATIONS):
+- All non-Track A agents continue normal duties — unaware of investigation
+- Subject continues normal duties — must not be alerted
+
+All Track A communications use SEALED handoff format.
+SAR confidentiality is absolute — 31 USC 5318(g)(2) — no disclosure to subject, ever.
+Attorney-client privilege established through outside legal counsel from Day 1.
+Whistleblower protection documented throughout.
+Reference: agentic-credit-union/strategy/playbooks/workflow-k-bsa-aml.md
+Reference: agentic-credit-union/strategy/playbooks/workflow-f-compliance-examination.md
+```
+
+---
+
+*CANVAS Internal Fraud Investigation Runbook — The most sensitive operation a credit union conducts. Two tracks, one truth: the investigation runs in the sealed track while the organization runs in the open track. The wall between them is the pattern.*
