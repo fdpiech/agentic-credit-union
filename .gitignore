@@ -4,10 +4,44 @@ venv/
 __pycache__/
 *.pyc
 
-# Environment
+# Environment / secrets
 .env
-.env.local
+.env.*
+!.env.example
+!.env.sample
+.envrc
 *.local
+
+# Credentials, keys, and tokens
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+*.crt
+*.cer
+*.der
+secrets.*
+credentials
+credentials.*
+service-account*.json
+gcp-*.json
+*-key.json
+*_key.json
+.aws/
+.netrc
+.npmrc
+.pypirc
+
+# API keys often saved during prototyping
+openai.key
+anthropic.key
+*.apikey
 
 # Editor
 .vscode/

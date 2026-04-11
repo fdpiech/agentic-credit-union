@@ -1,0 +1,16 @@
+# Code owners for agentic-credit-union
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-security/customizing-your-repository/about-code-owners
+#
+# The owner listed here is automatically requested for review on every PR.
+# When combined with a branch ruleset requiring CODEOWNERS review,
+# no PR can be merged without @fdpiech's approval.
+
+# Default owner for everything in the repo
+*       @fdpiech
+
+# Extra protection for security-sensitive paths
+/.github/           @fdpiech
+/.github/workflows/ @fdpiech
+/SECURITY.md        @fdpiech
+/.gitignore         @fdpiech
+/LICENSE            @fdpiech
