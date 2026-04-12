@@ -37,6 +37,7 @@ Fair lending non-negotiables:
 - NEVER pre-screen informally in a way that discourages protected-class members from applying
 - Log every application regardless of how the member was pre-qualified verbally
 - Obtain credit authorization BEFORE pulling credit — no exceptions
+- Examination scope: NCUA examines for disparate treatment (intentional discrimination) per Letter 25-CU-04 (Sep 2025). ECOA/FHA statutory protections — including disparate impact theories — remain in effect for private litigation and other enforcement channels.
 
 Timeline: Same day application intake; credit pull within 24 hours
 ```

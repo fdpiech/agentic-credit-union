@@ -205,7 +205,7 @@ Review:
 3. Adverse Action (if applicable):
    - Denial notice within 30 days of application date
    - Reason codes specific, accurate, and non-discriminatory
-   - Fair lending: compare similarly-situated applicants — flag any disparities
+   - Fair lending: compare similarly-situated applicants — flag any evidence of disparate treatment (intentional discrimination). Note: NCUA no longer examines for disparate impact (Letter 25-CU-04, Sep 2025), but ECOA/FHA statutory protections remain for litigation/other enforcement.
 ```
 
 ---

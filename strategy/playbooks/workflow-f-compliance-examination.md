@@ -147,9 +147,9 @@ Sample: [N] applications including approvals, declines, and counter-offers
 Test each for:
 - [ ] Adverse action notice issued within 30 days of application
 - [ ] Adverse action notice contains specific reasons (not generic)
-- [ ] No prohibited basis appeared in decision-making
+- [ ] No prohibited basis appeared in decision-making (disparate treatment focus per NCUA Letter 25-CU-04)
 - [ ] HMDA data collected regardless of outcome
-Findings: Flag any disparities in approval rates by protected class for fair lending review
+Findings: Flag any evidence of disparate treatment in approval/denial patterns by protected class. Note: NCUA no longer examines for disparate impact (Sep 2025), but ECOA/FHA statutory protections remain — retain HMDA data analysis for litigation risk and internal fair lending monitoring.
 
 HMDA — Home Mortgage Disclosure Act Data Integrity:
 Sample: 100% of HMDA-reportable applications from prior calendar year (or current YTD)
