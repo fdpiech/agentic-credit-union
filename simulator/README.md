@@ -75,10 +75,10 @@ done
 |----|------|--------|-------|-------------|
 | **A** | Member Onboarding & CIP | 5 | 6 | New member enrollment with BSA/CIP compliance, account opening, needs discovery |
 | **B** | Loan Origination | 5 | 6 | Auto loan application through post-close quality review |
-| **C** | Mortgage Processing | 5 | 6 | Mortgage application, TRID compliance, closing disclosure |
+| **C** | Mortgage Processing (TRID) | 5 | 6 | Mortgage application, TRID compliance, closing disclosure |
 | **D** | Collections & Recovery | 5 | 5 | Early delinquency intervention through financial hardship resolution |
-| **E** | Deposit Operations | 4 | 4 | Deposit disputes, Reg E handling, operational resolution |
-| **F** | Compliance & Examination | 5 | 5 | NCUA exam preparation, BSA testing, board briefing |
+| **E** | Deposit Operations & BSA/AML | 4 | 4 | Deposit disputes, Reg E handling, operational resolution |
+| **F** | Compliance & NCUA Examination | 5 | 5 | NCUA exam preparation, BSA testing, board briefing |
 | **G** | Annual Strategic Planning | 5 | 5 | Environmental scan, financial feasibility, budget, board presentation |
 | **H** | Fraud Detection & Dispute Resolution | 5 | 5 | Fraud intake through Reg E final disposition with mock investigation findings |
 | **I** | Card Services & Fraud Monitoring | 4 | 4 | Card fraud triage, chargeback filing, member reissuance |
