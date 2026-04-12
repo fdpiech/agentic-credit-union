@@ -68,7 +68,7 @@ Credit union operations span dozens of interconnected processes — lending, dep
 
 ### 1.3 The Agent Roster by Function
 
-CANVAS coordinates **35 specialist agents** across 12 functional areas. The C-suite sets direction; functional leads execute workflows; risk, compliance, and audit gate every regulated step.
+CANVAS coordinates **32 specialist agents** across 10 functional areas. The C-suite sets direction; functional leads execute workflows; risk, compliance, and audit gate every regulated step.
 
 | Function | Agents | Primary CANVAS Role |
 |----------|--------|---------------------|
