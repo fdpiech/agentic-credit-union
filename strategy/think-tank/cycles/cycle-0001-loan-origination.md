@@ -229,3 +229,219 @@ Even if Steps 4 and 5 could somehow proceed (they can't), Step 6 is the same Com
 - **Surprise breakages**: B2 — Risk Manager advisory about systemic rate impact has no escalation pathway within Workflow B. The advisory was correct and timely, but it stays inside the individual loan file. There is no mechanism for "this is not about this loan, this is about all loans in the pipeline."
 - **Prediction accuracy**: 4 of 5 breakages predicted (with varying match quality). 1 genuine surprise.
 - **Signal strength**: Medium-high. The SPOF findings were expected (that was the question we designed the cycle to answer). The surprise (B2 — systemic advisory gap) is a genuinely new structural insight.
+
+---
+
+## Extract — Structural Findings
+
+### Finding cycle-0001-F01 — Single Point of Failure at Compliance Officer Gates
+
+**Breakage(s)**: B3, B5
+**Root-cause classification**: `wrong authority` (no alternate Gate agent documented)
+**Affected files**:
+- `strategy/step-matrix-framework.md` — Section 2 (Dimension 1 — Mode), Gate definition: does not require naming an alternate Gate agent
+- `strategy/playbooks/workflow-b-loan-origination.md` — Step-Level Matrix: Steps 3 and 6 name only the Compliance Officer as Gate with no successor
+**Is this a training issue or a structural gap?**: **Structural gap.** The framework does not require or even support naming an alternate Gate agent. No operator action could have avoided this — the structure doesn't have the field.
+
+### Finding cycle-0001-F02 — Stale Pre-Qualification Gap
+
+**Breakage**: B1
+**Root-cause classification**: `missing step` (no protocol for rate-sheet change between Steps 1 and 2)
+**Affected files**:
+- `strategy/playbooks/workflow-b-loan-origination.md` — Step 2 (Underwriting Analysis): no rate-sheet staleness check or re-pre-qualification protocol
+**Is this a training issue or a structural gap?**: **Structural gap.** The playbook's Step 1 says "pre-qualify using current rate/product matrix" but does not address what happens when the matrix changes before Step 2 completes. The Loan Officer improvised correctly, but improvisation is not a framework.
+
+### Finding cycle-0001-F03 — Systemic Advisory Escalation Gap
+
+**Breakage**: B2
+**Root-cause classification**: `undocumented handoff` (Risk Manager systemic advisory has no escalation path within Workflow B)
+**Affected files**:
+- `strategy/playbooks/workflow-b-loan-origination.md` — Step 2, Risk Manager Advise role: no mechanism to escalate from "this file has a risk" to "all files in the pipeline have this risk"
+- `strategy/coordination/handoff-templates.md` — no template for systemic-risk advisory escalation from within a single-file workflow
+**Is this a training issue or a structural gap?**: **Structural gap.** The Risk Manager's advisory was correct and timely. The framework's Advise mode is designed for per-file input. There is no mode or handoff for "this observation applies to the pipeline, not just this loan."
+
+### Finding cycle-0001-F04 — Cascading Blockage (Steps 4–6)
+
+**Breakage**: B4
+**Root-cause classification**: `operator error` — not a framework gap
+**Rationale**: Steps 4, 5, and 6 correctly blocked when Step 3 (a regulatory gate) could not clear. This is the intended behavior of a regulatory gate failure: the workflow pauses. The problem is not that Steps 4–6 blocked — the problem is that Step 3 is a SPOF (addressed in F01). Cascading blockage is a *symptom* of F01, not a separate root cause.
+**Action**: Filed as retrospective note. No Delta.
+
+---
+
+## Proposed Framework Deltas
+
+### Delta DD-0001-01 — Add Alternate Gate Agent Field to Step-Matrix Framework
+
+**Maps to Finding**: cycle-0001-F01
+**Target file**: `strategy/step-matrix-framework.md`
+**Target section**: Section 2 — Dimension 1 — Mode — Gate definition
+**Approver**: CEO (strategic — step-matrix framework change) + Compliance Officer (regulatory — affects compliance gates)
+
+**Alternatives considered**:
+- Mode change: No — the Gate mode is correct; the issue is that only one agent holds it
+- Authority reassignment: No — the Compliance/Regulatory authority lane is correct for compliance gates
+- Exception path addition: Partially addresses it (see DD-0001-03), but does not fix the structural absence of the alternate-gate concept
+- Handoff clarification: No — this is not a handoff issue; it's a governance structure issue
+- Runbook addition: No — a runbook for "compliance officer is unavailable" doesn't fix the step-matrix gap
+- Agent card amendment: No — the issue is in the framework, not in any individual agent card
+
+#### Before
+
+```markdown
+### Gate
+
+> You have veto authority at a defined checkpoint. The workflow stops until you clear it. You don't produce the work product — you evaluate it against your decision authority. A gate decision is binary: pass or fail with specific findings.
+
+- Gate agents evaluate prior work; they do not produce the primary deliverable.
+- A failed gate requires documented findings. "I'm not comfortable with this" is not a gate finding — specific criterion failures are.
+- There is typically one Gate agent per checkpoint, though a workflow step can have the Gate agent coincide with an Execute agent if that agent both produced a sub-deliverable (e.g., a compliance checklist) and clears the workflow.
+- Gate agents cannot be overruled silently. Disagreement with a gate decision activates the Escalation lane.
+```
+
+#### After
+
+```markdown
+### Gate
+
+> You have veto authority at a defined checkpoint. The workflow stops until you clear it. You don't produce the work product — you evaluate it against your decision authority. A gate decision is binary: pass or fail with specific findings.
+
+- Gate agents evaluate prior work; they do not produce the primary deliverable.
+- A failed gate requires documented findings. "I'm not comfortable with this" is not a gate finding — specific criterion failures are.
+- There is typically one Gate agent per checkpoint, though a workflow step can have the Gate agent coincide with an Execute agent if that agent both produced a sub-deliverable (e.g., a compliance checklist) and clears the workflow.
+- Gate agents cannot be overruled silently. Disagreement with a gate decision activates the Escalation lane.
+- **Alternate Gate Agent**: Every Gate cell in a workflow Step-Level Matrix should name an alternate agent who holds the same authority lane and can serve as Gate if the primary is unavailable. The alternate operates under the same gate type (regulatory or routine) and the same fallback outcome. If no qualified alternate exists, the step must document this as a known single point of failure. Alternate gate activation requires Escalation-lane authorization from the CEO or the departing agent's supervisor.
+```
+
+**Disposition**: `merged`
+**Approval date**: 2026-04-12
+**Rationale**: Both CEO and Compliance Officer concur — naming alternates is a governance hygiene improvement that reduces SPOF risk across all 17 workflows. Think Tank cycle-0001 demonstrated that a single Compliance Officer departure blocks 100% of loan origination.
+
+---
+
+### Delta DD-0001-02 — Name Alternate Gate Agents for Workflow B Steps 3 and 6
+
+**Maps to Finding**: cycle-0001-F01
+**Target file**: `strategy/playbooks/workflow-b-loan-origination.md`
+**Target section**: Step-Level Matrix
+**Approver**: Compliance Officer (regulatory — compliance gate assignment)
+
+#### Before
+
+```markdown
+| Step | Agent | Mode | Authority |
+|------|-------|------|-----------|
+| 3. Compliance Review | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+| 6. Post-Close Quality Check | Compliance Officer | Gate | Compliance/Regulatory + Escalation |
+```
+
+#### After
+
+```markdown
+| Step | Agent | Mode | Authority | Alternate Gate |
+|------|-------|------|-----------|----------------|
+| 3. Compliance Review | Compliance Officer | Gate | Compliance/Regulatory + Escalation | BSA Officer (Compliance/Regulatory authority for BSA/AML; fair lending and TILA review require CEO authorization for scope expansion) |
+| 6. Post-Close Quality Check | Compliance Officer | Gate | Compliance/Regulatory + Escalation | Internal Auditor (Compliance/Regulatory authority for audit findings; post-close review is within audit scope; note: alternate activation must not compromise audit independence for the same file) |
+```
+
+**Note on alternate selection**: The BSA Officer is chosen for Step 3 because pre-decision compliance review (ECOA, TILA, fair lending) is closest to the BSA Officer's regulatory analysis skillset, though it requires explicit CEO authorization for scope expansion beyond BSA/AML. The Internal Auditor is chosen for Step 6 because post-close quality review is naturally within audit scope, but independence must be maintained — the Internal Auditor cannot serve as both quality reviewer and subsequent auditor of the same loan file.
+
+**Disposition**: `merged`
+**Approval date**: 2026-04-12
+
+---
+
+### Delta DD-0001-03 — Add Exception Path `exception-compliance-vacancy`
+
+**Maps to Finding**: cycle-0001-F01
+**Target file**: `strategy/playbooks/workflow-b-loan-origination.md`
+**Target section**: Exception Paths (after existing `exception-underwriting` section)
+**Approver**: Compliance Officer (regulatory — compliance gate modification) + CEO (strategic — new exception path)
+
+#### Before
+
+No `exception-compliance-vacancy` path exists.
+
+#### After
+
+```markdown
+### `exception-compliance-vacancy` — Compliance Officer Gate Unavailable
+
+**Triggered when:** The primary Compliance Officer Gate agent at Step 3 or Step 6 is unavailable (departure, medical leave, extended absence) and no temporary reassignment has been made.
+
+**Activation criteria:**
+- Primary Compliance Officer is confirmed unavailable (not merely delayed)
+- CEO has authorized alternate Gate activation via Escalation lane
+- Alternate Gate agent has been briefed on scope and limitations
+
+**Exception Step 1: Alternate Gate Activation (CEO, Escalation)**
+CEO authorizes the alternate Gate agent to serve at the affected step(s). Authorization is time-limited (not to exceed 30 calendar days without board notification). CEO documents:
+- Which steps the alternate is authorized for
+- Scope limitations (e.g., BSA Officer at Step 3 may review ECOA and TILA but must escalate complex fair lending questions to outside compliance counsel)
+- Review cadence: all alternate-gated files receive a retroactive review by the permanent or replacement Compliance Officer within 60 days
+
+**Exception Step 2: Alternate Gate Execution**
+The alternate Gate agent reviews the file under the same gate criteria as the primary. Any finding the alternate is not confident evaluating is escalated to the CEO with a recommendation to engage outside compliance counsel.
+
+**Exception Step 3: Retroactive Review**
+When a permanent or replacement Compliance Officer is in place, all files gated by the alternate are reviewed retroactively. Any deficiency identified in the retroactive review is handled per the standard quality gate protocol (correction needed or material finding).
+
+**Degraded-mode standard:**
+- All alternate-gated files are flagged in the core system for retroactive review
+- ECOA 30-day adverse action clocks are tracked normally — the alternate gate does not reset the clock
+- This exception path does not apply to SAR filing obligations or BSA/AML determinations, which remain with the BSA Officer under their own authority lane regardless of Compliance Officer availability
+```
+
+**Disposition**: `merged`
+**Approval date**: 2026-04-12
+
+---
+
+### Delta DD-0001-04 — Cross-Workflow Alternate Gate Audit
+
+**Maps to Finding**: cycle-0001-F01 (systemic extension)
+**Target file**: All 17 workflow playbooks (`strategy/playbooks/workflow-[a-q]-*.md`)
+**Target section**: Step-Level Matrix in each playbook
+**Approver**: CEO + Compliance Officer
+
+**Description**: Audit every Gate cell across all 17 workflow Step-Level Matrices and either (a) name an alternate Gate agent or (b) document the step as a known SPOF. This Delta is too large for a single cycle — it touches 17 files and requires domain-specific alternate selection for each.
+
+**Disposition**: `deferred-to-roadmap`
+**ROADMAP entry**: "Cross-Workflow Alternate Gate Audit — review every Gate cell in workflows A–Q; name alternates per the Alternate Gate Agent convention added in DD-0001-01; document any steps where no qualified alternate exists as known SPOFs. Triggered by Think Tank cycle-0001 Finding F01. Acceptance criteria: every Gate cell across all 17 playbooks either names an alternate or documents SPOF status."
+
+---
+
+## Deferred Items
+
+| Delta ID | Finding | Target | Disposition | ROADMAP Entry |
+|----------|---------|--------|-------------|---------------|
+| DD-0001-04 | cycle-0001-F01 | All 17 workflow playbooks | deferred-to-roadmap | Cross-Workflow Alternate Gate Audit |
+
+**Note on F02 (stale pre-qualification) and F03 (systemic advisory escalation)**: These findings are real structural gaps but are lower severity than F01. Rather than draft Deltas in this cycle, they are logged here for the next cycle that targets Workflow B (after rotation completes). When Workflow B comes up again, cycle findings F02 and F03 should be the first items the Facilitator reviews in Phase 1 (Observe).
+
+---
+
+## Cycle Retrospective
+
+### What this cycle revealed about Think Tank methodology
+
+1. **The 4-phase structure worked as designed.** The baseline run was clean, confirming that the SPOF would not have been found without stress. The stress exposed the gap. The Extract produced specific diffs against specific files. The mechanical chain (Finding → Delta → Disposition → File) held.
+
+2. **Two stresses was the right number.** ST-01 (rate shock) and ST-08 (key-staff departure) were diagnostically separable: rate-related breakages at Steps 2/4 vs. vacancy-related breakages at Steps 3/6. The compound effect (volume × vacancy) was observable as an interaction, not a confound.
+
+3. **Pre-registration added real value.** The Stress Designer predicted 4 of 5 breakages. The one surprise (B2 — systemic advisory escalation gap) was the most structurally novel finding and would not have been identified as "surprise" without the pre-registration record.
+
+4. **F04 (cascading blockage) as operator error was the right call.** The Architect correctly identified it as a symptom of F01, not a separate root cause. One Delta per root cause, not per symptom, is the right discipline.
+
+5. **F02 and F03 were deliberately not promoted to Deltas in this cycle.** The Facilitator chose to focus the cycle's merge budget on the highest-severity finding (F01) rather than spread across three lower-severity Deltas. This is a judgment call — future cycles may handle it differently — but for an inaugural cycle, landing three merged Deltas on one root cause plus a ROADMAP deferral is a strong outcome.
+
+6. **The worked example should NOT become the template for cycle severity.** Not every cycle will produce a critical SPOF. Some cycles will find only minor structural gaps or operator-error patterns. That is fine — the methodology should not create pressure to find dramatic breakages.
+
+### Methodology improvements for future cycles
+
+- **Add a "prior cycle findings" review to Phase 1 (Observe)** — when a workflow comes back on rotation, the Facilitator should check whether previous cycle findings (like F02 and F03) have been addressed or are still open. This is noted in the methodology doc but should be made explicit in the runbook's Phase 1 activation prompt.
+- **Consider adding the "Alternate Gate" column to the Step-Level Matrix template** — now that DD-0001-01 has merged, new playbooks should include it from the start.
+
+---
+
+*Cycle 0001 complete. Three merged deltas, one deferred ROADMAP item, one surprise finding, zero new agents proposed. The framework is structurally stronger than it was before the cycle ran.*
