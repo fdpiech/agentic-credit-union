@@ -1,6 +1,6 @@
 # CANVAS Simulator
 
-CLI tool for running credit union workflow simulations. Orchestrates 35 AI agents across 7 workflows with mock and live LLM modes.
+CLI tool for running credit union workflow simulations. Orchestrates 32 AI agents across 11 implemented workflows (A–K) with mock and live LLM modes.
 
 ## Quick Start
 
@@ -44,7 +44,7 @@ node simulator.js [options]
 
 | Flag | Short | Description |
 |------|-------|-------------|
-| `--workflow <A\|B\|C\|D\|E\|F\|G>` | `-w` | Run a specific workflow |
+| `--workflow <A\|B\|C\|D\|E\|F\|G\|H\|I\|J\|K>` | `-w` | Run a specific workflow |
 | `--scenario <name>` | `-s` | Use a predefined scenario |
 | `--mock` | `-m` | Run in mock mode (no API key needed) |
 | `--list` | `-l` | List available workflows and scenarios |
@@ -63,7 +63,7 @@ node simulator.js --mock --workflow A
 node simulator.js --mock --workflow B
 
 # Run all workflows sequentially (quick smoke test)
-for w in A B C D E F G; do
+for w in A B C D E F G H I J K; do
   echo "=== Workflow $w ==="
   node simulator.js --mock --workflow $w 2>&1 | tail -12
 done
@@ -75,10 +75,10 @@ done
 |----|------|--------|-------|-------------|
 | **A** | Member Onboarding & CIP | 5 | 6 | New member enrollment with BSA/CIP compliance, account opening, needs discovery |
 | **B** | Loan Origination | 5 | 6 | Auto loan application through post-close quality review |
-| **C** | Mortgage Processing | 5 | 6 | Mortgage application, TRID compliance, closing disclosure |
+| **C** | Mortgage Processing (TRID) | 5 | 6 | Mortgage application, TRID compliance, closing disclosure |
 | **D** | Collections & Recovery | 5 | 5 | Early delinquency intervention through financial hardship resolution |
-| **E** | Deposit Operations | 4 | 4 | Deposit disputes, Reg E handling, operational resolution |
-| **F** | Compliance & Examination | 5 | 5 | NCUA exam preparation, BSA testing, board briefing |
+| **E** | Deposit Operations & BSA/AML | 4 | 4 | Deposit disputes, Reg E handling, operational resolution |
+| **F** | Compliance & NCUA Examination | 5 | 5 | NCUA exam preparation, BSA testing, board briefing |
 | **G** | Annual Strategic Planning | 5 | 5 | Environmental scan, financial feasibility, budget, board presentation |
 | **H** | Fraud Detection & Dispute Resolution | 5 | 5 | Fraud intake through Reg E final disposition with mock investigation findings |
 | **I** | Card Services & Fraud Monitoring | 4 | 4 | Card fraud triage, chargeback filing, member reissuance |
@@ -103,7 +103,7 @@ done
 5. Decision Communication (Loan Officer)
 6. Post-Close Quality Review (Internal Auditor)
 
-**Workflow C — Mortgage Processing**
+**Workflow C — Mortgage Processing (TRID)**
 1. Application & Loan Estimate (Mortgage Loan Officer)
 2. Document Collection & Processing (Mortgage Loan Processor)
 3. Underwriting Decision (Underwriter)
@@ -118,13 +118,13 @@ done
 4. Payment Arrangement & Compliance (Collections Specialist)
 5. Resolution Gate (Compliance Officer)
 
-**Workflow E — Deposit Operations**
+**Workflow E — Deposit Operations & BSA/AML**
 1. Dispute Intake & Documentation (Deposit Operations Manager)
 2. Investigation & Research (IT Systems / Core Systems)
 3. Resolution & Member Communication (Deposit Operations Manager)
 4. Reg E Compliance Gate (Compliance Officer)
 
-**Workflow F — Compliance & Examination**
+**Workflow F — Compliance & NCUA Examination**
 1. Exam Preparation & Document Assembly (Compliance Officer)
 2. BSA/AML Independent Testing (BSA Officer)
 3. Fair Lending Analysis (Compliance Officer)
@@ -138,6 +138,33 @@ done
 4. Risk Assessment & Approval (Risk Manager)
 5. Implementation Planning Gate (Compliance Officer)
 
+**Workflow H — Fraud Detection & Dispute Resolution**
+1. Fraud Report Intake & Classification (Fraud Detection Analyst)
+2. Initial Member Communication (Member Services Rep)
+3. Investigation (Fraud Detection Analyst)
+4. Provisional Credit & Reg E Compliance (Compliance Officer)
+5. Final Disposition & Member Notification (Compliance Officer)
+
+**Workflow I — Card Services & Fraud Monitoring**
+1. Fraud Alert Triage (Fraud Detection Analyst)
+2. Card Suspension & Member Contact (Card Services Specialist)
+3. Chargeback Processing (Card Services Specialist)
+4. Card Reissue & Case Closure (Card Services Specialist)
+
+**Workflow J — IT Security & Incident Response**
+1. Incident Detection & Triage (IT Infrastructure Engineer)
+2. Containment (Core Systems Administrator)
+3. Eradication & Recovery (IT Infrastructure Engineer)
+4. Regulatory Notification Assessment (Compliance Officer)
+5. Post-Incident Review & Board Report (CEO)
+
+**Workflow K — BSA/AML Monitoring & SAR Filing**
+1. Transaction Monitoring Alert Review (BSA Officer)
+2. SAR Investigation (BSA Officer)
+3. SAR Decision & Filing (Compliance Officer)
+4. CTR Processing & OFAC Screening (BSA Officer)
+5. BSA Program Examination Support (BSA Officer)
+
 ## Modes
 
 ### Mock Mode (`--mock`)
@@ -150,9 +177,9 @@ Uses hardcoded responses for each workflow step. No API key required. Good for:
 
 Mock responses are contextually distinct per step — they contain realistic credit union scenarios including BSA/CIP verification, loan underwriting worksheets, compliance gates, and more.
 
-### Live Mode (default)
+### Live Mode
 
-Sends real prompts to an OpenAI-compatible API. Requires `OPENAI_API_KEY`. Good for:
+Sends real prompts to an OpenAI-compatible API. Requires `OPENAI_API_KEY`; if the variable is unset the simulator automatically falls back to mock mode with an info message. Good for:
 - Testing how LLMs handle credit union compliance scenarios
 - Evaluating agent coordination quality
 - Generating novel workflow variations
@@ -200,7 +227,7 @@ simulator/
 ### How It Works
 
 1. **Load agents** — Reads `../agents/cu-*.md` files (YAML frontmatter + markdown body)
-2. **Parse workflow** — Selects a workflow definition (A–G) with ordered steps
+2. **Parse workflow** — Selects a workflow definition (A–K) with ordered steps
 3. **Execute steps** — Each step calls an agent with context from previous steps
 4. **Evaluate gates** — Compliance/quality gates check workflow state between steps
 5. **Display results** — Color-coded output with handoff visualization
@@ -248,14 +275,17 @@ Quality gates are evaluated between workflow steps. In mock mode, gates pass if 
 cd simulator && npm install
 ```
 
-**`Error: OPENAI_API_KEY not set`**
-```bash
-# Use mock mode instead
-node simulator.js --mock --workflow A
-```
+**`OPENAI_API_KEY not set — falling back to mock mode`**
+This is informational, not an error. When the env var is unset, the
+simulator runs in mock mode automatically. To force live mode, export
+`OPENAI_API_KEY`. To silence the info message, pass `--mock` explicitly.
 
 **`Error: Agent not found`**
-Make sure you're running from the `simulator/` directory. The agent loader looks for `../agents/cu-*.md`.
+The agent loader resolves `agents/` from `import.meta.dirname` in
+`simulator/canvas/agent-loader.js`, so CWD doesn't matter — but the
+`agents/` directory must exist at the repository root. If you've run
+`git checkout` on a shallow clone or a branch missing agent files,
+restore the full tree.
 
 **Timeout on LLM calls**
 Live mode has a 30-second timeout per request. If the API is slow, the simulator will retry 3 times with exponential backoff (1s, 2s, 4s). Check your `OPENAI_BASE_URL` is correct.

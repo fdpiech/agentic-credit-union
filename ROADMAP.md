@@ -42,3 +42,26 @@ Competitive Intel → Gap Analysis → Roadmap Synthesis → Build → Retrospec
 Review every Gate cell across all 17 workflow Step-Level Matrices (A–Q). For each Gate, either name an alternate Gate agent who holds the same authority lane, or document the step as a known single point of failure. Triggered by Think Tank cycle-0001 Finding F01 (Delta DD-0001-04).
 
 **Acceptance criteria**: Every Gate cell across all 17 playbooks either names an alternate or documents SPOF status per the Alternate Gate Agent convention added to `strategy/step-matrix-framework.md` in DD-0001-01.
+
+---
+
+## Known drift and editorial decisions
+
+Items surfaced during the April 2026 overnight cleanup pass.
+Resolved in `claude/resolve-drift-items` branch (April 2026).
+
+| Item | Resolution |
+|---|---|
+| Functional-area taxonomy (10 vs 12) | Aligned EXECUTIVE-BRIEF.md to cu-strategy.md's 10 areas |
+| Workflow name inconsistency (C, E, F) | Propagated engine long form across all docs and playbooks |
+| H–K predefined scenarios missing | Added fraud-dispute, card-fraud-alert, ransomware-incident, structuring-alert |
+| H–K workflow detail prose in simulator/README | Replaced footnote with full step-by-step walkthroughs |
+| README.md runbook summary wording | Updated to cover all 10 runbook categories |
+
+### Remaining (deferred)
+
+**LLM client API-key format warning** — `simulator/canvas/llm.js:13`
+warns on API keys not starting with `sk-`, which false-positives for
+local-model setups via `OPENAI_BASE_URL`. Low impact (Anthropic keys
+pass; only local-model users see the warning). Could be scoped to the
+default `api.openai.com` base URL if it becomes a real friction point.

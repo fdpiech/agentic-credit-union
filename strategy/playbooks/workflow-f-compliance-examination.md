@@ -1,4 +1,4 @@
-# Workflow F Playbook — Compliance & Examination
+# Workflow F Playbook — Compliance & NCUA Examination
 
 > **Cycle Time**: Annual cycle (Q1–Q4) + on-demand for NCUA examination | **Agents**: 6 | **Gate Keepers**: Compliance Officer + Internal Auditor
 

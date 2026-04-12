@@ -10,7 +10,7 @@ The system includes:
 - **35 specialized AI agents** covering every major credit union function plus self-improvement
 - **17 workflows** covering every major credit union function and regulatory obligation
 - **Standardized handoff protocols** ensuring compliance at every step
-- **Scenario runbooks** for exam preparation, new product launches, mergers, and crisis response
+- **Scenario runbooks** for exam preparation, crisis response, vendor management, fraud investigation, and more
 - **Think Tank** — a recurring 4-phase cycle that stress-tests CANVAS against real CU processes and feeds structural improvements back into the framework ([details](strategy/think-tank/README.md))
 
 ---
@@ -85,6 +85,12 @@ agentic-credit-union/
 │   │   ├── scenario-new-product-launch.md
 │   │   ├── scenario-merger-conversion.md
 │   │   ├── scenario-data-breach-response.md
+│   │   ├── scenario-fed-rate-change.md
+│   │   ├── scenario-natural-disaster-response.md
+│   │   ├── scenario-liquidity-crisis.md
+│   │   ├── scenario-vendor-due-diligence.md
+│   │   ├── scenario-vendor-onboarding.md
+│   │   ├── scenario-internal-fraud-investigation.md
 │   │   └── scenario-think-tank-cycle.md
 │   └── think-tank/             # Self-improvement cycle
 │       ├── README.md           # Index and quick links
@@ -131,7 +137,7 @@ agentic-credit-union/
 | **C** | Mortgage Processing (TRID) | Mortgage Loan Processor |
 | **D** | Collections & Recovery | Collections Specialist |
 | **E** | Deposit Operations & BSA/AML | Deposit Operations Manager |
-| **F** | Compliance & NCUA Exam | Compliance Officer |
+| **F** | Compliance & NCUA Examination | Compliance Officer |
 | **G** | Annual Strategic Planning | CEO |
 
 ### Critical Workflows (H–K)

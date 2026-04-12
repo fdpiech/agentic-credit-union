@@ -6,7 +6,7 @@
 
 ## 1. SITUATION OVERVIEW
 
-The credit union operates 32 specialized AI agents across 12 functional areas — lending, member services, deposits, BSA/AML, compliance, collections, finance, marketing, technology, human resources, branch operations, and internal audit. The technology function is staffed by 7 scoped IT agents: Core Systems Administrator, IT Infrastructure Engineer, Database Administrator, Software Engineer, RPA & Automation Engineer, Business Intelligence Analyst, and IT Services Manager. Individually, each agent delivers expert-level output. **Without coordination, they produce inconsistent member experiences, compliance gaps at handoff boundaries, and decisions that optimize one function at the expense of another.** CANVAS transforms this roster into an orchestrated operational network with defined workflows, compliance gates, and measurable outcomes grounded in cooperative values.
+The credit union operates 32 specialized AI agents across 10 functional areas — executive leadership, lending, member services, operations, risk & compliance, collections, branch operations, marketing & strategy, audit, and technology. The technology function is staffed by 8 scoped IT agents: Core Systems Administrator, IT Infrastructure Engineer, Database Administrator, IT Systems Administrator, Software Engineer, RPA & Automation Engineer, Business Intelligence Analyst, and IT Services Manager. Individually, each agent delivers expert-level output. **Without coordination, they produce inconsistent member experiences, compliance gaps at handoff boundaries, and decisions that optimize one function at the expense of another.** CANVAS transforms this roster into an orchestrated operational network with defined workflows, compliance gates, and measurable outcomes grounded in cooperative values.
 
 ## 2. KEY FINDINGS
 
@@ -71,7 +71,7 @@ The credit union operates 32 specialized AI agents across 12 functional areas �
 
 ```
 agentic-credit-union/
-├── agents/                           # 35 AI agent definitions
+├── agents/                           # 32 AI agent definitions
 │   ├── cu-ceo.md                    # Executive leadership
 │   ├── cu-cfo.md                    # Finance
 │   ├── cu-chro.md                   # Human Resources
@@ -131,10 +131,16 @@ agentic-credit-union/
     │   ├── agent-activation-prompts.md ← Ready-to-use agent prompts
     │   └── handoff-templates.md        ← Standardized handoff formats
     └── runbooks/
-        ├── scenario-exam-preparation.md      ← NCUA examination cycle
-        ├── scenario-new-product-launch.md    ← New product rollout
-        ├── scenario-merger-conversion.md     ← Core system conversion / merger
-        └── scenario-data-breach-response.md  ← Cybersecurity incident response
+        ├── scenario-exam-preparation.md            ← NCUA examination cycle
+        ├── scenario-new-product-launch.md          ← New product rollout
+        ├── scenario-merger-conversion.md           ← Core system conversion / merger
+        ├── scenario-data-breach-response.md        ← Cybersecurity incident response
+        ├── scenario-fed-rate-change.md             ← Fed rate move response
+        ├── scenario-natural-disaster-response.md   ← Branch / operational disaster recovery
+        ├── scenario-liquidity-crisis.md            ← Liquidity stress response
+        ├── scenario-vendor-due-diligence.md        ← Vendor pre-contract risk review
+        ├── scenario-vendor-onboarding.md           ← New vendor integration
+        └── scenario-internal-fraud-investigation.md ← Employee / insider fraud investigation
 ```
 
 ---
