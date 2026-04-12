@@ -25,9 +25,14 @@ The [ROADMAP](../../ROADMAP.md) describes a Self-Improvement Protocol with six a
 | Think Tank Facilitator | (none) | Runs cycles; no overlap with any ROADMAP agent |
 | Framework Architect | Roadmap Synthesis | Architect drafts structural deltas *within* a cycle; Roadmap Synthesis will aggregate across cycles when it ships |
 | Stress Designer | Game Theory Evaluation | Stress Designer parameterizes disruptions from the catalog; Game Theory Evaluation will model incentive-driven adversarial stresses when it ships |
-| (participants) | Retrospective, Gap Analysis, Member Persona | These agents will contribute to Observe and Extract phases when they ship |
+| Gap Analyst | Gap Analysis | **Shipped.** Contributes to the Observe phase — compares CANVAS workflow structure against industry benchmarks and regulatory expectations |
+| Think Tank Intel | Competitive Intel | **Shipped.** Surfaces external forces (fintech, peer CU, regulatory) that inform stress selection and Observe context. Distinct from the operational `cu-competitive-intelligence` agent |
+| Member Persona | Member Persona | **Shipped.** Contributes to the Model phase — plays the member role in-character during baseline and stressed runs with realistic financial profiles |
+| (not yet shipped) | Retrospective | Will contribute to Extract phase and cross-cycle pattern analysis |
+| (not yet shipped) | Roadmap Synthesis | Will aggregate across cycles and handle deferred-item prioritization |
+| (not yet shipped) | Game Theory Evaluation | Will model incentive-driven adversarial stresses in the Stress phase |
 
-When the ROADMAP agents land, they run *inside* Think Tank cycles. The Think Tank infrastructure is designed to host them, not replace them.
+When the remaining ROADMAP agents land, they run *inside* Think Tank cycles. The Think Tank infrastructure is designed to host them, not replace them.
 
 ---
 
@@ -37,15 +42,17 @@ When the ROADMAP agents land, they run *inside* Think Tank cycles. The Think Tan
 
 Pick one real CU process end-to-end. Map every decision, handoff, system interaction, and exception path. Use an existing workflow playbook (A–Q) as the target. Cite the simulator run(s) or framework version (git SHA) that the cycle is anchored to.
 
-**Output**: Process map + baseline metrics + list of known exception paths.
+After the Facilitator maps the process, the **Gap Analyst** compares the workflow's structure against industry benchmarks and regulatory expectations (producing a Gap Report), and **Think Tank Intel** surfaces external forces relevant to the target (producing an Intel Brief). Both feed into the Observe section of the cycle report.
+
+**Output**: Process map + Gap Report + Intel Brief + baseline metrics + list of known exception paths.
 
 ### 2. Model — Baseline Run
 
-Run the chosen workflow with agents **in character** — not reading their cards back, but responding to the scenario with their own authority lanes, priorities, and constraints. This produces a clean baseline so that later breakage can be attributed to the stress, not to pre-existing gaps.
+Run the chosen workflow with agents **in character** — not reading their cards back, but responding to the scenario with their own authority lanes, priorities, and constraints. The **Member Persona** agent plays the member role, responding in-character at interaction steps with a realistic, financially consistent profile. This produces a clean baseline so that later breakage can be attributed to the stress, not to pre-existing gaps.
 
 **Critical discipline**: if the baseline run itself breaks, that is a pre-existing gap and must be flagged separately before the stress phase begins. The Facilitator must not let a broken baseline be attributed to the stress.
 
-**Output**: Deliverables from each agent activation + list of any baseline-exposed gaps.
+**Output**: Deliverables from each agent activation + Member Profile Card + list of any baseline-exposed gaps.
 
 ### 3. Stress Application + Model — Stressed Run
 
