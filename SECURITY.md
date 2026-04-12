@@ -54,6 +54,10 @@ Out of scope:
 This repository must never contain real credentials, API keys, tokens,
 private keys, or customer data. If you believe a secret has been
 committed, report it via the process above and **do not** open a public
-issue or PR referencing the exposed value. GitHub secret scanning,
-Gitleaks, and push protection are enabled as defense-in-depth, but
-human review is still the primary safeguard.
+issue or PR referencing the exposed value.
+
+GitHub's native secret scanning and push protection are enabled on this
+repository as an automated safeguard — push protection will block
+commits containing known provider tokens before they reach the server.
+Human review remains the primary safeguard for anything the automated
+scanners don't recognize.

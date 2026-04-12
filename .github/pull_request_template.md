@@ -27,7 +27,7 @@
 - [ ] No new external dependencies added (or: dependencies reviewed for known vulnerabilities)
 - [ ] User-supplied input is validated / sanitized where applicable
 - [ ] Changes to GitHub Actions workflows have been reviewed for permission scope
-- [ ] I have read the [security policy](../SECURITY.md)
+- [ ] I have read the [security policy](SECURITY.md)
 
 ## Notes for reviewer
 
