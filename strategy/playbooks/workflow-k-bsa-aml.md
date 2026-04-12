@@ -295,6 +295,7 @@ MONEY SERVICES BUSINESSES (MSB):
 HIGH-RISK BUSINESSES (cash-intensive, international, complex ownership):
 - Obtain ownership structure documentation (beneficial ownership — all owners ≥ 25%)
 - Verify beneficial owner identities per CIP requirements
+- Note: FinCEN Exceptive Order (Feb 2026) — verification required at first account opening only, not each subsequent account. Re-verify when facts question prior info or risk-based procedures warrant it.
 - Understand expected transaction patterns in writing at account opening
 - Annual review
 
