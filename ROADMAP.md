@@ -43,6 +43,22 @@ Review every Gate cell across all 17 workflow Step-Level Matrices (A–Q). For e
 
 **Acceptance criteria**: Every Gate cell across all 17 playbooks either names an alternate or documents SPOF status per the Alternate Gate Agent convention added to `strategy/step-matrix-framework.md` in DD-0001-01.
 
+## Standing Reports — Decoupled Gap and Intel Cadence
+
+Gap Analyst and Think Tank Intel have meaningfully different refresh rates from the full Think Tank cycle (one per release). External forces change monthly; industry benchmarks shift quarterly. Waiting for a full cycle to commission research wastes time and produces stale Observe phases.
+
+**Proposal**: Both agents produce **standing reports** that exist as living documents, refreshed on their own cadence. When a Think Tank cycle kicks off, the Facilitator pulls the latest reports rather than commissioning them from scratch.
+
+**Intel Brief cadence**: Monthly. External forces (fintech launches, regulatory signals, peer CU incidents) move too fast for per-release research. A standing monthly brief accumulates intelligence that any cycle can reference.
+
+**Gap Report cadence**: Quarterly or per-release. Industry benchmarks (NCUA exam priorities, CUNA/NAFCU data, peer CU practices) shift on a slower cycle. Standing gap reports per workflow area, updated when new benchmarks publish.
+
+**Artifact structure**: `strategy/think-tank/intel/` and `strategy/think-tank/gaps/` directories, with timestamped standing reports and a review/disposition log for each item.
+
+**Benefits**: Continuous intelligence gathering between cycles; faster cycle startup (Observe phase already has context); historical record of how external forces and benchmark gaps evolved; option to trigger out-of-rotation cycles when intel surfaces something urgent.
+
+**Acceptance criteria**: Directory structure, standing report templates, and a review/disposition schema for individual gap and intel items so that findings can be triaged, recommended, and tracked through to action — independently of whether a full Think Tank cycle runs.
+
 ---
 
 ## Known drift and editorial decisions
