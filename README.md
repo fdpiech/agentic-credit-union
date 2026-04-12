@@ -10,7 +10,7 @@ The system includes:
 - **32 specialized AI agents** covering every major credit union function
 - **17 workflows** covering every major credit union function and regulatory obligation
 - **Standardized handoff protocols** ensuring compliance at every step
-- **Scenario runbooks** for exam preparation, new product launches, mergers, and crisis response
+- **Scenario runbooks** for exam preparation, crisis response, vendor management, fraud investigation, and more
 
 ---
 
@@ -127,7 +127,7 @@ agentic-credit-union/
 | **C** | Mortgage Processing (TRID) | Mortgage Loan Processor |
 | **D** | Collections & Recovery | Collections Specialist |
 | **E** | Deposit Operations & BSA/AML | Deposit Operations Manager |
-| **F** | Compliance & NCUA Exam | Compliance Officer |
+| **F** | Compliance & NCUA Examination | Compliance Officer |
 | **G** | Annual Strategic Planning | CEO |
 
 ### Critical Workflows (H–K)

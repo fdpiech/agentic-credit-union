@@ -1,4 +1,4 @@
-# Workflow E Playbook — Deposit Operations
+# Workflow E Playbook — Deposit Operations & BSA/AML
 
 > **Cycle Time**: Same day (routine) – 45 days (Reg E disputes) | **Agents**: 6 | **Gate Keepers**: Deposit Operations Manager + BSA Officer
 

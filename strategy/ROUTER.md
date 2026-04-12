@@ -216,10 +216,10 @@ If the person's situation matches a workflow, offer it:
 |---|---|
 | New member joining | **Workflow A** — Member Onboarding |
 | Loan application | **Workflow B** — Loan Origination |
-| Home purchase / mortgage | **Workflow C** — Mortgage Processing |
+| Home purchase / mortgage | **Workflow C** — Mortgage Processing (TRID) |
 | Member in financial trouble | **Workflow D** — Collections & Recovery |
-| Dispute or unauthorized transaction | **Workflow E** — Deposit Operations |
-| Exam prep or compliance review | **Workflow F** — Compliance & Examination |
+| Dispute or unauthorized transaction | **Workflow E** — Deposit Operations & BSA/AML |
+| Exam prep or compliance review | **Workflow F** — Compliance & NCUA Examination |
 | Annual planning or budgeting | **Workflow G** — Strategic Planning |
 
 ---
