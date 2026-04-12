@@ -7,6 +7,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Roadmap and future work: see [ROADMAP.md](ROADMAP.md).
 
+## [2.1.0] - 2026-04-12
+
+### Added
+
+**Think Tank — a recurring self-improvement cycle that stress-tests CANVAS against real CU processes and feeds structural breakages back as framework improvements.**
+
+- **3 new agents** (35 total):
+  - `agents/cu-think-tank-facilitator.md` — Runs cycles, enforces discipline, produces reports, files delta dispositions
+  - `agents/cu-framework-architect.md` — Turns breakages into structured Findings and before/after Delta diffs against specific files
+  - `agents/cu-stress-designer.md` — Selects and parameterizes stresses from the catalog, pre-registers predicted pressure points
+
+- **Think Tank methodology and infrastructure** (`strategy/think-tank/`):
+  - `methodology.md` — 4-phase cycle protocol (Observe → Model → Stress → Extract), cadence, ownership, delta disposition mechanism, 9 named anti-patterns
+  - `stress-catalog.md` — 12 parameterized disruptions (rate shock up/down, delinquency spike, new regulation, core/card outage, vendor failure, key-staff departure, liquidity crisis, member run, fraud wave, exam finding) with strict entry schema and workflow pressure-point cross-reference
+  - `ledger.md` — Cycle rotation tracker and historical index
+  - `README.md` — Index linking all Think Tank artifacts across canonical locations
+
+- **Think Tank cycle runbook** (`strategy/runbooks/scenario-think-tank-cycle.md`):
+  - Executable activation prompt and phase-by-phase protocol, mirroring the existing runbook format
+  - Agent roster, quality gate checklist (12 criteria), delta disposition template
+
+- **Worked example: Cycle 0001 — Loan Origination** (`strategy/think-tank/cycles/cycle-0001-loan-origination.md`):
+  - Complete 4-phase cycle against Workflow B with two stresses: ST-01 Rate Shock Up (+200 bps / 60 days) and ST-08 Key-Staff Departure (Compliance Officer, 0-day notice)
+  - 5 breakages surfaced, 4 Findings classified (3 structural gaps + 1 operator error dismissed)
+  - 3 merged Deltas: Alternate Gate Agent field added to step-matrix framework, alternate gates named for Workflow B Steps 3 and 6, `exception-compliance-vacancy` path added
+  - 1 deferred ROADMAP item: Cross-Workflow Alternate Gate Audit across all 17 playbooks
+
+### Changed
+
+- `README.md` — Agent count updated 32 → 35; Think Tank agents added to agent table; directory tree updated; Think Tank added to overview and resources
+- `ROADMAP.md` — Self-Improvement Protocol restructured: shipped scaffolding (Think Tank) distinguished from remaining analysis agents; Cross-Workflow Alternate Gate Audit added as a new ROADMAP item from cycle-0001
+
+---
+
 ## [2.0.0] - 2026-04-10
 
 Cumulative milestone release consolidating all 1.x work. CANVAS is now a complete multi-agent operating model for a mid-size credit union, with explicit governance, first-class failure handling, and a scenario runbook library.
