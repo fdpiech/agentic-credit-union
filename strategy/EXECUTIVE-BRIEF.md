@@ -71,7 +71,7 @@ The credit union operates 32 specialized AI agents across 12 functional areas �
 
 ```
 agentic-credit-union/
-├── agents/                           # 35 AI agent definitions
+├── agents/                           # 32 AI agent definitions
 │   ├── cu-ceo.md                    # Executive leadership
 │   ├── cu-cfo.md                    # Finance
 │   ├── cu-chro.md                   # Human Resources

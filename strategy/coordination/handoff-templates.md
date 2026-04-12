@@ -197,7 +197,7 @@ Use when any agent identifies a compliance issue mid-workflow.
 
 > **Decision Authority Context** — Sender: Any identifying agent (Execute / their lane) → Receiver: Compliance Officer (Gate / Compliance-Regulatory + Escalation). Receiver evaluates whether the identified issue constitutes a regulatory violation and determines the required response — does not make the underlying credit decision that triggered the issue, does not manage day-to-day operational remediation. Receiver's gate determination can stop the workflow; it cannot retroactively approve or decline a credit application.
 
-**Workflow**: [A–G] | **Step**: [Step name] | **Date identified**: [Date]
+**Workflow**: [A–Q] | **Step**: [Step name] | **Date identified**: [Date]
 **Identifying Agent**: [Agent Name]
 **Severity**: [ ] STOP immediately  [ ] Correct before proceeding  [ ] Monitor and document
 

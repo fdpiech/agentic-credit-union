@@ -11,7 +11,7 @@
 Activate Credit Union CEO in CANVAS-Full mode for [INITIATIVE / EXAM CYCLE].
 
 Scope: [Description of initiative or examination scope]
-Participating agents: All 35 agents per CANVAS roster
+Participating agents: All 32 agents per CANVAS roster
 Reference: agentic-credit-union/strategy/cu-strategy.md
 
 Execute the complete CANVAS protocol:

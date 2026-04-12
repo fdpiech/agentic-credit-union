@@ -348,6 +348,17 @@ async function main() {
   // Load agents
   display.banner();
   display.sectionHeader('INITIALIZING CANVAS SIMULATOR');
+
+  // Auto-fall-back to mock mode if no API key is configured. This makes
+  // first-time runs succeed with a visible info line instead of erroring
+  // out. Users can set OPENAI_API_KEY to force live mode, or pass --mock
+  // explicitly to silence the fallback message. Done before the Mode
+  // banner line and LLMClient construction so both see the corrected value.
+  if (!opts.mock && !process.env.OPENAI_API_KEY) {
+    display.info('OPENAI_API_KEY not set — falling back to mock mode. Pass --mock to silence this, or set the env var for live mode.');
+    opts.mock = true;
+  }
+
   display.info(`Mode: ${opts.mock ? 'MOCK (no API key required)' : 'LIVE (LLM-powered)'}`);
   display.info(`Workflow: ${workflowId} — ${WORKFLOWS[workflowId]?.name || 'Unknown'}`);
   display.info(`Scenario: ${scenario.name}`);
@@ -361,18 +372,15 @@ async function main() {
     process.exit(1);
   }
 
+  if (opts.mock) {
+    display.info('Mock mode: Using simulated agent responses');
+  }
+
   // Initialize LLM client
   const llm = new LLMClient({
     mock: opts.mock,
     model: opts.model,
   });
-
-  if (opts.mock) {
-    display.info('Mock mode: Using simulated agent responses');
-  } else if (!process.env.OPENAI_API_KEY) {
-    display.error('OPENAI_API_KEY not set. Use --mock for simulation mode.');
-    process.exit(1);
-  }
 
   // Apply gate overrides for failure-path test scenarios (mock mode only)
   // _gateOverrides: { [gateName]: { forceFail, forceFailReason } }

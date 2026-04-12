@@ -1,6 +1,6 @@
 # CANVAS Simulator
 
-CLI tool for running credit union workflow simulations. Orchestrates 35 AI agents across 7 workflows with mock and live LLM modes.
+CLI tool for running credit union workflow simulations. Orchestrates 32 AI agents across 11 implemented workflows (A–K) with mock and live LLM modes.
 
 ## Quick Start
 
@@ -44,7 +44,7 @@ node simulator.js [options]
 
 | Flag | Short | Description |
 |------|-------|-------------|
-| `--workflow <A\|B\|C\|D\|E\|F\|G>` | `-w` | Run a specific workflow |
+| `--workflow <A\|B\|C\|D\|E\|F\|G\|H\|I\|J\|K>` | `-w` | Run a specific workflow |
 | `--scenario <name>` | `-s` | Use a predefined scenario |
 | `--mock` | `-m` | Run in mock mode (no API key needed) |
 | `--list` | `-l` | List available workflows and scenarios |
@@ -63,7 +63,7 @@ node simulator.js --mock --workflow A
 node simulator.js --mock --workflow B
 
 # Run all workflows sequentially (quick smoke test)
-for w in A B C D E F G; do
+for w in A B C D E F G H I J K; do
   echo "=== Workflow $w ==="
   node simulator.js --mock --workflow $w 2>&1 | tail -12
 done
@@ -138,6 +138,10 @@ done
 4. Risk Assessment & Approval (Risk Manager)
 5. Implementation Planning Gate (Compliance Officer)
 
+> Detailed step-by-step walkthroughs for workflows H–K are pending; see
+> `strategy/playbooks/workflow-{h,i,j,k}-*.md` for the authoritative
+> definitions until those sections are filled in.
+
 ## Modes
 
 ### Mock Mode (`--mock`)
@@ -150,9 +154,9 @@ Uses hardcoded responses for each workflow step. No API key required. Good for:
 
 Mock responses are contextually distinct per step — they contain realistic credit union scenarios including BSA/CIP verification, loan underwriting worksheets, compliance gates, and more.
 
-### Live Mode (default)
+### Live Mode
 
-Sends real prompts to an OpenAI-compatible API. Requires `OPENAI_API_KEY`. Good for:
+Sends real prompts to an OpenAI-compatible API. Requires `OPENAI_API_KEY`; if the variable is unset the simulator automatically falls back to mock mode with an info message. Good for:
 - Testing how LLMs handle credit union compliance scenarios
 - Evaluating agent coordination quality
 - Generating novel workflow variations
@@ -200,7 +204,7 @@ simulator/
 ### How It Works
 
 1. **Load agents** — Reads `../agents/cu-*.md` files (YAML frontmatter + markdown body)
-2. **Parse workflow** — Selects a workflow definition (A–G) with ordered steps
+2. **Parse workflow** — Selects a workflow definition (A–K) with ordered steps
 3. **Execute steps** — Each step calls an agent with context from previous steps
 4. **Evaluate gates** — Compliance/quality gates check workflow state between steps
 5. **Display results** — Color-coded output with handoff visualization
@@ -248,14 +252,17 @@ Quality gates are evaluated between workflow steps. In mock mode, gates pass if 
 cd simulator && npm install
 ```
 
-**`Error: OPENAI_API_KEY not set`**
-```bash
-# Use mock mode instead
-node simulator.js --mock --workflow A
-```
+**`OPENAI_API_KEY not set — falling back to mock mode`**
+This is informational, not an error. When the env var is unset, the
+simulator runs in mock mode automatically. To force live mode, export
+`OPENAI_API_KEY`. To silence the info message, pass `--mock` explicitly.
 
 **`Error: Agent not found`**
-Make sure you're running from the `simulator/` directory. The agent loader looks for `../agents/cu-*.md`.
+The agent loader resolves `agents/` from `import.meta.dirname` in
+`simulator/canvas/agent-loader.js`, so CWD doesn't matter — but the
+`agents/` directory must exist at the repository root. If you've run
+`git checkout` on a shallow clone or a branch missing agent files,
+restore the full tree.
 
 **Timeout on LLM calls**
 Live mode has a 30-second timeout per request. If the API is slow, the simulator will retry 3 times with exponential backoff (1s, 2s, 4s). Check your `OPENAI_BASE_URL` is correct.
