@@ -118,3 +118,39 @@ This is the initial standing Intel Brief for the CANVAS framework. It captures e
 **Workflow(s) affected**: H (Fraud/Dispute), B (Loan Origination), C (Mortgage)
 
 **Description**: The CFPB's reduced supervision is explicitly refocused on depository institutions (not non-banks) and on "actual fraud against consumers where there are identifiable victims with material and measurable consumer damages." Mortgages are the highest priority. This means credit union mortgage processing and fraud/dispute workflows face continued federal attention even as broader CFPB activity decreases. Veterans, service members, and their families are a specific focus population.
+
+---
+
+## 3. FFIEC / FinCEN — BSA/AML and Cybersecurity Forces
+
+### INTEL-ALL-013 — FinCEN BSA/AML Reform: Reducing Regulatory Burden
+
+**Source**: Treasury Secretary Bessent preview; OCC proposed rules (October-December 2025); MVA Law 2025 Year-in-Review
+**Identified**: 2025-Q4
+**Workflow(s) affected**: K (BSA/AML), A (Member Onboarding), F (Compliance Examination)
+
+**Description**: FinCEN and federal banking agencies are working on a proposed rule setting out revised requirements for an effective BSA/AML program, with the explicit goal of reducing regulatory burden. The OCC released bulletins and a proposed rule (October-December 2025) aimed at institutions with up to $30B in assets, covering BSA/AML compliance, model risk management, and exam activities for community-scale institutions. The OCC will focus on BSA/AML compliance reforms more broadly in 2026. For CANVAS: Workflow K (BSA/AML) and the compliance examination workflow may need to accommodate a revised BSA program structure once the proposed rule finalizes — the current framework may over-specify requirements that the reform relaxes, or under-specify new risk-based tailoring expectations.
+
+### INTEL-ALL-014 — FinCEN Beneficial Ownership: Exceptive Relief for Credit Unions
+
+**Source**: FinCEN Exceptive Order (February 13, 2026); NCUA press release
+**Identified**: 2026-02
+**Workflow(s) affected**: A (Member Onboarding), K (BSA/AML)
+
+**Description**: FinCEN issued an Exceptive Order removing the requirement for credit unions to identify and verify beneficial ownership information for business customers each time a new account is opened. Under the new order, credit unions may limit identification and verification to: (a) when a legal entity customer first opens an account, (b) when facts question the reliability of previous information, or (c) as needed based on risk-based procedures. This is a direct operational simplification for member onboarding of business accounts.
+
+### INTEL-ALL-015 — NCUA Cybersecurity: Third-Party Vendor Risk as Primary Attack Vector
+
+**Source**: NCUA 2025 Cybersecurity and Credit Union System Resilience Report to Congress; NCUA 2026 Supervisory Priorities
+**Identified**: 2025 (report) / 2026-01 (priorities)
+**Workflow(s) affected**: J (IT Security), M (Vendor Management), Q (Core System Conversion)
+
+**Description**: 73% of all cyber incidents reported by credit unions between September 2023 and May 2024 involved a third-party vendor — not the credit union itself. A 2024 ransomware event affecting a core service provider disrupted more than 60 small credit unions simultaneously. The NCUA lacks supervisory authority over third-party service providers and cannot directly examine core processors, cloud providers, or fintech partners. To compensate, NCUA examiners will assess whether credit unions have effective vendor management, contingency planning for vendor outages, and clear incident notification contractual obligations. The 72-hour cyber incident reporting requirement (to NCUA) remains in effect. For CANVAS: Workflows J, M, and Q all model vendor relationships, but the framework may underweight the reality that most cyber risk arrives through vendors, not direct attacks.
+
+### INTEL-ALL-016 — FinCEN Investment Adviser AML Rule Delayed
+
+**Source**: FinCEN proposed delay; rule finalized with January 2028 effective date
+**Identified**: 2025-Q4
+**Workflow(s) affected**: K (BSA/AML) — limited relevance; primarily affects CUs with investment advisory programs
+
+**Description**: FinCEN delayed the Investment Adviser AML Rule from January 2026 to January 2028. While this primarily affects standalone investment advisers, credit unions offering investment services through affiliated programs should track this for future BSA/AML program scope. Low immediate impact for most CUs.
