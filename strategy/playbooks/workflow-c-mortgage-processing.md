@@ -26,6 +26,8 @@ Process mortgage applications from application to closing with full TRID complia
 | FCRA | Credit authorization before pull; adverse action | Loan Officer |
 | Flood Disaster Protection Act | Flood zone determination; flood insurance if applicable | Mortgage Loan Processor |
 
+**Supervision note (2025-2026)**: CFPB supervision continues to target mortgage fraud at depository institutions as its highest priority even during the broader agency curtailment. Veterans, service members, and their families are a specific focus population. Mortgage files should be examination-ready for both NCUA and CFPB review.
+
 ---
 
 ## Agent Activation Sequence
