@@ -186,6 +186,115 @@ const SCENARIOS = {
       },
     },
   },
+
+  // ── Workflows H–K: predefined scenarios ────────────────────────────────────
+  // Realistic test data for the critical workflows added in v1.5.0.
+
+  'fraud-dispute': {
+    name: 'Fraud Detection — Unauthorized Card Purchase',
+    workflow: 'H',
+    member: {
+      id: 'MBR-2023-04412',
+      name: 'Patricia Morgan',
+      memberSince: '2023-08-15',
+      products: ['Share Savings', 'Share Draft Checking', 'Visa Debit Card', 'Online Banking'],
+    },
+    transaction: {
+      date: '2026-04-01',
+      amount: 1247.83,
+      merchant: 'TechGadgetsPlus.com',
+      category: 'Online Electronics',
+      description: 'Unauthorized online purchase — member reports card was never out of possession.',
+    },
+    dispute: {
+      type: 'Unauthorized transaction — card-not-present fraud',
+      reportingDate: '2026-04-03',
+      memberClaim: 'I did not make this purchase. My debit card has been in my wallet the entire time. I noticed the charge when I logged into online banking. I have never heard of this merchant.',
+      provisionalCreditDeadline: '2026-04-17',
+      investigationDeadline: '2026-05-17',
+    },
+    context: 'Established member reports unauthorized online purchase. Card was never lost or stolen — likely card-number compromise. Reg E 10-business-day provisional credit clock starts on reporting date. Full investigation required within 45 days.',
+  },
+
+  'card-fraud-alert': {
+    name: 'Card Services — Overseas Fraud Alert',
+    workflow: 'I',
+    member: {
+      id: 'MBR-2022-03885',
+      name: 'David Kim',
+      memberSince: '2022-11-01',
+      products: ['Share Savings', 'Checking', 'Visa Debit Card', 'Visa Credit Card'],
+      homeLocation: 'Springfield, IL',
+    },
+    card: {
+      type: 'Visa Debit',
+      last4: '4421',
+      issueDate: '2025-06-15',
+      status: 'Active',
+    },
+    alert: {
+      timestamp: '2026-04-08T14:32:00Z',
+      amount: 2100.00,
+      merchant: 'SH Electronics Ltd.',
+      location: 'Shanghai, China',
+      category: 'Electronics — High-Value',
+      velocityFlag: '3 transactions totaling $4,850 in 6 hours',
+      geolocationMismatch: true,
+      riskScore: 'HIGH',
+    },
+    context: 'Real-time fraud monitoring flagged a high-value overseas electronics purchase. Member has no travel history on file. Velocity pattern shows 3 large transactions in 6 hours from a single overseas location. Requires immediate card suspension, member contact, fraud-vs-false-positive determination, and potential chargeback filing.',
+  },
+
+  'ransomware-incident': {
+    name: 'IT Security — Ransomware on File Server',
+    workflow: 'J',
+    incident: {
+      severity: 'P1 — Critical',
+      type: 'Ransomware',
+      detectedAt: '2026-04-10T02:15:00Z',
+      affectedSystem: 'Member Records File Server (FS-MBR-01)',
+      description: 'Active file encryption detected on member-records backup server. Ransom note displayed demanding 5 BTC. Network monitoring shows lateral movement attempt to core banking system was blocked by firewall rules.',
+      dataExposure: {
+        membersAffected: 5000,
+        dataTypes: ['Names', 'Addresses', 'SSN (encrypted at rest)', 'Account Numbers'],
+        exfiltrationEvidence: 'Under investigation — no confirmed exfiltration yet',
+      },
+      containmentStatus: 'Server isolated from network. Core banking system confirmed unaffected.',
+    },
+    context: 'Ransomware detected on the member-records file server at 2:15 AM. Automatic network isolation triggered. Core banking and transaction systems are unaffected. Requires full incident response: containment verification, eradication, backup restoration, regulatory notification assessment (GLBA, state breach notification laws), member notification decision, and board briefing.',
+  },
+
+  'structuring-alert': {
+    name: 'BSA/AML — Cash Structuring Alert',
+    workflow: 'K',
+    member: {
+      id: 'MBR-2026-00315',
+      name: 'Apex Consulting LLC (Marcus Webb, authorized signer)',
+      memberSince: '2026-01-20',
+      products: ['Business Checking'],
+      accountPurpose: 'Consulting services — stated monthly deposit volume $15,000–$25,000',
+    },
+    transaction: {
+      pattern: 'Daily cash deposits at branch',
+      period: '2026-03-15 through 2026-03-28 (14 business days)',
+      amounts: [9500, 9800, 9600, 9750, 9500, 9800, 9700, 9500, 9800, 9600, 9750, 9500, 9800, 9600],
+      totalCash: 133700,
+      averageDeposit: 9550,
+      branchLocations: ['Main Branch', 'West Side Branch'],
+      ctrsFiledToDate: 0,
+    },
+    alert: {
+      type: 'Structuring — possible evasion of CTR reporting threshold',
+      triggeredBy: 'Automated monitoring: 14 consecutive cash deposits below $10,000 threshold',
+      riskIndicators: [
+        'All deposits fall between $9,500 and $9,800 — just below $10,000 CTR threshold',
+        'Account opened 8 weeks ago with stated volume of $15K–$25K/month; actual deposits are $133K in 14 days',
+        'Cash-intensive activity inconsistent with consulting business type',
+        'Deposits split across two branch locations',
+      ],
+    },
+    context: 'Automated BSA monitoring flagged a structuring pattern on a new business account. Daily cash deposits consistently just below the $10,000 CTR threshold. Total deposits ($133,700) far exceed the stated account purpose. Requires SAR investigation, 12-month relationship review, FinCEN 314(a) check, and within 30 days either SAR filing with narrative or documented no-file decision with supervisory approval.',
+  },
 };
 
 // ═══════════════════════════════════════════════════════════════

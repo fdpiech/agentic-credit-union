@@ -138,9 +138,32 @@ done
 4. Risk Assessment & Approval (Risk Manager)
 5. Implementation Planning Gate (Compliance Officer)
 
-> Detailed step-by-step walkthroughs for workflows H–K are pending; see
-> `strategy/playbooks/workflow-{h,i,j,k}-*.md` for the authoritative
-> definitions until those sections are filled in.
+**Workflow H — Fraud Detection & Dispute Resolution**
+1. Fraud Report Intake & Classification (Fraud Detection Analyst)
+2. Initial Member Communication (Member Services Rep)
+3. Investigation (Fraud Detection Analyst)
+4. Provisional Credit & Reg E Compliance (Compliance Officer)
+5. Final Disposition & Member Notification (Compliance Officer)
+
+**Workflow I — Card Services & Fraud Monitoring**
+1. Fraud Alert Triage (Fraud Detection Analyst)
+2. Card Suspension & Member Contact (Card Services Specialist)
+3. Chargeback Processing (Card Services Specialist)
+4. Card Reissue & Case Closure (Card Services Specialist)
+
+**Workflow J — IT Security & Incident Response**
+1. Incident Detection & Triage (IT Infrastructure Engineer)
+2. Containment (Core Systems Administrator)
+3. Eradication & Recovery (IT Infrastructure Engineer)
+4. Regulatory Notification Assessment (Compliance Officer)
+5. Post-Incident Review & Board Report (CEO)
+
+**Workflow K — BSA/AML Monitoring & SAR Filing**
+1. Transaction Monitoring Alert Review (BSA Officer)
+2. SAR Investigation (BSA Officer)
+3. SAR Decision & Filing (Compliance Officer)
+4. CTR Processing & OFAC Screening (BSA Officer)
+5. BSA Program Examination Support (BSA Officer)
 
 ## Modes
 
