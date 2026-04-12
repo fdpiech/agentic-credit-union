@@ -197,3 +197,41 @@ The Marquis breach is especially significant because it demonstrates the vendor 
 **Workflow(s) affected**: H (Fraud/Dispute), A (Member Onboarding), J (IT Security)
 
 **Description**: Michigan State University Federal Credit Union deployed Pindrop deepfake detection on its phone channel and blocked $2.57M in fraud exposure from AI-powered deepfake fraud calls. This represents an emerging best practice: using AI defensively to counter AI-powered fraud ("good AI to fight bad AI"). The broader industry message is that traditional voice-based authentication (knowledge-based questions, voice biometrics alone) is no longer sufficient. Multi-factor authentication that doesn't rely solely on voice or video, plus out-of-band verification for sensitive transactions, is becoming the new baseline.
+
+---
+
+## 5. Fintech Disruption and Peer CU Innovation
+
+### INTEL-ALL-020 — Neobank Market Explosion: $210B to $3.4T Projected
+
+**Source**: Backbase Banking Predictions 2026; M2P Fintech trends; CB Insights Fintech Predictions 2026
+**Identified**: 2025-2026
+**Workflow(s) affected**: A (Member Onboarding), E (Deposit Ops), B (Loan Origination), P (Financial Wellness), L (New Product Launch)
+
+**Description**: The global neobanking market was valued at $210B in 2025 and is projected to grow at 48.9% CAGR, reaching $3.4T by 2032. The broader fintech market ($394.88B in 2025) is projected to reach $1.13T by 2032 at 16.2% CAGR. Only 1 in 4 banks worldwide is actively using AI for competitive advantage. Key competitive dynamics affecting credit unions:
+
+- Neobanks are evolving from single-product digital lenders into full-service platforms (N26 pivoting toward AI integration, mortgage lending, and risk management; FairMoney converting to full-service pan-African bank)
+- Speed and frictionless experience are the competitive baseline — neobanks set member expectations that credit unions must match
+- AI-powered personalization is becoming the competitive floor, not a differentiator
+- Incumbent institutions face their toughest competitive test yet in 2026, with the race centering on speed, scale, and experience with AI as the engine
+
+### INTEL-ALL-021 — Credit Unions Leveraging AI + Centralized Fintech Partnerships
+
+**Source**: The Financial Brand; Proof digital transformation solutions 2026; America's Credit Unions
+**Identified**: 2026-Q1
+**Workflow(s) affected**: All operational workflows; G (Strategic Planning), L (New Product Launch)
+
+**Description**: Credit unions are responding to fintech pressure through two converging strategies:
+
+1. **Predictive personalization via AI**: Powered by AI and new regulatory capacity around data sharing, credit unions are entering an era where predictive personalization is the competitive baseline — offering the speed of a neobank with the trust and physical presence of a traditional lender.
+2. **Corporate Credit Union as shared-services hub**: A 2026 development is progress toward a centralized hub designed to support shared services, allowing individual credit unions to benefit from economies of scale previously reserved for large neobanks. This is a cooperative-model answer to the scale problem.
+
+For CANVAS: The framework currently models individual CU operations. Shared-services infrastructure (if adopted) would change the operating model for workflows E (Deposit Ops), I (Card Services), J (IT Security), and Q (Core System Conversion).
+
+### INTEL-ALL-022 — AI Underwriting and Second-Chance Lending Competition
+
+**Source**: ainvest.com (fintech disruption vs. CU resilience); Backbase predictions
+**Identified**: 2025-2026
+**Workflow(s) affected**: B (Loan Origination), D (Collections), P (Financial Wellness)
+
+**Description**: Fintechs are specifically targeting underwriting — the core of Workflow B — with AI-driven credit decisioning that can process applications faster and with alternative data sources (cash flow analysis, rent payments, utility history) beyond traditional FICO. "Second-chance lending" (serving borrowers rejected by traditional scoring) is an active battleground where fintechs compete directly with credit unions' historic mission of financial inclusion. Credit unions that cannot match the speed or data sophistication of AI underwriting risk losing their most mission-aligned member segment. For CANVAS: Workflow B's underwriting steps and the Loan Underwriting Analyst's role may need to account for AI-augmented decisioning and alternative data inputs.
