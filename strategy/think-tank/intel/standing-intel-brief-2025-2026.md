@@ -74,3 +74,47 @@ This is the initial standing Intel Brief for the CANVAS framework. It captures e
 **Workflow(s) affected**: B (Loan Origination), C (Mortgage), F (Compliance Examination)
 
 **Description**: NCUA removed all references to disparate impact liability from its Fair Lending Guide and all other issuances. Examiners are instructed to no longer request, review, conclude, or follow up on matters related to disparate impact risk or disparate-impact risk assessment processes. NCUA will continue to examine for disparate treatment (intentional discrimination), analyze HMDA data, and conduct risk-based fair lending examinations. Additionally, NCUA proposed removing a redundant nondiscrimination regulation (last substantively amended in 2001). This changes the fair lending examination scope and may affect how CANVAS lending workflows model compliance gates.
+
+---
+
+## 2. CFPB — Consumer Protection and Deregulation Forces
+
+### INTEL-ALL-008 — CFPB Operational Curtailment Under New Administration
+
+**Source**: Multiple industry sources; Capstone DC 2026 preview; America's Credit Unions compliance blog
+**Identified**: 2025-02
+**Workflow(s) affected**: All consumer-facing workflows — B (Loan Origination), C (Mortgage), D (Collections), E (Deposit Ops), H (Fraud/Dispute), I (Card Services), P (Financial Wellness)
+
+**Description**: In February 2025, the new administration moved to curtail CFPB operations. Director Rohit Chopra was fired; acting director Russell Vought directed staff to cease supervision activities, suspend new rules, and stop public communications. The Bureau subsequently reduced supervision "events" by 50%, shifted focus back to depository institutions (away from non-depositories), and rescinded nearly 70 interpretive rules, policy statements, circulars, and advisory opinions. The September 2025 regulatory agenda lists 24 remaining rulemakings, down from the prior administration's pace. This creates a period of reduced federal consumer compliance enforcement pressure — but does not eliminate the underlying statutory obligations (TILA, ECOA, FCRA, UDAAP, Reg E, etc.). State attorneys general may fill the enforcement gap, creating a more fragmented compliance landscape.
+
+### INTEL-ALL-009 — Section 1033 Open Banking Rule Frozen
+
+**Source**: CFPB Final Rule (October 2024); court injunction (2025); CFPB motion to vacate (May 2025); public comment proceeding (August 2025)
+**Identified**: 2025-05 (CFPB motion to vacate); ongoing through 2026
+**Workflow(s) affected**: E (Deposit Ops), A (Member Onboarding), J (IT Security), P (Financial Wellness)
+
+**Description**: The CFPB's Section 1033 rule on Personal Financial Data Rights — which would have required depository institutions to share consumer data with authorized third parties via secure APIs — is effectively frozen. The CFPB itself asked the court to vacate the rule, concluding it "exceeds the Bureau's statutory authority and is arbitrary and capricious." A new proceeding (August 2025) sought public comment on definitions, data-security obligations, cost-sharing, and compliance dates. The Bureau says it intends to "comprehensively reexamine" the framework, which could stretch well into 2026 or beyond. Credit unions with over $850M in assets were the primary compliance targets; CUs at or below $850M were exempt. For CANVAS: the data-sharing infrastructure, third-party access controls, and member consent workflows that Section 1033 would have required are on hold — but the underlying market pressure for open banking has not stopped (fintechs and aggregators still screen-scrape).
+
+### INTEL-ALL-010 — CFPB Overdraft Rule Repealed by Congress
+
+**Source**: S.J.Res. 18 (Congressional Review Act); P.L. 119-10 (signed into law March-April 2025)
+**Identified**: 2025-04
+**Workflow(s) affected**: E (Deposit Ops), I (Card Services)
+
+**Description**: Congress overturned the CFPB's overdraft lending rule using the Congressional Review Act. The rule would have applied to institutions with $10B+ in assets, capping overdraft fees at $5 or requiring cost-based pricing. Because it was repealed via CRA, the CFPB may not issue a "substantially similar" rule without new legislation. However, market pressure continues: since the CFPB's junk-fee initiative, consumers have saved $6B annually in reduced overdraft/NSF fees, and many large banks have voluntarily reduced or eliminated them. 80% of credit unions with $10B+ assets still charge NSF fees (vs. 35% of banks that size). Notably, the CFPB brought a $95M enforcement action against Navy Federal Credit Union for illegal surprise overdraft fees — showing that even under deregulation, egregious practices face enforcement. CANVAS deposit and card services workflows should model both the current permissive fee environment and the market-driven fee compression trend.
+
+### INTEL-ALL-011 — Section 1071 Small Business Lending Data Collection Delayed
+
+**Source**: CFPB amended Regulation B compliance dates
+**Identified**: 2025 (compliance dates extended)
+**Workflow(s) affected**: B (Loan Origination) — specifically business/commercial lending
+
+**Description**: The CFPB extended compliance dates for Section 1071 small business lending data collection: Tier 1 lenders (highest volume) must comply by July 1, 2026; Tier 2 by January 1, 2027; Tier 3 by October 1, 2027. This rule requires collection and reporting of demographic data on small business loan applications, similar to HMDA for mortgage lending. Credit unions with business lending programs will need data collection infrastructure in place by their tier deadline. CANVAS Workflow B does not currently differentiate consumer vs. business lending data collection requirements.
+
+### INTEL-ALL-012 — CFPB Supervision Refocused on Depository Fraud
+
+**Source**: CFPB 2025 supervision and exam priorities
+**Identified**: 2025-Q2
+**Workflow(s) affected**: H (Fraud/Dispute), B (Loan Origination), C (Mortgage)
+
+**Description**: The CFPB's reduced supervision is explicitly refocused on depository institutions (not non-banks) and on "actual fraud against consumers where there are identifiable victims with material and measurable consumer damages." Mortgages are the highest priority. This means credit union mortgage processing and fraud/dispute workflows face continued federal attention even as broader CFPB activity decreases. Veterans, service members, and their families are a specific focus population.
