@@ -154,3 +154,46 @@ This is the initial standing Intel Brief for the CANVAS framework. It captures e
 **Workflow(s) affected**: K (BSA/AML) — limited relevance; primarily affects CUs with investment advisory programs
 
 **Description**: FinCEN delayed the Investment Adviser AML Rule from January 2026 to January 2028. While this primarily affects standalone investment advisers, credit unions offering investment services through affiliated programs should track this for future BSA/AML program scope. Low immediate impact for most CUs.
+
+---
+
+## 4. Fraud and Cyber Incidents — Industry Threat Landscape
+
+### INTEL-ALL-017 — AI-Enabled Fraud Surge: 1,100% Increase in AI/Deepfake/Synthetic ID Use
+
+**Source**: America's Credit Unions (multiple 2025-2026 articles); Deloitte Center for Financial Services projections; PwC 2026 fraud trends report; Sumsub identity fraud trends
+**Identified**: 2025 (trend acceleration)
+**Workflow(s) affected**: H (Fraud/Dispute), A (Member Onboarding), K (BSA/AML), I (Card Services), B (Loan Origination)
+
+**Description**: The single most disruptive factor in the 2025 fraud landscape is the weaponization of generative AI. Seven in 10 financial institutions reported major fraud increases in 2025, driven by organized fraud rings and an 1,100% surge in AI, deepfakes, and synthetic identities used by criminal actors. Key data points:
+
+- U.S. financial institutions reported $12.5B in fraud losses in 2024 (up 25% YoY); H1 2025 added $7.11B (up 15% over H1 2024)
+- AI-generated deepfake fraud cases rose over 2,000% in three years; AI is now involved in 42.5% of all fraud cases
+- Deloitte projects generative-AI fraud losses in the U.S. could reach $40B by 2027
+- Synthetic identity fraud is the fastest-growing form of financial crime in 2025 — global losses estimated at $20B–$40B annually
+- Credit unions specifically saw a 55% increase in remote-access trojan-enabled fraud in 2025 (15% of all CU fraud)
+
+Attack methods include: voice-clone calls bypassing phone authentication, AI-crafted phishing tied to loan/investment offers, deepfake video for KYC process bypass, fake QR codes and digital wallet requests via social media, and synthetic identities that combine real and fabricated data elements with no single victim to report the fraud.
+
+### INTEL-ALL-018 — Credit Union Data Breaches: Vendor-Mediated and Direct
+
+**Source**: Multiple breach disclosures; Banking Dive; Infosecurity Magazine; ClassAction.org
+**Identified**: 2025–2026 (multiple incidents)
+**Workflow(s) affected**: J (IT Security), M (Vendor Management), A (Member Onboarding), H (Fraud/Dispute)
+
+**Description**: Multiple significant credit union breaches in 2025-2026:
+
+- **Connex Credit Union** (CT): Breach June 2-3, 2025 — 172,000 members affected. Names, account numbers, debit card info, SSNs, and government IDs potentially exposed.
+- **SAFE Credit Union**: Unauthorized access via compromised ATMs between May 6 and July 15, 2025. SSNs and financial data exposed.
+- **1st MidAmerica Credit Union**: Breach confirmed November 2025 — 131,000 members affected. Names and SSNs compromised.
+- **Marquis Software Solutions** (vendor): Compromised personal and financial data of 800,000+ credit union and bank customers across the U.S. — a vendor-mediated breach affecting multiple institutions simultaneously.
+
+The Marquis breach is especially significant because it demonstrates the vendor concentration risk flagged in INTEL-ALL-015: one vendor compromise cascades to hundreds of thousands of members across multiple CUs.
+
+### INTEL-ALL-019 — Peer CU Fraud Response Innovation: Deepfake Detection
+
+**Source**: American Banker / Credit Union Journal; MITechNews
+**Identified**: 2026-Q1
+**Workflow(s) affected**: H (Fraud/Dispute), A (Member Onboarding), J (IT Security)
+
+**Description**: Michigan State University Federal Credit Union deployed Pindrop deepfake detection on its phone channel and blocked $2.57M in fraud exposure from AI-powered deepfake fraud calls. This represents an emerging best practice: using AI defensively to counter AI-powered fraud ("good AI to fight bad AI"). The broader industry message is that traditional voice-based authentication (knowledge-based questions, voice biometrics alone) is no longer sufficient. Multi-factor authentication that doesn't rely solely on voice or video, plus out-of-band verification for sensitive transactions, is becoming the new baseline.
