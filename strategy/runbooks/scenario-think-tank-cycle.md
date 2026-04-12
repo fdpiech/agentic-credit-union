@@ -28,6 +28,9 @@ This is a recurring process — one cycle per release — not a one-shot exercis
 | **Think Tank Facilitator** | Cycle owner — runs phases, enforces discipline, produces cycle report, files dispositions | Execute | Operational + Escalation |
 | **Stress Designer** | Stress selection, parameterization, pre-registration of predictions, surprise-vs-prediction tracking | Execute (stress selection) | Operational (Advise only) |
 | **Framework Architect** | Turns breakages into structured Findings and before/after Delta diffs | Execute (Extract phase) | Operational (meta-artifacts only) |
+| **Gap Analyst** | Compares Observe target against industry benchmarks and regulatory expectations; produces Gap Report | Execute (Observe phase) | Operational |
+| **Think Tank Intel** | Surfaces external forces relevant to the cycle; produces Intel Brief; recommends stresses | Advise (Observe + Stress) | Operational (Advise only) |
+| **Member Persona** | Plays the member role in-character during Model runs (baseline and stressed) | Execute (Model phases) | Operational |
 
 ### Domain Participants (Varies by Observe Target)
 
@@ -86,6 +89,39 @@ Deliverable: Observe section of cycle report with process map and baseline.
 Gate: Facilitator confirms Observe is complete before advancing to Model.
 ```
 
+### Phase 1b: Gap Analysis and Intel Brief (Concurrent)
+
+```
+Activate Gap Analyst and Think Tank Intel concurrently.
+
+Gap Analyst actions:
+1. Compare the target workflow's structure against industry benchmarks:
+   NCUA call report data, examination manual, CUNA/NAFCU research,
+   peer CU operational practices
+2. Produce a Gap Report:
+   - Benchmark comparison table (CANVAS model vs. industry practice)
+   - Structural gaps identified, each with evidence citation
+   - Severity classification: structural / editorial / design choice
+   - Gaps likely relevant to upcoming stresses
+3. Hand Gap Report to Facilitator for integration into the Observe section
+
+Think Tank Intel actions:
+1. Research external forces acting on this type of CU process:
+   - Fintech disruption (startups, neobanks, embedded finance)
+   - Peer CU innovation (new approaches, technology adoption)
+   - Regulatory signals (NCUA, CFPB, state regulators)
+   - Industry incidents (breaches, failures, enforcement actions)
+2. Produce a Cycle Intel Brief:
+   - External forces relevant to the target workflow (with citations)
+   - Recommended stresses from the catalog based on external signals
+   - Emerging scenarios not yet in catalog (potential new entries)
+   - Noise filtered out (so Facilitator knows the filter was applied)
+3. Hand Intel Brief to Facilitator and Stress Designer
+
+Deliverable: Gap Report + Intel Brief integrated into Observe section.
+Gate: Facilitator confirms both reports are received before advancing.
+```
+
 ---
 
 ## Phase 2: Model — Baseline Run
@@ -95,17 +131,32 @@ Activate Think Tank Facilitator for Phase 2: Model — Baseline Run.
 
 Run the target workflow clean — no stress applied — with agents in character.
 
+Member Persona activation:
+- Activate Member Persona to create or select a member profile for this
+  workflow. Document the Member Profile Card (demographics, financial
+  profile, life context, behavioral patterns) in the cycle report metadata.
+- Reuse an existing simulator persona if the workflow matches (Maria Santos
+  for A, James Rodriguez for B, Sarah & David Chen for C, Robert Williams
+  for D, Linda Thompson for E) or create a new persona for workflows F–Q.
+- The Member Persona plays the member at every interaction step throughout
+  both Phase 2 and Phase 3 Model runs.
+
 Activation sequence:
 1. Activate each agent listed in the Step-Level Matrix, in step order
-2. Each agent responds in character to the scenario, making decisions
+2. At member interaction steps, activate Member Persona to respond
+   in-character as the member (answering questions, reacting to decisions,
+   providing documents, asking follow-up questions)
+3. Each CU agent responds in character to the scenario, making decisions
    based on their authority lane and the information available to them
-3. At each Gate step, the Gate agent evaluates the prior deliverable and
+4. At each Gate step, the Gate agent evaluates the prior deliverable and
    either passes or fails it with specific findings
-4. At each Advise step, the Advise agent contributes expertise as they
+5. At each Advise step, the Advise agent contributes expertise as they
    see fit — the workflow does not wait
 
 In-character discipline:
-- Agents respond to the scenario — they do NOT read back their agent card
+- CU agents respond to the scenario — they do NOT read back their agent card
+- Member Persona responds AS the member — realistic, not cooperative by
+  default, with the persona's specific comprehension level and emotional state
 - Facilitator rejects any turn that recites the card and re-prompts with
   the specific decision being asked
 - Agents operate with the constraints, priorities, and incomplete
@@ -131,8 +182,9 @@ are documented before advancing to Stress.
 ```
 Activate Stress Designer for stress selection and pre-registration.
 
-Input: Observe process map, baseline run results, target workflow Step-Level
-Matrix, stress catalog (strategy/think-tank/stress-catalog.md)
+Input: Observe process map, Gap Report, Intel Brief, baseline run results,
+target workflow Step-Level Matrix, stress catalog
+(strategy/think-tank/stress-catalog.md)
 
 Stress Designer actions:
 1. Select 1–2 stresses from the catalog with specific parameter values
