@@ -48,7 +48,10 @@ Deliverables required:
    - Verify: documentary method (ID review) or non-documentary (credit bureau verification)
 2. Screen against OFAC Specially Designated Nationals (SDN) list
 3. Screen against FinCEN 314(a) list (if applicable period active)
-4. Collect beneficial ownership certification (business/organizational accounts only)
+4. Collect beneficial ownership certification (business/organizational accounts only):
+   - Required at first account opening for the legal entity
+   - NOT required for each subsequent account opened by the same entity (FinCEN Exceptive Order, Feb 2026)
+   - Re-verify only when: facts question reliability of prior information, or risk-based procedures warrant it
 5. Document all screening results in CIP file; flag anomalies for SAR evaluation
 
 Compliance flags:

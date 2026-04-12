@@ -26,6 +26,8 @@ Investigate fraud claims and unauthorized transaction disputes with the speed an
 | FCRA | Accurate fraud-related credit bureau reporting | Fraud Detection Analyst |
 | NCUA Part 748 | Information security incident documentation | Core Systems Administrator |
 
+**Supervision note (2025-2026)**: CFPB continues to supervise depository institutions for "actual fraud against consumers with identifiable victims and measurable consumer damages" even during the broader agency curtailment. Fraud/dispute case files should be examination-ready for both NCUA and CFPB review.
+
 **Reg E Timelines — NON-NEGOTIABLE:**
 - **Day 0**: Dispute received — clock starts
 - **Day 10 (business days)**: Provisional credit decision deadline — credit if investigation not complete

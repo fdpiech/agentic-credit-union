@@ -138,6 +138,73 @@ The Delta was drafted but the merger rejected it. The rationale must be specific
 
 ---
 
+## Standing Report Items — Review and Disposition
+
+Gap Reports and Intel Briefs produce individual findings that need to be tracked independently of full Think Tank cycles. A new NCUA supervisory letter, a fintech market shift, or a structural gap identified in a quarterly benchmark review all need a lifecycle: someone reviews it, makes a recommendation, and the recommendation is tracked through to action.
+
+### Item Schema
+
+Every gap or intel item follows this schema, whether it lives in a standing report or in a cycle report:
+
+```
+## [GAP|INTEL]-[workflow]-NNN — [Short title]
+
+**Source**: [Gap Report / Intel Brief / Think Tank Cycle / External notification]
+**Identified**: [Date]
+**Workflow(s) affected**: [A–Q list]
+
+### Description
+[What was found, with evidence citation]
+
+### Status
+[ ] identified → [ ] under-review → [ ] recommended → [ ] dispositioned
+
+### Review
+**Reviewer**: [Agent or role — e.g., Compliance Officer, Risk Manager, Facilitator]
+**Review date**: [Date]
+**Assessment**: [What the reviewer concluded about the item's significance and urgency]
+
+### Recommendation
+**Action**: [ ] incorporate  [ ] defer-to-cycle  [ ] monitoring  [ ] dismiss
+**Rationale**: [Why this action, with specifics]
+**Target file** (if incorporate): [path]
+**Target cycle** (if defer-to-cycle): [cycle ID or "next cycle on Workflow X"]
+**Review trigger** (if monitoring): [What event would change this to actionable — e.g., "CFPB finalizes proposed rule"]
+
+### Disposition
+**Disposition date**: [Date]
+**Approver**: [CEO / Compliance Officer / Facilitator]
+**Result**: [What actually happened — file changed, ROADMAP item created, cycle queued, or monitoring continues]
+**Evidence**: [Link to commit, ROADMAP entry, or cycle report]
+```
+
+### Disposition Types
+
+| Disposition | When to use | Required fields |
+|-------------|-------------|-----------------|
+| **`incorporated`** | The finding can be acted on directly — a playbook needs a new step, an agent card needs a new rule, a runbook needs a new section. No full Think Tank cycle needed. | Target file, approver, commit link |
+| **`deferred-to-cycle`** | The finding is real but needs stress testing before a structural change is justified. Queue it for the Facilitator to pick up in the next relevant cycle. | Target cycle, Facilitator acknowledgment |
+| **`monitoring`** | The signal is real but not yet actionable — a proposed rule, an emerging trend, an early-stage fintech. Keep watching. | Review trigger (what makes it actionable), next review date |
+| **`dismissed`** | Not relevant, not actionable, or already covered by existing framework structure. | Rationale (specific, not "not important") |
+
+### Who Reviews What
+
+- **Regulatory items** (new NCUA letters, CFPB actions, state law changes): Compliance Officer reviews, CEO approves incorporation
+- **Credit/financial items** (delinquency trends, rate environment shifts, portfolio risk): Risk Manager or CFO reviews
+- **Operational items** (fintech competition, digital channel gaps, process benchmarks): Facilitator reviews, routes to domain expert if needed
+- **Structural framework items** (missing steps, wrong authority lanes, undocumented handoffs): Framework Architect reviews within a cycle or as a standalone incorporation
+
+### Connection to Think Tank Cycles
+
+Standing report items feed into Think Tank cycles in two ways:
+
+1. **Pre-cycle input**: When a cycle kicks off, the Facilitator reviews all `deferred-to-cycle` and `monitoring` items for the Observe target workflow. These become pre-existing context in the Observe phase.
+2. **Cycle-triggered items**: A Think Tank cycle may produce findings that don't merit a full Delta but should be tracked as standing report items (e.g., "the stressed run revealed that Workflow B has no flood determination step, but we didn't stress for that — log it as GAP-B-006 for future review").
+
+Items that go through a full Think Tank cycle and produce Deltas are tracked in the cycle report, not in the standing report disposition log. The two systems don't duplicate — the standing report log tracks items that are triaged *outside* of cycles; the cycle report tracks items that are processed *inside* cycles.
+
+---
+
 ## Anti-Patterns
 
 Named so Facilitators can reject them mid-cycle:

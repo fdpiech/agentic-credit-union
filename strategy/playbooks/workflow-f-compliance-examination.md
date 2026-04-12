@@ -147,9 +147,9 @@ Sample: [N] applications including approvals, declines, and counter-offers
 Test each for:
 - [ ] Adverse action notice issued within 30 days of application
 - [ ] Adverse action notice contains specific reasons (not generic)
-- [ ] No prohibited basis appeared in decision-making
+- [ ] No prohibited basis appeared in decision-making (disparate treatment focus per NCUA Letter 25-CU-04)
 - [ ] HMDA data collected regardless of outcome
-Findings: Flag any disparities in approval rates by protected class for fair lending review
+Findings: Flag any evidence of disparate treatment in approval/denial patterns by protected class. Note: NCUA no longer examines for disparate impact (Sep 2025), but ECOA/FHA statutory protections remain — retain HMDA data analysis for litigation risk and internal fair lending monitoring.
 
 HMDA — Home Mortgage Disclosure Act Data Integrity:
 Sample: 100% of HMDA-reportable applications from prior calendar year (or current YTD)
@@ -289,6 +289,11 @@ INFORMATION SECURITY
 - [ ] Incident response plan
 - [ ] Business continuity / disaster recovery plan
 - [ ] Vendor management list with due diligence status
+
+EXAMINATION SCOPE NOTES (updated per standing Intel Brief triage):
+- [ ] Reputation risk: NCUA no longer bases supervisory concerns on reputation risk and will not discuss it during examinations (Letter 25-CU-05, Sep 2025; EO 14331). Do NOT prepare reputation-risk materials for NCUA examiners. Internal reputational risk management remains a sound business practice but is not an examination factor.
+- [ ] Disparate impact: NCUA examines for disparate treatment only, not disparate impact (Letter 25-CU-04, Sep 2025). See fair lending testing notes in Step 2B. ECOA/FHA statutory protections remain.
+- [ ] Fraud prevention (2026 standalone priority): NCUA Letter 26-CU-01 lists fraud prevention as a standalone supervisory priority, separate from BSA/AML. Examiners will specifically review internal controls and separation of duties to guard against insider abuse. Prepare: fraud prevention program documentation, internal controls matrix, separation-of-duties analysis for high-risk functions (cash handling, wire transfers, account maintenance, ACH origination).
 
 Timeline: Full package assembled by [DATE — 30 days before expected examination arrival]
 ```

@@ -7,6 +7,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Roadmap and future work: see [ROADMAP.md](ROADMAP.md).
 
+## [2.3.0] - 2026-04-12
+
+### Added
+
+**Initial Alignment Pass — first real-world run of the Think Tank standing-report process.** Think Tank Intel collected 25 external forces from NCUA, CFPB, FFIEC, FinCEN, fintech, and industry sources across Jan 2025 – Apr 2026, triaged them chronologically through the disposition schema, and applied the first round of framework updates.
+
+- `strategy/think-tank/intel/standing-intel-brief-2025-2026.md` — Standing Intel Brief: 25 items across 6 force categories (NCUA regulatory, CFPB/deregulation, FFIEC/FinCEN, fraud/cyber, fintech/peer CU, structural industry), with stress catalog cross-reference, 4 potential new catalog entries identified, and noise-filtered section
+- `strategy/think-tank/intel/item-log-2025-2026.md` — Item log with full chronological triage (Q1 2025 → Q1 2026), management layer (incorporate work queue, cycle planning queue, monitoring register with triggers and review dates), and period-to-period cadence (monthly → quarterly → per-release → yearly)
+- `strategy/think-tank/gaps/` — Directory scaffold for future standing Gap Reports
+- `strategy/think-tank/methodology.md` — Added standing report item review/disposition schema (incorporated / deferred-to-cycle / monitoring / dismissed) with item template, reviewer routing, and connection to Think Tank cycles
+
+### Changed
+
+**5 playbook updates from intel triage** — direct incorporations from the standing Intel Brief:
+
+- `strategy/playbooks/workflow-b-loan-origination.md` — Fair lending exam scope narrowed to disparate treatment only (NCUA Letter 25-CU-04); ECOA/FHA statutory protections noted
+- `strategy/playbooks/workflow-c-mortgage-processing.md` — Fair lending scope updated; CFPB mortgage fraud supervision note added (continues during broader curtailment)
+- `strategy/playbooks/workflow-f-compliance-examination.md` — Exam scope notes added: reputation risk eliminated (Letter 25-CU-05), disparate impact removed from exam scope, fraud prevention added as standalone 2026 supervisory priority (Letter 26-CU-01)
+- `strategy/playbooks/workflow-h-fraud-dispute.md` — CFPB depository fraud supervision note added
+- `strategy/playbooks/workflow-a-member-onboarding.md` — Beneficial ownership verification updated per FinCEN Exceptive Order (Feb 2026): first account only, not each subsequent
+- `strategy/playbooks/workflow-k-bsa-aml.md` — Beneficial ownership EDD section updated with FinCEN relief
+- `ROADMAP.md` — Added 3-phase Initial Alignment Pass (Collect → Update → Validate), standing-report cadence concept, source agency table, workflow clustering
+- `strategy/think-tank/README.md` — Added standing reports section with links to intel/ and gaps/ directories
+
+### Triage Results Summary
+
+| Disposition | Count | Description |
+|-------------|-------|-------------|
+| **incorporate** | 5 | Applied to 7 playbook files in this release |
+| **defer-to-cycle** | 11 | Queued for Think Tank cycles (Workflows H, B, D/E, J/M, K, O, Q) |
+| **monitoring** | 8 | Tracked with triggers and review dates |
+| **dismiss** | 1 | Investment Adviser AML delay — low CU relevance |
+
+---
 ## [2.2.0] - 2026-04-12
 
 ### Added

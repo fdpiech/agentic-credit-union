@@ -13,6 +13,14 @@ A recurring 4-phase cycle that stress-tests CANVAS against real credit union pro
 | **Cycle Ledger** | [`ledger.md`](ledger.md) | Rotation tracker and historical index |
 | **Runbook** | [`../runbooks/scenario-think-tank-cycle.md`](../runbooks/scenario-think-tank-cycle.md) | Executable activation prompt and phase-by-phase protocol |
 
+### Standing Reports
+
+| Artifact | Path | Purpose |
+|----------|------|---------|
+| **Intel Brief (2025-2026)** | [`intel/standing-intel-brief-2025-2026.md`](intel/standing-intel-brief-2025-2026.md) | 25 external forces from NCUA, CFPB, FFIEC, FinCEN, fintech, industry |
+| **Item Log (2025-2026)** | [`intel/item-log-2025-2026.md`](intel/item-log-2025-2026.md) | Chronological triage, work queues, monitoring register, cadence |
+| **Gap Reports** | [`gaps/`](gaps/) | Standing gap reports (directory scaffold — first reports pending) |
+
 ### Agents (in `/agents/` — simulator requirement)
 
 | Agent | Path | Role |
