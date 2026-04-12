@@ -103,7 +103,7 @@ done
 5. Decision Communication (Loan Officer)
 6. Post-Close Quality Review (Internal Auditor)
 
-**Workflow C — Mortgage Processing**
+**Workflow C — Mortgage Processing (TRID)**
 1. Application & Loan Estimate (Mortgage Loan Officer)
 2. Document Collection & Processing (Mortgage Loan Processor)
 3. Underwriting Decision (Underwriter)
@@ -118,13 +118,13 @@ done
 4. Payment Arrangement & Compliance (Collections Specialist)
 5. Resolution Gate (Compliance Officer)
 
-**Workflow E — Deposit Operations**
+**Workflow E — Deposit Operations & BSA/AML**
 1. Dispute Intake & Documentation (Deposit Operations Manager)
 2. Investigation & Research (IT Systems / Core Systems)
 3. Resolution & Member Communication (Deposit Operations Manager)
 4. Reg E Compliance Gate (Compliance Officer)
 
-**Workflow F — Compliance & Examination**
+**Workflow F — Compliance & NCUA Examination**
 1. Exam Preparation & Document Assembly (Compliance Officer)
 2. BSA/AML Independent Testing (BSA Officer)
 3. Fair Lending Analysis (Compliance Officer)
