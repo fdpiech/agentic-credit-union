@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Roadmap and future work: see [ROADMAP.md](ROADMAP.md).
 
+## [2.2.0] - 2026-04-12
+
+### Added
+
+**3 Think Tank analysis agents** (38 agents total), expanding the self-improvement cycle with Observe-phase benchmarking, external intelligence, and in-character member role-play:
+
+- `agents/cu-gap-analyst.md` — Compares Observe targets against real-world CU operations, industry benchmarks (NCUA, CUNA/NAFCU), and regulatory expectations. Produces evidence-based Gap Reports in the Observe phase. Looks outward (industry reality) before stress is applied.
+- `agents/cu-think-tank-intel.md` — Surfaces external forces (fintech disruptions, peer CU innovations, regulatory signals, industry incidents) relevant to cycle targets. Produces Intel Briefs that inform stress selection. Distinct from the operational `cu-competitive-intelligence` agent.
+- `agents/cu-member-persona.md` — Creates and portrays realistic member profiles during Model phases. Responds in-character at interaction steps with financially consistent profiles and behavioral realism. Ensures ECOA-protected-class diversity for fair lending coverage. References the 5 existing simulator personas.
+
+### Changed
+
+- `strategy/think-tank/methodology.md` — Updated ROADMAP relationship table; Observe phase now includes Gap Report and Intel Brief; Model phase now includes Member Persona role-play
+- `strategy/runbooks/scenario-think-tank-cycle.md` — Added 3 new agents to roster; added Phase 1b (concurrent Gap Analysis and Intel Brief); added Member Persona to Model phases; updated Stress Designer input
+- `strategy/think-tank/README.md` — Added 3 new agents to quick-links table
+- `agents/cu-think-tank-facilitator.md` — Updated ROADMAP integration section: 3 agents now shipped, 3 remaining
+- `README.md` — Agent count 35 → 38; Think Tank row updated to 6 agents
+- `ROADMAP.md` — Gap Analysis, Competitive Intel, and Member Persona moved from "Not Yet Shipped" to "Shipped"; 3 remaining (Retrospective, Game Theory Evaluation, Roadmap Synthesis)
+
+---
+
 ## [2.1.0] - 2026-04-12
 
 ### Added

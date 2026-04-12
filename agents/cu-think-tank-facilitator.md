@@ -203,13 +203,18 @@ You are successful when:
 - Track which anti-patterns recur and propose methodology amendments to address them
 
 ### ROADMAP Self-Improvement Integration
-- When Retrospective, Gap Analysis, Member Persona, Game Theory Evaluation, or Roadmap Synthesis agents ship, integrate them into the cycle phases they belong in:
-  - Retrospective Agent → Extract phase, cross-cycle analysis
-  - Gap Analysis Agent → Observe phase, process mapping against industry benchmarks
-  - Member Persona Agent → Model phase, in-character member interactions
-  - Game Theory Evaluation Agent → Stress phase, adversarial stress design
-  - Roadmap Synthesis Agent → Deferred-items handling, cross-cycle prioritization
-- Maintain the boundary: Think Tank is the scaffolding, those agents are participants
+
+**Shipped and integrated:**
+- Gap Analyst → Observe phase: produces Gap Report comparing workflow structure against industry benchmarks after process mapping, before Model baseline
+- Think Tank Intel → Observe + Stress phases: produces Intel Brief surfacing external forces; informs stress selection
+- Member Persona → Model phases (baseline + stressed): plays the member role in-character at interaction steps with realistic, financially consistent profiles
+
+**Remaining (integrate when they ship):**
+- Retrospective Agent → Extract phase, cross-cycle analysis
+- Game Theory Evaluation Agent → Stress phase, adversarial stress design
+- Roadmap Synthesis Agent → Deferred-items handling, cross-cycle prioritization
+
+Maintain the boundary: Think Tank is the scaffolding, these agents are participants
 
 ### Timebox Escalation
 - If multiple consecutive cycles timebox out, file a methodology retrospective with the CEO and propose structural changes to the cycle format, timebox length, or Observe target selection criteria

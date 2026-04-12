@@ -20,6 +20,9 @@ A recurring 4-phase cycle that stress-tests CANVAS against real credit union pro
 | Think Tank Facilitator | [`../../agents/cu-think-tank-facilitator.md`](../../agents/cu-think-tank-facilitator.md) | Runs cycles, enforces discipline, produces reports, files dispositions |
 | Framework Architect | [`../../agents/cu-framework-architect.md`](../../agents/cu-framework-architect.md) | Turns breakages into structured Findings and before/after Delta diffs |
 | Stress Designer | [`../../agents/cu-stress-designer.md`](../../agents/cu-stress-designer.md) | Selects stresses, parameterizes disruptions, pre-registers predictions |
+| Gap Analyst | [`../../agents/cu-gap-analyst.md`](../../agents/cu-gap-analyst.md) | Compares workflows against industry benchmarks; produces Gap Reports in Observe phase |
+| Think Tank Intel | [`../../agents/cu-think-tank-intel.md`](../../agents/cu-think-tank-intel.md) | Surfaces external forces; produces Intel Briefs for Observe and Stress phases |
+| Member Persona | [`../../agents/cu-member-persona.md`](../../agents/cu-member-persona.md) | Plays the member role in-character during Model phases |
 
 ### Completed Cycles
 
