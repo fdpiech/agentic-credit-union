@@ -10,7 +10,7 @@ The system includes:
 - **32 specialized AI agents** covering every major credit union function
 - **17 workflows** covering every major credit union function and regulatory obligation
 - **Standardized handoff protocols** ensuring compliance at every step
-- **Scenario runbooks** for exam preparation, new product launches, mergers, and crisis response
+- **Scenario runbooks** for exam preparation, crisis response, vendor management, fraud investigation, and more
 
 ---
 
