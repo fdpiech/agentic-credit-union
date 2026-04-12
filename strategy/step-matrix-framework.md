@@ -270,7 +270,7 @@ An exception path is a named sequence of workflow steps that executes in place o
 | Workflow | Gate | Exception Path | Agents |
 |----------|------|---------------|--------|
 | B — Loan Origination | Loan Origination Quality Gate | `exception-underwriting` | Loan Underwriting Analyst (Execute) → Risk Manager (Gate) |
-| C — Mortgage Processing | Appraisal Support Gate | `appraisal-exception` | Loan Officer (Execute) → Risk Manager (Gate) |
+| C — Mortgage Processing (TRID) | Appraisal Support Gate | `appraisal-exception` | Loan Officer (Execute) → Risk Manager (Gate) |
 
 ### 8.4 Degraded-Mode Completion Standard
 

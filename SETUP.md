@@ -17,10 +17,10 @@
 2. **Select a workflow:**
    - Workflow A: Member Onboarding
    - Workflow B: Loan Origination
-   - Workflow C: Mortgage Processing
+   - Workflow C: Mortgage Processing (TRID)
    - Workflow D: Collections & Recovery
-   - Workflow E: Deposit Operations
-   - Workflow F: Compliance & Examination
+   - Workflow E: Deposit Operations & BSA/AML
+   - Workflow F: Compliance & NCUA Examination
    - Workflow G: Annual Strategic Planning
    - Workflow H: Fraud Detection & Dispute Resolution
    - Workflow I: Card Services & Fraud Monitoring

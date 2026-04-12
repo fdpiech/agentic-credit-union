@@ -60,10 +60,10 @@ Quality gate verification required before workflow completion.
 |-------------|----------|------------|
 | Onboard a new member | A — Member Onboarding | Member Services Rep |
 | Process a loan application | B — Loan Origination | Loan Officer |
-| Process a mortgage | C — Mortgage Processing | Mortgage Loan Processor |
+| Process a mortgage | C — Mortgage Processing (TRID) | Mortgage Loan Processor |
 | Work a delinquent account | D — Collections & Recovery | Collections Specialist |
-| Handle deposit operations | E — Deposit Operations | Deposit Operations Manager |
-| Prepare for NCUA examination | F — Compliance & Exam | Compliance Officer |
+| Handle deposit operations | E — Deposit Operations & BSA/AML | Deposit Operations Manager |
+| Prepare for NCUA examination | F — Compliance & NCUA Examination | Compliance Officer |
 | Build the annual plan and budget | G — Annual Strategic Planning | CEO |
 | Investigate fraud / process a Reg E dispute | H — Fraud Detection & Dispute Resolution | Fraud Detection & Security Analyst |
 | Handle card fraud, chargeback, or reissue | I — Card Services & Fraud Monitoring | Card Services Specialist |

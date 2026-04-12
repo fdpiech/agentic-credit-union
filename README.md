@@ -127,7 +127,7 @@ agentic-credit-union/
 | **C** | Mortgage Processing (TRID) | Mortgage Loan Processor |
 | **D** | Collections & Recovery | Collections Specialist |
 | **E** | Deposit Operations & BSA/AML | Deposit Operations Manager |
-| **F** | Compliance & NCUA Exam | Compliance Officer |
+| **F** | Compliance & NCUA Examination | Compliance Officer |
 | **G** | Annual Strategic Planning | CEO |
 
 ### Critical Workflows (H–K)

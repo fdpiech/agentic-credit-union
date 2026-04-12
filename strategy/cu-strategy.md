@@ -13,10 +13,10 @@
 3. [Core Workflows](#3-core-workflows)
 4. [Workflow A — Member Onboarding](#4-workflow-a--member-onboarding)
 5. [Workflow B — Loan Origination](#5-workflow-b--loan-origination)
-6. [Workflow C — Mortgage Processing](#6-workflow-c--mortgage-processing)
+6. [Workflow C — Mortgage Processing (TRID)](#6-workflow-c--mortgage-processing-trid)
 7. [Workflow D — Collections & Recovery](#7-workflow-d--collections--recovery)
-8. [Workflow E — Deposit Operations](#8-workflow-e--deposit-operations)
-9. [Workflow F — Compliance & Examination](#9-workflow-f--compliance--examination)
+8. [Workflow E — Deposit Operations & BSA/AML](#8-workflow-e--deposit-operations--bsaaml)
+9. [Workflow F — Compliance & NCUA Examination](#9-workflow-f--compliance--ncua-examination)
 10. [Workflow G — Annual Strategic Planning](#10-workflow-g--annual-strategic-planning)
 11. [Workflow H — Fraud Detection & Dispute Resolution](#11-workflow-h--fraud-detection--dispute-resolution)
 12. [Workflow I — Card Services & Fraud Monitoring](#12-workflow-i--card-services--fraud-monitoring)
@@ -157,10 +157,10 @@ CANVAS supports three deployment configurations:
 |----------|---------------|-------------|-----------|
 | A: Member Onboarding | Member Services Rep, BSA Officer | Compliance Officer | Same day – 3 days |
 | B: Loan Origination | Loan Officer, Loan Underwriting Analyst, Compliance Officer | Loan Officer + Risk Manager | 1-7 days |
-| C: Mortgage Processing | Mortgage Loan Processor, Loan Officer | Mortgage Loan Processor | 15-45 days |
+| C: Mortgage Processing (TRID) | Mortgage Loan Processor, Loan Officer | Mortgage Loan Processor | 15-45 days |
 | D: Collections & Recovery | Collections Specialist, Loan Officer | Collections Specialist | Ongoing |
-| E: Deposit Operations | Deposit Operations Manager, BSA Officer | Deposit Operations Manager | Same day – 5 days |
-| F: Compliance & Examination | Compliance Officer, Internal Auditor, Regulatory Affairs Analyst | Compliance Officer | Annual cycle |
+| E: Deposit Operations & BSA/AML | Deposit Operations Manager, BSA Officer | Deposit Operations Manager | Same day – 5 days |
+| F: Compliance & NCUA Examination | Compliance Officer, Internal Auditor, Regulatory Affairs Analyst | Compliance Officer | Annual cycle |
 | G: Annual Strategic Planning | CEO, CFO, COO, CTO, CIO, Branch Manager | CEO + Board | Annual cycle |
 
 **Specialized workflows (H–Q)** — activate on event, initiative, or transformation:
@@ -392,7 +392,7 @@ STEP 6: Post-Close Quality Check (Compliance Officer)
 
 ---
 
-## 6. Workflow C — Mortgage Processing
+## 6. Workflow C — Mortgage Processing (TRID)
 
 > **Objective**: Process mortgage applications from application to closing with full TRID compliance, secondary market readiness, and a closing that the member understands and can sign with confidence.
 
@@ -538,7 +538,7 @@ STAGE 5: Post-Charge-Off Recovery
 
 ---
 
-## 8. Workflow E — Deposit Operations
+## 8. Workflow E — Deposit Operations & BSA/AML
 
 > **Objective**: Maintain accurate, compliant deposit accounts — opens, maintenance, rate changes, exceptions, and closures — while supporting BSA/AML monitoring and funding the credit union's balance sheet.
 
@@ -596,7 +596,7 @@ EXCEPTION HANDLING
 
 ---
 
-## 9. Workflow F — Compliance & Examination
+## 9. Workflow F — Compliance & NCUA Examination
 
 > **Objective**: Operate a proactive compliance management system (CMS) that prevents violations before they occur, and manage the NCUA examination cycle to achieve clean results.
 
