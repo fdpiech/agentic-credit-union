@@ -288,3 +288,61 @@ This connects to INTEL-ALL-015 (73% of cyber incidents via vendors) and INTEL-AL
 - **April 2026**: Fed proposes expanding ways banks and credit unions can transfer funds via the system
 
 For CANVAS: Instant payments change the operational assumptions in Workflow E (settlement timing, liquidity management), create new fraud vectors in Workflow H (irrevocable instant transfers), and affect loan disbursement in Workflow B. The framework may need to model real-time payment rails alongside traditional ACH/wire.
+
+---
+
+## 7. Stress Catalog Cross-Reference
+
+Which intel items make which existing catalog stresses more timely or urgent:
+
+| Intel Item | Catalog Stress | Why It's Timely |
+|------------|---------------|-----------------|
+| INTEL-ALL-001 (credit risk decade-high) | **ST-03** Delinquency Spike | Real-world delinquency already at 10-year highs; used auto and credit card losses exceed 2008 peak. A stress-test using current actual rates is not hypothetical — it's the current state. |
+| INTEL-ALL-002 (IRR/liquidity risk) | **ST-01** Rate Shock Up, **ST-02** Rate Shock Down, **ST-09** Liquidity Crisis | NCUA explicitly flagging IRR and liquidity as supervisory priorities; NIM compression and deposit repricing pressure are active. |
+| INTEL-ALL-003, 017 (fraud as supervisory priority; AI fraud surge) | **ST-11** Fraud Wave | 1,100% increase in AI/deepfake use; fraud losses climbing 15-25% YoY. Parameterize ST-11 with synthetic identity and deepfake vectors (not currently in catalog parameters). |
+| INTEL-ALL-004, 013 (BSA/AML reform) | **ST-04** New Regulation | BSA/AML program requirements are being reformed — stress-test whether current CANVAS BSA workflows still align when the new rule drops. |
+| INTEL-ALL-005, 006, 007, 008 (deregulation wave) | **ST-04** New Regulation, **ST-12** Exam Finding | The deregulation wave changes the exam scope. A stress-test should model what happens when exam expectations shift mid-cycle (e.g., disparate impact no longer examined but disparate treatment still is). |
+| INTEL-ALL-015, 018, 024 (vendor risk) | **ST-07** Vendor Failure, **ST-05** Core Outage | 73% of cyber incidents via vendors; Marquis breach hit 800K+ members; Broadcom/VMware cost shocks. These are not hypothetical — vendor disruption is the primary threat vector. |
+| INTEL-ALL-017, 019 (AI-enabled fraud) | **ST-11** Fraud Wave | **Potential catalog gap**: ST-11 parameters list CNP, synthetic identity, check kiting, ATO, and BEC. It does not yet include deepfake voice/video as a vector. Recommend Stress Designer add deepfake parameters. |
+| INTEL-ALL-023 (merger wave) | **ST-09** Liquidity Crisis (tangential) | No direct catalog match for merger-integration stress. **Potential catalog gap**: A merger-integration stress (system consolidation, policy harmonization, member communication) may warrant a new ST-13 entry. |
+| INTEL-ALL-025 (FedNow) | **ST-05** Core Outage (tangential), **ST-11** Fraud Wave | **Potential catalog gap**: Instant payment rails create new fraud vectors (irrevocable transfers) and operational stresses (real-time liquidity) that don't cleanly map to existing entries. May warrant catalog consideration. |
+
+### Potential New Catalog Entries (for Stress Designer review)
+
+1. **Deepfake/AI Fraud Vector** — Extend ST-11 parameters or create new entry for AI-generated voice/video authentication bypass. The 2,000% growth in deepfake fraud and the $2.57M MSUFCU blocking case show this is a distinct threat from traditional fraud vectors.
+
+2. **Merger Integration Stress** — No current entry models the stress of merging two systems, two cultures, two policy sets, and two member bases simultaneously. With 200+ mergers projected for 2026, this is a high-volume real-world scenario.
+
+3. **Instant Payment Rail Disruption/Fraud** — FedNow's irrevocable instant transfers create operational and fraud scenarios distinct from traditional ACH/wire. Real-time liquidity management and instant-transfer fraud are emerging stress categories.
+
+4. **Regulatory Deregulation Whiplash** — The current environment involves simultaneous deregulation (NCUA project, CFPB curtailment) and continued enforcement (Navy Federal action, NCUA exam priorities). A stress modeling "regulatory floor shifts mid-process" could be valuable.
+
+---
+
+## 8. Noise Filtered Out
+
+The following items were reviewed and deliberately excluded from this brief because they are either too speculative, not actionable for CANVAS framework evolution, or better suited to the operational `cu-competitive-intelligence` agent:
+
+| Signal | Reason for exclusion |
+|--------|---------------------|
+| Crypto/blockchain CU integration discussions | Speculative; no concrete regulatory path for FCU crypto products in 2025-2026 |
+| NCUA board composition changes | Personnel changes are not forces unless they produce specific policy actions (which are captured under INTEL-ALL-005) |
+| Generic "digital transformation" conference presentations | Too vague to map to specific workflow pressure; CU-specific actions captured under INTEL-ALL-021 |
+| Individual fintech funding rounds (unless directly competing with a CANVAS workflow) | Operational competitive intelligence territory, not framework evolution signal |
+| Climate risk / ESG regulatory developments | NCUA has not issued CU-specific climate guidance in 2025-2026; no examination pressure yet |
+| Cannabis banking (SAFE Banking Act) | No federal legislative progress in 2025-2026 session; remains speculative |
+| State-level regulatory divergence details | Too granular for a standing brief covering all workflows; would be relevant in cluster-specific or workflow-specific intel |
+
+---
+
+## Summary Statistics
+
+- **Total items collected**: 25
+- **By source type**: Regulatory (12), Incident (3), Fintech/Peer CU (3), Structural/Industry (4), Fraud/Cyber (3)
+- **Workflows most affected**: B (Loan Origination) — 9 items; E (Deposit Ops) — 7 items; K (BSA/AML) — 6 items; H (Fraud/Dispute) — 6 items; J (IT Security) — 4 items; F (Compliance Exam) — 5 items
+- **Potential catalog gaps identified**: 4
+- **Status**: Collection complete — awaiting triage and disposition
+
+---
+
+*Standing Intel Brief — Think Tank Intel agent. Collection only. Triage happens next.*
