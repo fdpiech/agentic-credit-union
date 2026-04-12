@@ -1,13 +1,13 @@
 # CANVAS — Credit Union Agent Network
 
-**CANVAS** (Credit Union Agent Network for Value, Advice, and Service) is a coordinated AI agent system for credit union operations. It transforms 35 specialized AI agents into an orchestrated operational pipeline with defined workflows, compliance gates, and measurable outcomes grounded in cooperative values.
+**CANVAS** (Credit Union Agent Network for Value, Advice, and Service) is a coordinated AI agent system for credit union operations. It transforms 38 specialized AI agents into an orchestrated operational pipeline with defined workflows, compliance gates, and measurable outcomes grounded in cooperative values.
 
 ---
 
 ## Overview
 
 The system includes:
-- **35 specialized AI agents** covering every major credit union function plus self-improvement
+- **38 specialized AI agents** covering every major credit union function plus self-improvement
 - **17 workflows** covering every major credit union function and regulatory obligation
 - **Standardized handoff protocols** ensuring compliance at every step
 - **Scenario runbooks** for exam preparation, crisis response, vendor management, fraud investigation, and more
@@ -111,7 +111,7 @@ agentic-credit-union/
 
 ---
 
-## The 35 Agents
+## The 38 Agents
 
 | Category | Agents |
 |----------|-------|
@@ -122,7 +122,7 @@ agentic-credit-union/
 | **Operations** | Deposit Operations Manager, Card Services Specialist, Collections Specialist |
 | **IT (8 agents)** | Core Systems Admin, IT Infrastructure Engineer, Database Administrator, IT Systems Administrator, Software Engineer, RPA & Automation Engineer, Business Intelligence Analyst, IT Services Manager |
 | **Strategic** | Marketing Manager, Competitive Intelligence Analyst |
-| **Think Tank (3 agents)** | Think Tank Facilitator, Framework Architect, Stress Designer |
+| **Think Tank (6 agents)** | Think Tank Facilitator, Framework Architect, Stress Designer, Gap Analyst, Think Tank Intel, Member Persona |
 
 ---
 
@@ -245,4 +245,4 @@ For the full operational doctrine, see [`strategy/cu-strategy.md`](strategy/cu-s
 
 ---
 
-*CANVAS: 35 Agents. 17 Workflows. One Think Tank. One Unified Credit Union Strategy.*
+*CANVAS: 38 Agents. 17 Workflows. One Think Tank. One Unified Credit Union Strategy.*
