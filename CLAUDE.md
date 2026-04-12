@@ -73,6 +73,26 @@ EOF
 Do not use `git commit -m "..."` with literal `\n` escapes — they
 won't format correctly on GitHub.
 
+## Understand Anything plugin
+
+The [Understand Anything](https://github.com/Lum1104/Understand-Anything)
+plugin is configured at the project level via `.claude/settings.json`.
+When you trust this folder Claude Code will prompt you to install the
+`lum1104-understand-anything` marketplace and the
+`understand-anything` plugin.
+
+After installation, run `/reload-plugins` and use the plugin skills:
+
+- `/understand` — analyze the project and build a knowledge graph
+- `/understand-dashboard` — open the interactive visualization
+- `/understand-chat` — ask questions about the codebase
+- `/understand-diff` — analyze impact of current changes
+- `/understand-explain` — deep-dive into specific files
+- `/understand-onboard` — generate a team onboarding guide
+- `/understand-domain` — extract business domain knowledge
+
+The knowledge graph is written to `.understand-anything/` (gitignored).
+
 ## When uncertain
 
 If AGENTS.md doesn't cover it and nothing similar exists in the tree,

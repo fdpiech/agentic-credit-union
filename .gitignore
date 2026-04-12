@@ -61,3 +61,6 @@ npm-debug.log*
 # Temporary
 *.tmp
 *.temp
+
+# Understand Anything plugin output
+.understand-anything/
