@@ -290,6 +290,10 @@ INFORMATION SECURITY
 - [ ] Business continuity / disaster recovery plan
 - [ ] Vendor management list with due diligence status
 
+EXAMINATION SCOPE NOTES (updated per standing Intel Brief triage):
+- [ ] Reputation risk: NCUA no longer bases supervisory concerns on reputation risk and will not discuss it during examinations (Letter 25-CU-05, Sep 2025; EO 14331). Do NOT prepare reputation-risk materials for NCUA examiners. Internal reputational risk management remains a sound business practice but is not an examination factor.
+- [ ] Disparate impact: NCUA examines for disparate treatment only, not disparate impact (Letter 25-CU-04, Sep 2025). See fair lending testing notes in Step 2B. ECOA/FHA statutory protections remain.
+
 Timeline: Full package assembled by [DATE — 30 days before expected examination arrival]
 ```
 
