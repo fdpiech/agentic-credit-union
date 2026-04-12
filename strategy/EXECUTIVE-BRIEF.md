@@ -131,10 +131,16 @@ agentic-credit-union/
     │   ├── agent-activation-prompts.md ← Ready-to-use agent prompts
     │   └── handoff-templates.md        ← Standardized handoff formats
     └── runbooks/
-        ├── scenario-exam-preparation.md      ← NCUA examination cycle
-        ├── scenario-new-product-launch.md    ← New product rollout
-        ├── scenario-merger-conversion.md     ← Core system conversion / merger
-        └── scenario-data-breach-response.md  ← Cybersecurity incident response
+        ├── scenario-exam-preparation.md            ← NCUA examination cycle
+        ├── scenario-new-product-launch.md          ← New product rollout
+        ├── scenario-merger-conversion.md           ← Core system conversion / merger
+        ├── scenario-data-breach-response.md        ← Cybersecurity incident response
+        ├── scenario-fed-rate-change.md             ← Fed rate move response
+        ├── scenario-natural-disaster-response.md   ← Branch / operational disaster recovery
+        ├── scenario-liquidity-crisis.md            ← Liquidity stress response
+        ├── scenario-vendor-due-diligence.md        ← Vendor pre-contract risk review
+        ├── scenario-vendor-onboarding.md           ← New vendor integration
+        └── scenario-internal-fraud-investigation.md ← Employee / insider fraud investigation
 ```
 
 ---

@@ -83,7 +83,13 @@ agentic-credit-union/
 │       ├── scenario-exam-preparation.md
 │       ├── scenario-new-product-launch.md
 │       ├── scenario-merger-conversion.md
-│       └── scenario-data-breach-response.md
+│       ├── scenario-data-breach-response.md
+│       ├── scenario-fed-rate-change.md
+│       ├── scenario-natural-disaster-response.md
+│       ├── scenario-liquidity-crisis.md
+│       ├── scenario-vendor-due-diligence.md
+│       ├── scenario-vendor-onboarding.md
+│       └── scenario-internal-fraud-investigation.md
 │
 ├── research/                  # Supporting research
 │   └── game-theory.md         # Multi-agent cooperation & trust scoring
