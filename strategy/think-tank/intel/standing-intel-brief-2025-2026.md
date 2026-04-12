@@ -235,3 +235,56 @@ For CANVAS: The framework currently models individual CU operations. Shared-serv
 **Workflow(s) affected**: B (Loan Origination), D (Collections), P (Financial Wellness)
 
 **Description**: Fintechs are specifically targeting underwriting — the core of Workflow B — with AI-driven credit decisioning that can process applications faster and with alternative data sources (cash flow analysis, rent payments, utility history) beyond traditional FICO. "Second-chance lending" (serving borrowers rejected by traditional scoring) is an active battleground where fintechs compete directly with credit unions' historic mission of financial inclusion. Credit unions that cannot match the speed or data sophistication of AI underwriting risk losing their most mission-aligned member segment. For CANVAS: Workflow B's underwriting steps and the Loan Underwriting Analyst's role may need to account for AI-augmented decisioning and alternative data inputs.
+
+---
+
+## 6. Structural Industry Forces — Consolidation, Infrastructure, Payments
+
+### INTEL-ALL-023 — Credit Union Merger Wave: 2026 Could Break Records
+
+**Source**: CUToday.info; CEO Advisory Group merger analyses (Q1, Q2, Q3 2025); American Banker (5 trends in 2025)
+**Identified**: 2025 (acceleration through year)
+**Workflow(s) affected**: O (Merger/Acquisition), G (Strategic Planning), Q (Core System Conversion)
+
+**Description**: Credit union consolidation is accelerating sharply. In Q3 2025 alone, the NCUA approved 41 mergers with $34B in combined assets — a single quarter that exceeded the total $35B merged across all of 2022-2024 combined. Full-year 2025 is projected at 160-170 transactions; 2026 could see 200+ mergers, levels not seen in over a decade. Key characteristics:
+
+- **Strategic, not distressed**: 71% of Q3 mergers cited expanded services, not financial weakness. Healthy CUs are choosing to merge for scale, technology, and talent.
+- **Mega mergers-of-equals**: First Technology ($17B) into Digital CU ($12.7B); Wings Financial ($9.5B) with Ent CU ($10.3B); CommunityAmerica ($5.3B) into Unify ($3.5B)
+- **Bank acquisitions by CUs**: 4 bank acquisitions totaling $1.9B in Q3 2025 — CUs seeking geographic expansion, commercial lending expertise, and market niches
+- **Average CU size up 186% in 10 years**: from $188.2M to $538.2M as CUs chase efficiencies of scale
+- **Regional concentration**: Texas, Midwest, and Southeast will see disproportionate activity
+
+For CANVAS: Workflow O (Merger/Acquisition) models this process, but the volume and strategic nature of the current wave may stress assumptions about merger complexity, integration timelines, and regulatory approval paths.
+
+### INTEL-ALL-024 — Core System Conversion Pressure and Vendor Concentration
+
+**Source**: Zengines.ai; MDT 2025 CU trends; Oak Tree Business; Solveit.rocks
+**Identified**: 2025-2026
+**Workflow(s) affected**: Q (Core System Conversion), J (IT Security), M (Vendor Management)
+
+**Description**: Credit unions face mounting pressure to modernize core banking systems, but the conversion process is high-risk and resource-constrained:
+
+- Wait times of 2-3 years to begin implementation with major core providers
+- Mainframe and legacy system expertise is scarce as professionals retire
+- **Broadcom/VMware acquisition**: Some CUs experienced infrastructure cost increases of 600%+, hitting smaller and mid-sized institutions especially hard
+- Vendor consolidation forces CUs to reevaluate contracts, dependencies, and long-term digital transformation plans
+- Most CUs track vendors but fewer actively test what happens when a vendor is compromised or unavailable
+
+This connects to INTEL-ALL-015 (73% of cyber incidents via vendors) and INTEL-ALL-018 (Marquis vendor breach affecting 800K+ members). The vendor concentration risk is structural, not episodic.
+
+### INTEL-ALL-025 — FedNow Adoption Surge and Transaction Limit Expansion
+
+**Source**: Federal Reserve Financial Services (FedNow two-year report); Wolters Kluwer; Softjourn; Host Merchant Services
+**Identified**: 2025-2026
+**Workflow(s) affected**: E (Deposit Ops), I (Card Services), H (Fraud/Dispute), B (Loan Origination)
+
+**Description**: FedNow instant payments adoption is accelerating rapidly:
+
+- **1,500+ institutions** live across all 50 states (up from 900 at one-year mark)
+- **Transaction volume**: Q1 2025 processed ~1.3M transactions; Q2 reached ~2.1M and nearly $246B in volume — a 405% quarter-over-quarter increase
+- **Transaction limit raised**: From $1M to $10M (effective November 2025) to support commercial use cases
+- **Use cases expanding**: Off-cycle payroll, earned wage access, digital wallet defunding, real estate escrow, auto loan disbursements, marketplace seller payouts
+- **Target**: Federal Reserve aims to connect ~8,000 of the nation's 10,000 banks and credit unions
+- **April 2026**: Fed proposes expanding ways banks and credit unions can transfer funds via the system
+
+For CANVAS: Instant payments change the operational assumptions in Workflow E (settlement timing, liquidity management), create new fraud vectors in Workflow H (irrevocable instant transfers), and affect loan disbursement in Workflow B. The framework may need to model real-time payment rails alongside traditional ACH/wire.
