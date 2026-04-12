@@ -41,7 +41,6 @@ Roadmap and future work: see [ROADMAP.md](ROADMAP.md).
 | **dismiss** | 1 | Investment Adviser AML delay — low CU relevance |
 
 ---
-
 ## [2.2.0] - 2026-04-12
 
 ### Added
