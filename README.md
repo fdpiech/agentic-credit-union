@@ -1,16 +1,17 @@
 # CANVAS — Credit Union Agent Network
 
-**CANVAS** (Credit Union Agent Network for Value, Advice, and Service) is a coordinated AI agent system for credit union operations. It transforms 32 specialized AI agents into an orchestrated operational pipeline with defined workflows, compliance gates, and measurable outcomes grounded in cooperative values.
+**CANVAS** (Credit Union Agent Network for Value, Advice, and Service) is a coordinated AI agent system for credit union operations. It transforms 35 specialized AI agents into an orchestrated operational pipeline with defined workflows, compliance gates, and measurable outcomes grounded in cooperative values.
 
 ---
 
 ## Overview
 
 The system includes:
-- **32 specialized AI agents** covering every major credit union function
+- **35 specialized AI agents** covering every major credit union function plus self-improvement
 - **17 workflows** covering every major credit union function and regulatory obligation
 - **Standardized handoff protocols** ensuring compliance at every step
 - **Scenario runbooks** for exam preparation, crisis response, vendor management, fraud investigation, and more
+- **Think Tank** — a recurring 4-phase cycle that stress-tests CANVAS against real CU processes and feeds structural improvements back into the framework ([details](strategy/think-tank/README.md))
 
 ---
 
@@ -79,17 +80,25 @@ agentic-credit-union/
 │   ├── coordination/           # Handoff & activation templates
 │   │   ├── agent-activation-prompts.md
 │   │   └── handoff-templates.md
-│   └── runbooks/               # Scenario response guides
-│       ├── scenario-exam-preparation.md
-│       ├── scenario-new-product-launch.md
-│       ├── scenario-merger-conversion.md
-│       ├── scenario-data-breach-response.md
-│       ├── scenario-fed-rate-change.md
-│       ├── scenario-natural-disaster-response.md
-│       ├── scenario-liquidity-crisis.md
-│       ├── scenario-vendor-due-diligence.md
-│       ├── scenario-vendor-onboarding.md
-│       └── scenario-internal-fraud-investigation.md
+│   ├── runbooks/               # Scenario response guides
+│   │   ├── scenario-exam-preparation.md
+│   │   ├── scenario-new-product-launch.md
+│   │   ├── scenario-merger-conversion.md
+│   │   ├── scenario-data-breach-response.md
+│   │   ├── scenario-fed-rate-change.md
+│   │   ├── scenario-natural-disaster-response.md
+│   │   ├── scenario-liquidity-crisis.md
+│   │   ├── scenario-vendor-due-diligence.md
+│   │   ├── scenario-vendor-onboarding.md
+│   │   ├── scenario-internal-fraud-investigation.md
+│   │   └── scenario-think-tank-cycle.md
+│   └── think-tank/             # Self-improvement cycle
+│       ├── README.md           # Index and quick links
+│       ├── methodology.md      # 4-phase cycle protocol
+│       ├── stress-catalog.md   # 12 parameterized disruptions
+│       ├── ledger.md           # Cycle rotation tracker
+│       └── cycles/             # Completed cycle reports
+│           └── cycle-0001-loan-origination.md
 │
 ├── research/                  # Supporting research
 │   └── game-theory.md         # Multi-agent cooperation & trust scoring
@@ -102,7 +111,7 @@ agentic-credit-union/
 
 ---
 
-## The 32 Agents
+## The 35 Agents
 
 | Category | Agents |
 |----------|-------|
@@ -113,6 +122,7 @@ agentic-credit-union/
 | **Operations** | Deposit Operations Manager, Card Services Specialist, Collections Specialist |
 | **IT (8 agents)** | Core Systems Admin, IT Infrastructure Engineer, Database Administrator, IT Systems Administrator, Software Engineer, RPA & Automation Engineer, Business Intelligence Analyst, IT Services Manager |
 | **Strategic** | Marketing Manager, Competitive Intelligence Analyst |
+| **Think Tank (3 agents)** | Think Tank Facilitator, Framework Architect, Stress Designer |
 
 ---
 
@@ -231,7 +241,8 @@ For the full operational doctrine, see [`strategy/cu-strategy.md`](strategy/cu-s
 | `strategy/runbooks/*.md` | Scenario response guides |
 | `simulator/README.md` | Simulator installation and usage |
 | `strategy/ROUTER.md` | "I don't know who to ask" — routing guide |
+| `strategy/think-tank/README.md` | Think Tank self-improvement cycle |
 
 ---
 
-*CANVAS: 32 Agents. 17 Workflows. One Unified Credit Union Strategy.*
+*CANVAS: 35 Agents. 17 Workflows. One Think Tank. One Unified Credit Union Strategy.*
