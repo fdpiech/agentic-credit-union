@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node simulator.js",
-    "test": "node simulator.js --mock --workflow A"
+    "test": "node --test test/run.js"
   },
   "dependencies": {
     "yaml": "^2.4.1"
