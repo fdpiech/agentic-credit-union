@@ -11,6 +11,6 @@
     "test": "node --test test/run.js"
   },
   "dependencies": {
-    "yaml": "^2.4.1"
+    "yaml": "^2.8.4"
   }
 }
